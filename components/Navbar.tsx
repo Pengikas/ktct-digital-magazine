@@ -17,12 +17,16 @@ import {
   Network,
   HelpCircle,
   ClipboardList,
+  Info,
+  Gamepad2,
+  Newspaper,
   type LucideIcon,
 } from "lucide-react";
 import { NAV_ITEMS, resolveSearchRoute, type NavItem } from "@/lib/navigation";
 
 const NAV_ICONS: Record<NavItem["icon"], LucideIcon> = {
   home: Home,
+  info: Info,
   book: BookOpen,
   chart: BarChart3,
   award: Award,
@@ -30,6 +34,8 @@ const NAV_ICONS: Record<NavItem["icon"], LucideIcon> = {
   network: Network,
   help: HelpCircle,
   quiz: ClipboardList,
+  game: Gamepad2,
+  magazine: Newspaper,
 };
 
 export function Navbar() {
@@ -57,6 +63,9 @@ export function Navbar() {
 
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/";
+    if (href === "/nen-tang") {
+      return pathname === "/nen-tang" || pathname === "/theory" || pathname.startsWith("/nen-tang/");
+    }
     return pathname === href || pathname.startsWith(`${href}/`);
   };
 

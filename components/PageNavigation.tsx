@@ -3,21 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-
-const PAGE_ORDER = [
-  { href: "/", label: "Trang chủ" },
-  { href: "/about", label: "Giới thiệu" },
-  { href: "/nen-tang", label: "Nền tảng" },
-  { href: "/theory", label: "Lý thuyết" },
-  { href: "/analysis", label: "Phân tích" },
-  { href: "/statistics", label: "Số liệu" },
-  { href: "/practical-examples", label: "Thực tiễn" },
-  { href: "/knowledge-map", label: "Sơ đồ" },
-  { href: "/qa", label: "Hỏi đáp" },
-  { href: "/quiz", label: "Trắc nghiệm" },
-  { href: "/game", label: "Game" },
-  { href: "/magazine", label: "Tạp Chí" },
-];
+import { PAGE_ORDER } from "@/lib/navigation";
 
 export function PageNavigation() {
   const pathname = usePathname();
@@ -29,22 +15,21 @@ export function PageNavigation() {
   const next = currentIndex < PAGE_ORDER.length - 1 ? PAGE_ORDER[currentIndex + 1] : null;
 
   return (
-    <nav className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <nav className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12" aria-label="Điều hướng trang">
       <div className="flex items-stretch gap-4">
-        {/* Previous Page */}
         {prev ? (
           <Link
             href={prev.href}
-            className="group flex-1 flex items-center gap-4 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 backdrop-blur-sm hover:border-amber-400 dark:hover:border-amber-500 hover:shadow-lg hover:shadow-amber-500/5 transition-all duration-300"
+            className="group flex-1 flex items-center gap-4 p-6 rounded-sm border border-marx bg-marx-raised/80 backdrop-blur-sm hover:border-[hsl(var(--marx-gold))] transition-all duration-300"
           >
-            <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center group-hover:bg-amber-500 group-hover:text-white transition-colors shrink-0">
+            <div className="w-10 h-10 rounded-sm bg-[hsl(var(--muted))] flex items-center justify-center group-hover:bg-[hsl(var(--marx-gold))] group-hover:text-[hsl(20_30%_10%)] transition-colors shrink-0 border border-marx">
               <ChevronLeft className="w-5 h-5" />
             </div>
             <div className="text-left">
-              <span className="text-[11px] uppercase tracking-widest font-semibold text-slate-400 dark:text-slate-500">
+              <span className="text-[11px] uppercase tracking-widest font-semibold text-muted-foreground">
                 Trang trước
               </span>
-              <p className="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors mt-0.5">
+              <p className="text-sm font-bold text-foreground group-hover:text-[hsl(var(--marx-gold))] transition-colors mt-0.5">
                 {prev.label}
               </p>
             </div>
@@ -53,21 +38,20 @@ export function PageNavigation() {
           <div className="flex-1" />
         )}
 
-        {/* Next Page */}
         {next ? (
           <Link
             href={next.href}
-            className="group flex-1 flex items-center justify-end gap-4 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 backdrop-blur-sm hover:border-red-400 dark:hover:border-red-500 hover:shadow-lg hover:shadow-red-500/5 transition-all duration-300"
+            className="group flex-1 flex items-center justify-end gap-4 p-6 rounded-sm border border-marx bg-marx-raised/80 backdrop-blur-sm hover:border-[hsl(var(--marx-crimson)/0.55)] transition-all duration-300"
           >
             <div className="text-right">
-              <span className="text-[11px] uppercase tracking-widest font-semibold text-slate-400 dark:text-slate-500">
+              <span className="text-[11px] uppercase tracking-widest font-semibold text-muted-foreground">
                 Trang tiếp theo
               </span>
-              <p className="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors mt-0.5">
+              <p className="text-sm font-bold text-foreground group-hover:text-[hsl(var(--marx-crimson))] dark:group-hover:text-[hsl(var(--marx-gold))] transition-colors mt-0.5">
                 {next.label}
               </p>
             </div>
-            <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center group-hover:bg-red-600 group-hover:text-white transition-colors shrink-0">
+            <div className="w-10 h-10 rounded-sm bg-[hsl(var(--muted))] flex items-center justify-center group-hover:bg-[#9b1b1b] group-hover:text-[#f4ebe0] transition-colors shrink-0 border border-marx">
               <ChevronRight className="w-5 h-5" />
             </div>
           </Link>

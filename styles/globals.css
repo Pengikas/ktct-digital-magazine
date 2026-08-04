@@ -1,8 +1,33 @@
 @import "tailwindcss";
 
+/* Tailwind v4: dark: theo class .dark trên <html> (next-themes) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+}
+
 @layer base {
   :root {
-    /* Ngà giấy / mực học thuật */
+    /* Nga giay / muc hoc thuat */
     --background: 35 42% 92%;
     --foreground: 20 25% 12%;
 
@@ -12,11 +37,11 @@
     --popover: 36 38% 96%;
     --popover-foreground: 20 25% 12%;
 
-    /* Đỏ son */
+    /* Do son */
     --primary: 0 70% 36%;
     --primary-foreground: 40 40% 96%;
 
-    /* Vàng kim dịu */
+    /* Vang kim diu */
     --secondary: 40 42% 48%;
     --secondary-foreground: 20 30% 10%;
 
@@ -46,7 +71,7 @@
   }
 
   .dark {
-    /* Đỏ thẫm / nâu đỏ — không slate lạnh */
+    /* Do tham / nau do — khong slate lanh */
     --background: 355 42% 7%;
     --foreground: 38 35% 92%;
 
@@ -88,32 +113,27 @@ html {
 }
 
 body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
   font-family: var(--font-sans);
+  transition: background-color 300ms, color 300ms;
 }
 
-/* Smooth theme transition for all elements */
-*, *::before, *::after {
-  transition-property: background-color, border-color, color, fill, stroke, box-shadow;
-  transition-duration: 200ms;
-  transition-timing-function: ease-out;
-}
-
-/* Surfaces — nền section trong hơn để watermark lộ đúng theo opacity sách.
-   Card (.bg-marx-raised) vẫn đặc 100% → chữ trên thẻ không bị lấn. */
+/* Surfaces */
 .bg-marx-surface {
-  background-color: hsl(var(--marx-surface) / 0.45);
+  background-color: hsl(var(--marx-surface) / 0.82);
 }
 .dark .bg-marx-surface {
-  background-color: hsl(var(--marx-surface) / 0.4);
+  background-color: hsl(var(--marx-surface) / 0.78);
 }
 .bg-marx-raised {
   background-color: hsl(var(--marx-surface-raised));
 }
 .bg-page {
-  background-color: hsl(var(--background) / 0.45);
+  background-color: hsl(var(--background) / 0.82);
 }
 .dark .bg-page {
-  background-color: hsl(var(--background) / 0.4);
+  background-color: hsl(var(--background) / 0.78);
 }
 .text-gold {
   color: hsl(var(--marx-gold));
@@ -122,7 +142,7 @@ body {
   color: hsl(var(--marx-crimson));
 }
 
-/* Tab active: đỏ son (sáng) / vàng kim (tối) — custom class vì text-gold không phải Tailwind utility */
+/* Tab active: do son (sang) / vang kim (toi) */
 .nav-tab-active {
   color: hsl(var(--marx-crimson));
   border-bottom-color: hsl(var(--marx-gold));
@@ -133,7 +153,7 @@ body {
   background-color: hsl(var(--marx-gold) / 0.1);
 }
 
-/* Tiêu đề ấn phẩm: đỏ son (sáng) → vàng kim (tối) */
+/* Tieu de: do son (sang) -> vang kim (toi) */
 .heading-display {
   color: hsl(var(--marx-crimson));
 }
