@@ -1,15 +1,16 @@
-import { TheorySection } from "@/sections/TheorySection";
+"use client";
 
-export const metadata = {
-  title: "Nền tảng: Từ tiền đến tư bản | KTCT Magazine",
-  description:
-    "Cầu nối Chương 2–3: bản chất tiền, H–T–H và T–H–T′, tư bản, giá trị thặng dư và các khái niệm cần cho CQ5.",
-};
+import { TheorySection } from "@/sections/TheorySection";
+import { PageNavigation } from "@/components/PageNavigation";
+import { PageTransition } from "@/components/PageTransition";
 
 export default function NenTangPage() {
   return (
-    <div className="pt-2">
-      <TheorySection />
-    </div>
+    <PageTransition>
+      <div className="pt-2">
+        <TheorySection />
+      </div>
+      <PageNavigation />
+    </PageTransition>
   );
 }

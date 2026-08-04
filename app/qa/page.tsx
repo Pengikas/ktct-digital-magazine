@@ -1,15 +1,16 @@
-import { QASection } from "@/sections/QASection";
+"use client";
 
-export const metadata = {
-  title: "Hỏi đáp & Phản biện | KTCT Magazine",
-  description:
-    "Giải đáp các câu hỏi phản biện quanh sùng bái tiền tệ và câu trả lời KTCT cho 'Tiền nhiều để làm gì?'.",
-};
+import { QASection } from "@/sections/QASection";
+import { PageNavigation } from "@/components/PageNavigation";
+import { PageTransition } from "@/components/PageTransition";
 
 export default function QAPage() {
   return (
-    <div className="pt-2">
-      <QASection />
-    </div>
+    <PageTransition>
+      <div className="pt-6">
+        <QASection />
+      </div>
+      <PageNavigation />
+    </PageTransition>
   );
 }

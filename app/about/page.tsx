@@ -1,10 +1,16 @@
-import { ClientRedirect } from "@/components/ClientRedirect";
+"use client";
 
-export const metadata = {
-  title: "Chuyển hướng | KTCT Magazine",
-  description: "Trang giới thiệu đã được gộp vào Trang chủ.",
-};
+import { AboutSection } from "@/sections/AboutSection";
+import { PageNavigation } from "@/components/PageNavigation";
+import { PageTransition } from "@/components/PageTransition";
 
-export default function AboutRedirectPage() {
-  return <ClientRedirect to="/" />;
+export default function AboutPage() {
+  return (
+    <PageTransition>
+      <div className="pt-6">
+        <AboutSection />
+      </div>
+      <PageNavigation />
+    </PageTransition>
+  );
 }

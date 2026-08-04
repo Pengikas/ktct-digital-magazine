@@ -1,10 +1,16 @@
-import { ClientRedirect } from "@/components/ClientRedirect";
+"use client";
 
-export const metadata = {
-  title: "Chuyển hướng | KTCT Magazine",
-  description: "Lý thuyết đã chuyển thành trang Nền tảng.",
-};
+import { TheorySection } from "@/sections/TheorySection";
+import { PageNavigation } from "@/components/PageNavigation";
+import { PageTransition } from "@/components/PageTransition";
 
-export default function TheoryRedirectPage() {
-  return <ClientRedirect to="/nen-tang" />;
+export default function TheoryPage() {
+  return (
+    <PageTransition>
+      <div className="pt-6">
+        <TheorySection />
+      </div>
+      <PageNavigation />
+    </PageTransition>
+  );
 }

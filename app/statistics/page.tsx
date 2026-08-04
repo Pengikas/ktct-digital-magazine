@@ -1,15 +1,16 @@
-import { StatisticsSection } from "@/sections/StatisticsSection";
+"use client";
 
-export const metadata = {
-  title: "Số liệu thực tiễn Việt Nam | KTCT Magazine",
-  description:
-    "GDP bình quân, thu nhập, nghèo đa chiều và Chỉ số Hạnh phúc Việt Nam 2022–2025.",
-};
+import { StatisticsSection } from "@/sections/StatisticsSection";
+import { PageNavigation } from "@/components/PageNavigation";
+import { PageTransition } from "@/components/PageTransition";
 
 export default function StatisticsPage() {
   return (
-    <div className="pt-2">
-      <StatisticsSection />
-    </div>
+    <PageTransition>
+      <div className="pt-6">
+        <StatisticsSection />
+      </div>
+      <PageNavigation />
+    </PageTransition>
   );
 }

@@ -134,6 +134,58 @@ Mở trình duyệt truy cập: `http://localhost:3000`
 
 ---
 
+## 🤖 Hướng Dẫn Dành Cho AI Assistant & Quy Trình Lập Trình Nhóm (AI Protocol)
+
+> **CHÚ Ý CHO AI ASSISTANT (ANTIGRAVITY / CURSOR / COPILOT / CHATGPT):**
+> 100% thành viên dự án sẽ sử dụng AI để lập trình. AI bắt buộc phải đọc kỹ quy định dưới đây trước khi thực hiện bất kỳ yêu cầu chỉnh sửa mã nguồn nào!
+
+### 1. Bảng Ma Trận Phân Vùng 9 Thành Viên Kỹ Thuật
+
+| STT | Thành viên | Vai trò chính | Phạm vi File được phép can thiệp | Nhiệm vụ kỹ thuật chi tiết |
+| :--- | :--- | :--- | :--- | :--- |
+| 1 | **Nguyễn Bảo Chinh** | Technical Leader / Fullstack | **Toàn bộ Dự án** (`*`) | **Toàn quyền kiểm soát**, duyệt thay đổi và quản lý cấu trúc chung |
+| 2 | **Lê Gia Huy** | Frontend Developer (UI/UX) | `styles/globals.css`, `sections/`, `app/`, `components/` | Cải thiện UI/UX, tinh chỉnh Font chữ, màu sắc và điều chỉnh nội dung chính thức |
+| 3 | **Vi Xuân Bách** | Frontend Developer (UI/UX) | `styles/globals.css`, `sections/`, `app/`, `components/` | Cải thiện UI/UX, tinh chỉnh Font chữ, layout và hoàn thiện nội dung trang web |
+| 4 | **Lương Vi Ngọc Minh** | Backend Developer (Infrastructure) | `package.json`, `next.config.ts`, `tsconfig.json`, `lib/`, `app/api/` | Quản lý hạ tầng Web, tối ưu hóa build, cấu hình server/routing & API |
+| 5 | **Nguyễn Vi Đức Hạnh** | Backend Developer (Infrastructure) | `package.json`, `next.config.ts`, `tsconfig.json`, `lib/`, `app/api/` | Quản lý hạ tầng Web, cấu hình môi trường, xử lý dữ liệu và hệ thống |
+| 6 | **Trần Minh Vy** | AI Developer | `components/SearchModal.tsx`, `lib/ai/` | Tích hợp tính năng AI (Trợ lý/Tìm kiếm AI), **tuyệt đối không phá vỡ cấu trúc file sẵn có** |
+| 7 | **Nguyễn Thiền An** | Game Developer | `app/game/page.tsx`, `components/game/` | Phát triển Module Game tương tác kiến thức |
+| 8 | **Phạm Minh Khoa** | Game Developer | `app/game/page.tsx`, `components/game/` | Cùng Thiền An phát triển Module Game tương tác |
+| 9 | **Hoàng Ngọc Uyên Chi** | Tạp Chí Lead / Editor | `app/magazine/page.tsx`, `sections/magazine/` | Biên tập và xây dựng Module Tạp Chí Số |
+
+---
+
+### 2. Quy Tắc Bắt Buộc "AI Phải Hỏi Xác Nhận" (AI Interrogation Protocol)
+
+Mọi AI Assistant khi hỗ trợ các thành viên lập trình **BẮT BUỘC** thực hiện quy trình 3 bước:
+
+1. **Bước 1 — Hỏi xác nhận tên người dùng:**
+   Nếu câu Prompt đầu tiên chưa nêu rõ tên thành viên, AI **KHÔNG ĐƯỢC TỰ Ý CODE NGAY** mà phải đưa ra câu hỏi:
+   > *"Xin chào! Bạn là ai trong 9 thành viên kỹ thuật (Bảo Chinh, Gia Huy, Xuân Bách, Ngọc Minh, Đức Hạnh, Minh Vy, Thiền An, Minh Khoa, Uyên Chi)? Vui lòng cho mình biết để hỗ trợ đúng phân vùng file nhé!"*
+
+2. **Bước 2 — Chuyên biệt hóa theo phân vùng:**
+   - **Frontend Devs (Gia Huy & Xuân Bách):** AI giúp tinh chỉnh UI/UX, Typography, Font chữ và thay thế dữ liệu Demo bằng dữ liệu học thuật chính thức.
+   - **Backend Infrastructure (Ngọc Minh & Đức Hạnh):** AI giúp xử lý hạ tầng web, cấu hình build, server & API mà không làm hỏng UI/UX.
+   - **AI Developer (Minh Vy):** AI giúp tích hợp tính năng AI nhưng **tuyệt đối giữ nguyên cấu trúc file/thư mục sẵn có**.
+   - **Leader (Bảo Chinh):** AI mở toàn bộ quyền truy cập và chỉnh sửa.
+
+3. **Bước 3 — Cảnh báo khi sửa thay file vùng khác:**
+   Nếu một thành viên yêu cầu AI sửa một tệp nằm ngoài phân vùng của họ, AI **BẮT BUỘC** phải phát ra cảnh báo:
+   > *"Tệp `[tên_file]` thuộc phân vùng quản lý của `[Tên thành viên phân công]`. Bạn có chắc chắn muốn can thiệp vào tệp này không?"*
+
+---
+
+### 3. Mẫu Prompt Chuẩn Cho Thành Viên (Copy-Paste Templates)
+
+Các thành viên nhóm nên copy dán câu mở đầu sau vào chat AI khi bắt đầu một phiên làm việc mới:
+
+```text
+Tôi là [Điền tên bạn trong 9 Dev] - [Điền vai trò]. Hãy đọc AGENTS.md và README.md để biết phân vùng làm việc của tôi. Nhiệm vụ của tôi hôm nay là: [Mô tả chi tiết việc cần làm]. Hãy kiểm tra xem các file tôi cần sửa có đúng phân vùng không trước khi viết code.
+```
+
+---
+
 ## 📜 Giấy Phép & Bản Quyền
 
 © 2026 **KTCT Magazine** • Sản phẩm Đồ án môn học Kinh tế Chính trị Mác - Lênin, Trường Đại học Công nghệ Thông tin (UIT) - ĐHQG TP.HCM.
+

@@ -88,10 +88,14 @@ html {
 }
 
 body {
-  background-color: hsl(var(--background));
-  color: hsl(var(--foreground));
   font-family: var(--font-sans);
-  transition: background-color 300ms, color 300ms;
+}
+
+/* Smooth theme transition for all elements */
+*, *::before, *::after {
+  transition-property: background-color, border-color, color, fill, stroke, box-shadow;
+  transition-duration: 200ms;
+  transition-timing-function: ease-out;
 }
 
 /* Surfaces — nền section trong hơn để watermark lộ đúng theo opacity sách.
