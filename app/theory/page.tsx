@@ -1,14 +1,10 @@
-import { TheorySection } from "@/sections/TheorySection";
+import { ClientRedirect } from "@/components/ClientRedirect";
 
 export const metadata = {
-  title: "Lý thuyết Chương 3 & 14 Khái niệm | KTCT Magazine",
-  description: "Hệ thống 14 khái niệm cốt lõi, 5 chức năng tiền tệ, 4 hình thái giá trị và hai công thức lưu thông H-T-H và T-H-T'.",
+  title: "Chuyển hướng | KTCT Magazine",
+  description: "Lý thuyết đã chuyển thành trang Nền tảng.",
 };
 
-export default function TheoryPage() {
-  return (
-    <div className="pt-6">
-      <TheorySection />
-    </div>
-  );
+export default function TheoryRedirectPage() {
+  return <ClientRedirect to="/nen-tang" />;
 }

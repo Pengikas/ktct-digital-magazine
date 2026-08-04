@@ -24,7 +24,7 @@ export const KNOWLEDGE_MAP_NODES: MapNode[] = [
     category: "lý-thuyết",
     x: 25,
     y: 25,
-    description: "Chương 3 Mác-Lênin: Hàng hóa có 2 thuộc tính (Giá trị sử dụng & Giá trị). Lao động xã hội kết tinh tạo ra giá trị.",
+    description: "Nền Chương 2 (rút gọn): Hàng hóa có 2 thuộc tính (Giá trị sử dụng & Giá trị). Lao động xã hội kết tinh tạo ra giá trị.",
     connectedTo: ["center", "money-origin"]
   },
   {
@@ -60,7 +60,7 @@ export const KNOWLEDGE_MAP_NODES: MapNode[] = [
     category: "tư-bản",
     x: 75,
     y: 25,
-    description: "Tiền biến thành Tư bản thu Giá trị thặng dư (Δt). Tích lũy tư bản, Tái sản xuất mở rộng, tăng cấu tạo hữu cơ (c/v).",
+    description: "Tiền biến thành Tư bản thu giá trị thặng dư m (T′ = T + Δt). Tích lũy tư bản (3.2), tái sản xuất mở rộng, tăng cấu tạo hữu cơ (c/v).",
     connectedTo: ["center", "surplus-dist"]
   },
   {

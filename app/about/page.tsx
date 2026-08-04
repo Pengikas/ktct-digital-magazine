@@ -1,14 +1,10 @@
-import { AboutSection } from "@/sections/AboutSection";
+import { ClientRedirect } from "@/components/ClientRedirect";
 
 export const metadata = {
-  title: "Giới thiệu & Lịch sử Tiền tệ | KTCT Magazine",
-  description: "Tổng quan dự án đồ án KTCT và tiến trình lịch sử 6 giai đoạn phát triển của tiền tệ.",
+  title: "Chuyển hướng | KTCT Magazine",
+  description: "Trang giới thiệu đã được gộp vào Trang chủ.",
 };
 
-export default function AboutPage() {
-  return (
-    <div className="pt-6">
-      <AboutSection />
-    </div>
-  );
+export default function AboutRedirectPage() {
+  return <ClientRedirect to="/" />;
 }

@@ -7,6 +7,8 @@ export interface Concept {
   extendedExplanation?: string;
   category: "cơ-bản" | "nâng-cao" | "phân-phối";
   iconName: string;
+  /** Highlight on Nền tảng page (CQ5 bridge); others stay searchable / phụ lục */
+  primary?: boolean;
 }
 
 export interface MoneyFunction {
@@ -40,7 +42,8 @@ export const CORE_CONCEPTS: Concept[] = [
     definition: "Là kiểu tổ chức kinh tế mà ở đó sản phẩm được sản xuất ra không phải để người sản xuất tiêu dùng, mà là để bán, để trao đổi trên thị trường.",
     extendedExplanation: "Sản xuất hàng hóa ra đời khi có phân công lao động xã hội và sự tách biệt tương đối về mặt kinh tế giữa những người sản xuất. Nó thay thế cho kinh tế tự nhiên tự cung tự cấp.",
     category: "cơ-bản",
-    iconName: "Factory"
+    iconName: "Factory",
+    primary: false
   },
   {
     id: "commodity",
@@ -50,7 +53,8 @@ export const CORE_CONCEPTS: Concept[] = [
     definition: "Là sản phẩm của lao động, có thể thỏa mãn một nhu cầu nào đó của con người thông qua trao đổi hoặc mua bán.",
     extendedExplanation: "Một vật phẩm muốn trở thành hàng hóa phải đáp ứng đủ 3 yếu tố: là sản phẩm của lao động, thỏa mãn nhu cầu con người, và được đưa vào tiêu dùng thông qua trao đổi, mua bán.",
     category: "cơ-bản",
-    iconName: "Package"
+    iconName: "Package",
+    primary: false
   },
   {
     id: "use-value",
@@ -60,7 +64,8 @@ export const CORE_CONCEPTS: Concept[] = [
     definition: "Là công dụng của vật thể có thể thỏa mãn một nhu cầu nào đó của con người (nhu cầu vật chất hoặc nhu cầu tinh thần).",
     extendedExplanation: "Giá trị sử dụng là thuộc tính tự nhiên của hàng hóa, do thuộc tính tự nhiên của vật thể đó quy định. Nó là phạm trù vĩnh viễn và là vật mang giá trị trao đổi.",
     category: "cơ-bản",
-    iconName: "Sparkles"
+    iconName: "Sparkles",
+    primary: false
   },
   {
     id: "value",
@@ -70,7 +75,8 @@ export const CORE_CONCEPTS: Concept[] = [
     definition: "Là lao động xã hội của người sản xuất hàng hóa kết tinh bên trong hàng hóa đó.",
     extendedExplanation: "Giá trị thể hiện mối quan hệ sản xuất xã hội giữa những người sản xuất hàng hóa. Giá trị trao đổi chỉ là hình thái biểu hiện ra bên ngoài của giá trị.",
     category: "cơ-bản",
-    iconName: "Scale"
+    iconName: "Scale",
+    primary: false
   },
   {
     id: "money",
@@ -78,9 +84,10 @@ export const CORE_CONCEPTS: Concept[] = [
     title: "Tiền tệ",
     originalTerm: "Money",
     definition: "Là một loại hàng hóa đặc biệt được tách ra làm vật ngang giá chung cho tất cả các hàng hóa khác; là sự thể hiện giá trị xã hội và phản ánh quan hệ sản xuất giữa những người sản xuất hàng hóa.",
-    extendedExplanation: "Tiền tệ không phải do ai tự nghĩ ra mà là sản phẩm tất yếu của lịch sử phát triển sản xuất và lưu thông hàng hóa qua 4 hình thái giá trị.",
+    extendedExplanation: "Tiền tệ không phải do ai tự nghĩ ra mà là sản phẩm tất yếu của lịch sử phát triển sản xuất và lưu thông hàng hóa qua 4 hình thái giá trị (Chương 2).",
     category: "cơ-bản",
-    iconName: "Coins"
+    iconName: "Coins",
+    primary: true
   },
   {
     id: "market-economy",
@@ -90,7 +97,8 @@ export const CORE_CONCEPTS: Concept[] = [
     definition: "Là nền kinh tế vận hành theo các quy luật của thị trường (quy luật giá trị, quy luật cung - cầu, quy luật cạnh tranh...), trong đó tiền tệ đóng vai trò là phương tiện thanh toán và thước đo giá trị trung tâm.",
     extendedExplanation: "Kinh tế thị trường là giai đoạn phát triển cao của kinh tế hàng hóa, nơi mọi quan hệ sản xuất và trao đổi đều được tiền tệ hóa.",
     category: "cơ-bản",
-    iconName: "TrendingUp"
+    iconName: "TrendingUp",
+    primary: false
   },
   {
     id: "price",
@@ -100,77 +108,85 @@ export const CORE_CONCEPTS: Concept[] = [
     definition: "Là biểu hiện bằng tiền của giá trị hàng hóa.",
     extendedExplanation: "Giá cả xoay quanh trục giá trị hàng hóa do tác động của quan hệ cung - cầu, cạnh tranh và sức mua của đồng tiền trên thị trường.",
     category: "cơ-bản",
-    iconName: "Tag"
+    iconName: "Tag",
+    primary: false
   },
   {
     id: "capital",
     number: 8,
     title: "Tư bản",
     originalTerm: "Capital",
-    definition: "Là giá trị mang lại giá trị thặng dư bằng cách tự co giãn / lớn lên thông qua việc bóc lột lao động làm thuê.",
-    extendedExplanation: "Tư bản không phải là một vật, mà là một quan hệ sản xuất xã hội nhất định gắn liền với một hình thái lịch sử nhất định của xã hội.",
+    definition: "Là giá trị mang lại giá trị thặng dư.",
+    extendedExplanation: "Tư bản không phải là một vật, mà là một quan hệ sản xuất xã hội nhất định gắn liền với một hình thái lịch sử nhất định của xã hội. Công thức chung: T – H – T′.",
     category: "nâng-cao",
-    iconName: "Briefcase"
+    iconName: "Briefcase",
+    primary: true
   },
   {
     id: "surplus-value",
     number: 9,
-    title: "Giá trị thặng dư (Δt)",
+    title: "Giá trị thặng dư (m)",
     originalTerm: "Surplus Value",
-    definition: "Là bộ phận giá trị mới phát sinh ngoài giá trị sức lao động do công nhân làm thuê tạo ra nhưng bị nhà tư bản chiếm đoạt.",
-    extendedExplanation: "Sức lao động là hàng hóa đặc biệt có khả năng tạo ra giá trị mới lớn hơn giá trị bản thân nó. Phần chênh lệch đó chính là giá trị thặng dư Δt.",
+    definition: "Là bộ phận giá trị mới dôi ra ngoài giá trị sức lao động do công nhân tạo ra, bị nhà tư bản chiếm đoạt. Ký hiệu giáo trình: m. Trong công thức T′ = T + Δt, Δt là số gia tiền gắn với m.",
+    extendedExplanation: "Sức lao động là hàng hóa đặc biệt có khả năng tạo ra giá trị mới lớn hơn giá trị bản thân nó. Phần chênh lệch đó chính là giá trị thặng dư m.",
     category: "nâng-cao",
-    iconName: "TrendingUp"
+    iconName: "TrendingUp",
+    primary: true
   },
   {
     id: "capital-accumulation",
     number: 10,
     title: "Tích lũy tư bản",
     originalTerm: "Capital Accumulation",
-    definition: "Là sự chuyển hóa một phần giá trị thặng dư trở lại thành tư bản phụ thêm nhằm tái sản xuất mở rộng.",
+    definition: "Là sự chuyển hóa một phần giá trị thặng dư trở lại thành tư bản phụ thêm nhằm tái sản xuất mở rộng. (Chương 3 · mục 3.2)",
     extendedExplanation: "Tích lũy tư bản thúc đẩy tăng cấu tạo hữu cơ của tư bản (c/v), tích tụ và tập trung tư bản, mở rộng quy mô sản xuất xã hội.",
     category: "nâng-cao",
-    iconName: "Layers"
+    iconName: "Layers",
+    primary: true
   },
   {
     id: "production-cost",
     number: 11,
     title: "Chi phí sản xuất (k)",
     originalTerm: "Production Cost",
-    definition: "Là phần giá trị hàng hóa bù lại giá cả của những tư liệu sản xuất đã tiêu dùng (c) và giá cả của sức lao động đã sử dụng (v). Công thức: k = c + v.",
+    definition: "Là phần giá trị hàng hóa bù lại giá cả của những tư liệu sản xuất đã tiêu dùng (c) và giá cả của sức lao động đã sử dụng (v). Công thức: k = c + v. (Chương 3 · mục 3.3)",
     extendedExplanation: "Chi phí sản xuất tư bản chủ nghĩa che đậy nguồn gốc của giá trị thặng dư, khiến giá trị thặng dư có vẻ như được sinh ra từ toàn bộ tư bản ứng trước.",
     category: "phân-phối",
-    iconName: "Calculator"
+    iconName: "Calculator",
+    primary: true
   },
   {
     id: "profit",
     number: 12,
     title: "Lợi nhuận (p)",
     originalTerm: "Profit",
-    definition: "Là hình thái biểu hiện của giá trị thặng dư trên bề mặt nền kinh tế thị trường, được quan niệm là con đẻ của toàn bộ tư bản ứng trước. Công thức: p = G - k.",
+    definition: "Là hình thái biểu hiện của giá trị thặng dư trên bề mặt nền kinh tế thị trường, được quan niệm là con đẻ của toàn bộ tư bản ứng trước. Công thức: p = G - k. (Chương 3 · mục 3.3)",
     extendedExplanation: "Về bản chất lợi nhuận chính là giá trị thặng dư, nhưng về mặt số lượng và hình thái biểu hiện nó lại che giấu quan hệ bóc lột tư bản chủ nghĩa.",
     category: "phân-phối",
-    iconName: "DollarSign"
+    iconName: "DollarSign",
+    primary: true
   },
   {
     id: "average-profit",
     number: 13,
     title: "Lợi nhuận bình quân (P̅)",
     originalTerm: "Average Profit",
-    definition: "Là số lợi nhuận bằng nhau của những tư bản như nhau đầu tư vào các ngành khác nhau, hình thành do sự cạnh tranh giữa các ngành và sự tự do di chuyển vốn.",
+    definition: "Là số lợi nhuận bằng nhau của những tư bản như nhau đầu tư vào các ngành khác nhau, hình thành do sự cạnh tranh giữa các ngành và sự tự do di chuyển vốn. (Chương 3 · mục 3.3)",
     extendedExplanation: "Sự cạnh tranh giữa các ngành dẫn đến việc hình thành tỷ suất lợi nhuận bình quân, khiến giá trị hàng hóa chuyển hóa thành giá cả sản xuất.",
     category: "phân-phối",
-    iconName: "BarChart3"
+    iconName: "BarChart3",
+    primary: true
   },
   {
     id: "interest-loan-capital",
     number: 14,
     title: "Lợi tức (z) & Tư bản cho vay",
     originalTerm: "Interest & Loan Capital",
-    definition: "Lợi tức là một phần của lợi nhuận bình quân mà người đi vay phải trả cho người cho vay vì đã sử dụng lượng tiền nhàn rỗi (T - T').",
+    definition: "Lợi tức là một phần của lợi nhuận bình quân mà người đi vay phải trả cho người cho vay vì đã sử dụng lượng tiền nhàn rỗi (T - T'). Gắn tư bản giả (cổ phiếu, trái phiếu). (Chương 3 · mục 3.3)",
     extendedExplanation: "Tư bản cho vay sinh ra lợi tức z, thúc đẩy sự ra đời của tư bản giả (cổ phiếu, trái phiếu, chứng quyền) và các hệ thống tài chính tín dụng hiện đại.",
     category: "phân-phối",
-    iconName: "Landmark"
+    iconName: "Landmark",
+    primary: true
   }
 ];
 
@@ -182,7 +198,7 @@ export const MONEY_FUNCTIONS: MoneyFunction[] = [
     definition: "Tiền tệ dùng để đo lường và biểu hiện giá trị của tất cả hàng hóa khác. Giá trị hàng hóa được biểu hiện bằng tiền gọi là giá cả hàng hóa.",
     example: "Khi nói 'chiếc áo này có giá 200.000 VNĐ', ta đang dùng tiền làm thước đo giá trị cho chiếc áo.",
     detailedAnalysis: "Để làm thước đo giá trị, bản thân tiền phải có giá trị (như vàng) hoặc được xã hội công nhận đại diện giá trị. Thực hiện chức năng này chỉ cần tiền tưởng tượng trong tư duy, không nhất thiết cần tiền mặt thực tế.",
-    keyBadge: "Tư duy / Trưởng tượng",
+    keyBadge: "Tư duy / Tưởng tượng",
     iconName: "Scale"
   },
   {
@@ -303,8 +319,11 @@ export const CIRCULATION_COMPARISON = {
     startingPoint: "Tiền tệ / Vốn (T)",
     endingPoint: "Tiền lớn hơn (T' = T + Δt)",
     mediator: "Hàng hóa (H) - đặc biệt là Sức lao động & Tư liệu sản xuất",
-    purpose: "Giá trị thặng dư (Δt - Sự lớn lên của giá trị)",
+    purpose: "Giá trị thặng dư m (số gia tiền Δt trong T' = T + Δt)",
     limit: "Vô hạn (vòng quay liên tục để tích lũy)",
-    equation: "Tiền (đầu tư) -> Sản xuất / Hàng -> Tiền + Lợi nhuận (T' = T + Δt)"
+    equation: "Tiền (đầu tư) -> Sản xuất / Hàng -> Tiền lớn hơn (T' = T + Δt; gắn với m)"
   }
 };
+
+export const PRIMARY_CONCEPTS = CORE_CONCEPTS.filter((c) => c.primary);
+export const SECONDARY_CONCEPTS = CORE_CONCEPTS.filter((c) => !c.primary);

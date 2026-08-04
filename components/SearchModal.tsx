@@ -106,8 +106,8 @@ export function SearchModal({ isOpen, onClose, onSelectResult }: SearchModalProp
     matchedTeam.length;
 
   const handleItemClick = (id: string) => {
-    onSelectResult(id);
     onClose();
+    onSelectResult(id);
   };
 
   return (

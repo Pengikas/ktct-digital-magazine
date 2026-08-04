@@ -30,13 +30,14 @@ export function AnalysisSection() {
         <div className="text-center space-y-4">
           <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-red-950/80 border border-red-800 text-red-300 text-xs font-semibold uppercase tracking-wider">
             <BarChart className="w-3.5 h-3.5" />
-            <span>Bài Phân Tích Chuyên Sâu • Magazine Article</span>
+            <span>CQ5 · Chương 3 mục 3.2–3.3</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-extrabold font-serif tracking-tight text-white leading-tight">
-            TIỀN NHIỀU ĐỂ LÀM GÌ?
+            TRẢ LỜI: TIỀN NHIỀU ĐỂ LÀM GÌ?
           </h2>
           <p className="text-sm sm:text-base text-slate-400 max-w-3xl mx-auto leading-relaxed">
-            Soi chiếu câu hỏi triết lý thực tiễn dưới lăng kính Kinh tế Chính trị Mác - Lênin: Từ lưu thông giản đơn đến sự vận động của Tư bản và Bản chất thực sự của Của cải xã hội.
+            Trọng tâm đồ án: tích lũy tư bản (3.2) và các hình thức biểu hiện giá trị thặng dư (3.3),
+            kết nối H–T–H → T–H–T′ và kết luận về của cải thực sự.
           </p>
         </div>
 

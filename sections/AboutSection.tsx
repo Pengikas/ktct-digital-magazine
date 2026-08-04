@@ -2,8 +2,8 @@
 
 import * as React from "react";
 import { motion } from "framer-motion";
-import { Target, Compass, BookCheck, Lightbulb, CheckCircle2, History, ArrowRight } from "lucide-react";
-import { PROJECT_INFO } from "@/data/teamData";
+import { Target, Compass, Lightbulb, History, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 const MONEY_EVOLUTION_TIMELINE = [
   {
@@ -52,7 +52,7 @@ const MONEY_EVOLUTION_TIMELINE = [
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-900 text-slate-100 relative">
+    <section id="about" className="scroll-mt-28 py-20 px-4 sm:px-6 lg:px-8 bg-slate-900 text-slate-100 relative">
       <div className="max-w-7xl mx-auto space-y-16">
         {/* Section Header */}
         <div className="text-center space-y-4">
@@ -61,10 +61,11 @@ export function AboutSection() {
             <span>Tổng quan Dự án & Lịch sử</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-bold font-serif tracking-tight">
-            GIỚI THIỆU ĐỒ ÁN & TIẾN TRÌNH TIỀN TỆ
+            GIỚI THIỆU ĐỒ ÁN
           </h2>
           <p className="text-sm sm:text-base text-slate-400 max-w-3xl mx-auto leading-relaxed">
-            Hành trình chuyển hóa kiến thức Kinh tế Chính trị Mác - Lênin từ những lý luận học thuật thuần túy thành trải nghiệm số đa phương tiện trực quan.
+            CQ5: &quot;Tiền nhiều để làm gì?&quot; — trình bày dưới góc Chương 3 (3.2 Tích lũy tư bản &amp;
+            3.3 Hình thức biểu hiện giá trị thặng dư).
           </p>
         </div>
 
@@ -92,7 +93,8 @@ export function AboutSection() {
             </div>
             <h3 className="text-lg font-bold font-serif text-white">Phạm vi Nghiên cứu</h3>
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              Tập trung phân tích sâu sắc nguồn gốc, bản chất và 5 chức năng của tiền tệ theo học thuyết giá trị và học thuyết giá trị thặng dư của C.Mác trong Chương 3.
+              Trọng tâm CQ5 Chương 3: tích lũy tư bản (3.2) và các hình thức biểu hiện giá trị thặng dư
+              (3.3 — lợi nhuận, lợi tức, địa tô). Nền Chương 2 chỉ làm cầu nối ngắn (H–T–H → T–H–T′).
             </p>
           </motion.div>
 
@@ -110,46 +112,36 @@ export function AboutSection() {
           </motion.div>
         </div>
 
-        {/* Money History Timeline */}
-        <div className="space-y-8 pt-6">
-          <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-slate-800 pb-4">
+        {/* Compact money history + link to appendix */}
+        <div className="space-y-6 pt-6">
+          <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-slate-800 pb-4 gap-3">
             <div>
               <span className="text-xs font-semibold uppercase tracking-wider text-amber-400">
-                Lịch sử Phát triển
+                Bối cảnh phụ
               </span>
-              <h3 className="text-2xl sm:text-3xl font-bold font-serif text-white">
-                Tiến trình Lịch sử của Tiền tệ
+              <h3 className="text-xl sm:text-2xl font-bold font-serif text-white">
+                Tiến trình tiền tệ (rút gọn)
               </h3>
             </div>
-            <p className="text-xs text-slate-400 max-w-md mt-2 md:mt-0">
-              Tiền tệ trải qua các nấc thang tiến hóa từ hàng đổi hàng thô sơ đến kỷ nguyên số hóa và tiền mã hóa phi tập trung.
-            </p>
+            <Link
+              href="/nen-tang"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-amber-400 hover:text-amber-300"
+            >
+              Xem phụ lục Chương 2 ở Nền tảng
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {MONEY_EVOLUTION_TIMELINE.map((item, idx) => (
-              <motion.div
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+            {MONEY_EVOLUTION_TIMELINE.map((item) => (
+              <div
                 key={item.step}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 hover:border-amber-500/50 transition-all space-y-3 relative group"
+                className="p-3 rounded-xl bg-slate-950/80 border border-slate-800 text-center space-y-1"
               >
-                <div className="flex justify-between items-center">
-                  <span className="text-2xl">{item.icon}</span>
-                  <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-slate-800 text-amber-400 border border-amber-900/50">
-                    {item.badge}
-                  </span>
-                </div>
-                <div className="text-xs font-mono font-bold text-red-500">GIAI ĐOẠN {item.step}</div>
-                <h4 className="text-base font-bold text-white group-hover:text-amber-400 transition-colors">
-                  {item.title}
-                </h4>
-                <p className="text-xs text-slate-400 leading-relaxed">
-                  {item.description}
-                </p>
-              </motion.div>
+                <div className="text-lg">{item.icon}</div>
+                <div className="text-[10px] font-mono text-red-400">{item.step}</div>
+                <div className="text-[11px] font-semibold text-slate-200 leading-snug">{item.title}</div>
+              </div>
             ))}
           </div>
         </div>

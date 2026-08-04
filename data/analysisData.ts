@@ -22,9 +22,9 @@ export const CENTRAL_QUESTION_ANALYSIS: AnalysisSection[] = [
   {
     id: "simple-circulation",
     sectionNumber: "01",
-    title: "Ở góc độ Lưu thông Hàng hóa Giản đơn",
-    subtitle: "Tiền nhiều để phục vụ Nhu cầu sinh hoạt & An toàn tài chính",
-    formulaBadge: "Công thức: H - T - H",
+    title: "Cầu nối: Lưu thông hàng hóa giản đơn",
+    subtitle: "Tiền nhiều để phục vụ nhu cầu sinh hoạt (nền H–T–H trước khi sang tư bản)",
+    formulaBadge: "H - T - H",
     summary: "Trong công thức lưu thông H - T - H, mục đích đầu tiên và cuối cùng là Hàng hóa có Giá trị sử dụng mới (H'). Tiền tệ đóng vai trò môi giới trung gian.",
     contentParagraphs: [
       "Trong công thức lưu thông hàng hóa giản đơn H - T - H, con người bắt đầu bằng việc bán hàng hóa mình sản xuất ra (H) để lấy tiền (T), sau đó dùng tiền đó để mua một hàng hóa khác (H') mà mình có nhu cầu sử dụng.",
@@ -39,7 +39,7 @@ export const CENTRAL_QUESTION_ANALYSIS: AnalysisSection[] = [
       {
         type: "info",
         title: "Bản chất của H - T - H",
-        text: "Tiền lệ ở đây chỉ là phương tiện trao đổi trung gian. Vòng quay kết thúc khi con người nhận được Giá trị sử dụng mong muốn."
+        text: "Tiền ở đây chỉ là phương tiện trao đổi trung gian. Vòng quay kết thúc khi con người nhận được Giá trị sử dụng mong muốn."
       }
     ],
     keyTakeaways: [
@@ -51,19 +51,19 @@ export const CENTRAL_QUESTION_ANALYSIS: AnalysisSection[] = [
   {
     id: "capitalist-production",
     sectionNumber: "02",
-    title: "Ở góc độ Nền Sản xuất Tư bản Chủ nghĩa",
-    subtitle: "Tiền biến thành Tư bản — 'Tiền nhiều để Tích lũy tư bản & Tái sản xuất mở rộng'",
-    formulaBadge: "Công thức: T - H - T' (T' = T + Δt)",
-    summary: "Khi nền kinh tế phát triển đến trình độ nhất định, tiền chuyển sang công thức vận động của Tư bản, với mục đích là Giá trị thặng dư (Δt).",
+    title: "3.2 Tích lũy tư bản",
+    subtitle: "Tiền biến thành tư bản — tái sản xuất mở rộng, c/v, tích tụ & tập trung",
+    formulaBadge: "T - H - T' (T' = T + Δt · m)",
+    summary: "Khi tiền chuyển sang công thức vận động của tư bản, mục đích là giá trị thặng dư m; tích lũy tư bản (Chương 3 · 3.2) trả lời trực tiếp 'tiền nhiều để làm gì' trong sản xuất.",
     contentParagraphs: [
-      "Khi nền kinh tế phát triển đến một trình độ nhất định, tiền không dừng lại ở công thức H – T – H mà chuyển sang công thức vận động của Tư bản: T - H - T' (trong đó T' = T + Δt). Δt chính là Giá trị thặng dư phát sinh từ việc sử dụng hàng hóa đặc biệt: Sức lao động.",
-      "Lúc này, bản chất của tiền đã có bước nhảy vọt chất lượng:",
+      "Khi nền kinh tế phát triển đến một trình độ nhất định, tiền không dừng lại ở công thức H – T – H mà chuyển sang công thức vận động của Tư bản: T - H - T' (trong đó T' = T + Δt). Δt là số gia tiền gắn với giá trị thặng dư m từ việc sử dụng hàng hóa đặc biệt: Sức lao động.",
+      "Lúc này, bản chất của tiền đã có bước nhảy vọt chất lượng — đúng trọng tâm mục 3.2 Giáo trình:",
       "- Tiền nhiều để Tái sản xuất mở rộng: Nhà tư bản không dùng hết giá trị thặng dư cho tiêu dùng cá nhân mà chuyển hóa thành tư bản phụ thêm (mua thêm tư liệu sản xuất c, sức lao động v, mở rộng nhà xưởng, đổi mới máy móc) để chuyển từ tái sản xuất giản đơn sang tái sản xuất mở rộng.",
       "- Tiền nhiều làm tăng Cấu tạo hữu cơ tư bản (c/v): Giúp doanh nghiệp đổi mới công nghệ, nâng cao năng suất lao động xã hội và tăng khả năng cạnh tranh trên thị trường.",
       "- Tiền nhiều thúc đẩy Tích tụ và Tập trung tư bản: Làm tăng quy mô tư bản cá biệt (tích tụ) và tạo tiền đề sáp nhập các tư bản nhỏ thành các tập đoàn tư bản lớn (tập trung), giúp chủ sở hữu nắm giữ quyền chi phối nguồn lực lao động của xã hội."
     ],
     pullQuote: {
-      text: "Tiền không tự sinh ra tiền. Sức lao động mới là hàng hóa đặc biệt tạo ra giá trị thặng dư Δt.",
+      text: "Tiền không tự sinh ra tiền. Sức lao động mới là hàng hóa đặc biệt tạo ra giá trị thặng dư m.",
       author: "C. Mác — Tư bản luận, Quyển I"
     },
     callouts: [
@@ -82,15 +82,15 @@ export const CENTRAL_QUESTION_ANALYSIS: AnalysisSection[] = [
   {
     id: "surplus-value-distribution",
     sectionNumber: "03",
-    title: "Ở góc độ Phân phối Giá trị Thặng dư",
-    subtitle: "Tiền nhiều để Tối ưu hóa dòng vốn sinh lời trong Nền kinh tế Thị trường",
-    formulaBadge: "P̅ | z | R",
-    summary: "Trong nền kinh tế thị trường, tiền nhiều dưới dạng giá trị thặng dư vận động và phân chia thành Lợi nhuận bình quân, Lợi tức và Địa tô.",
+    title: "3.3 Hình thức biểu hiện của giá trị thặng dư",
+    subtitle: "Lợi nhuận bình quân · Lợi tức · Tư bản giả · Địa tô",
+    formulaBadge: "P̅ | z | R · mục 3.3",
+    summary: "Trong nền kinh tế thị trường, giá trị thặng dư vận động và phân chia thành lợi nhuận bình quân, lợi tức và địa tô (Chương 3 · 3.3).",
     contentParagraphs: [
-      "Trong nền kinh tế thị trường, 'tiền nhiều' (dưới dạng giá trị thặng dư) vận động và phân chia thành các hình thái lợi ích khác nhau:",
+      "Trong nền kinh tế thị trường, 'tiền nhiều' (dưới dạng giá trị thặng dư) vận động và phân chia thành các hình thái lợi ích khác nhau — đúng nội dung mục 3.3:",
       "- Lợi nhuận bình quân (P̅): Tiền nhiều tạo sự 'tự do di chuyển vốn' giữa các ngành sản xuất kinh doanh. Nhà đầu tư di chuyển dòng tiền từ các ngành có tỷ suất lợi nhuận thấp sang ngành có tỷ suất lợi nhuận cao, hình thành Tỷ suất lợi nhuận bình quân và Lợi nhuận bình quân.",
       "- Lợi tức (z) & Tư bản cho vay (T - T'): Tình trạng chủ thể có tiền nhàn rỗi và chủ thể thiếu vốn kinh doanh thúc đẩy quan hệ cho vay. Tiền nhàn rỗi được đưa vào lưu thông tài chính hoặc đầu tư vào Tư bản giả (cổ phiếu, trái phiếu, chứng quyền trên thị trường chứng khoán) để thu lợi tức (z), tạo ra hiện tượng 'tiền đẻ ra tiền'.",
-      "- Địa tô (R): Trong kinh doanh nông nghiệp hoặc bất động sản, tiền nhiều thu được từ lợi nhuận siêu ngạch dôi ra ngoài lợi nhuận bình quân sẽ được trích một phần trả cho địa chủ dưới dạng địa tô."
+      "- Địa tô (R): Trong kinh doanh nông nghiệp hoặc bất động sản, phần giá trị thặng dư còn lại sau lợi nhuận bình quân được trả cho địa chủ dưới dạng địa tô."
     ],
     pullQuote: {
       text: "Lợi tức và tư bản giả biến tiền thành hình thái T - T', tạo ra ảo tưởng tiền tự sinh ra tiền mà không thông qua sản xuất.",
@@ -106,14 +106,14 @@ export const CENTRAL_QUESTION_ANALYSIS: AnalysisSection[] = [
     keyTakeaways: [
       "Hình thành Lợi nhuận bình quân (P̅) qua tự do di chuyển vốn",
       "Lợi tức (z) & Tư bản cho vay thúc đẩy hình thành Tư bản giả",
-      "Địa tô (R) trích từ lợi nhuận siêu ngạch kinh doanh đất đai"
+      "Địa tô (R) trích từ phần còn lại sau lợi nhuận bình quân"
     ]
   },
   {
     id: "nature-of-wealth",
     sectionNumber: "04",
     title: "Bản chất thực sự của 'Của cải' xã hội",
-    subtitle: "Tiền tệ hay Giá trị sử dụng?",
+    subtitle: "Tiền tệ hay Giá trị sử dụng? — kết luận cho câu hỏi CQ5",
     summary: "C.Mác đã vạch rõ sự khác biệt giữa Tiền tệ (đại biểu chứng nhận) và Của cải thực sự (Giá trị sử dụng của xã hội).",
     contentParagraphs: [
       "C.Mác đã vạch rõ sự khác biệt bản chất giữa Tiền và Của cải thực sự của xã hội:",

@@ -1,14 +1,10 @@
-import { TeamSection } from "@/sections/TeamSection";
+import { ClientRedirect } from "@/components/ClientRedirect";
 
 export const metadata = {
-  title: "Đội Ngũ 20 Thành Viên | KTCT Magazine",
-  description: "Danh sách 20 sinh viên UIT tham gia nghiên cứu, biên tập và phát triển dự án đồ án KTCT.",
+  title: "Chuyển hướng | KTCT Magazine",
+  description: "Trang đội ngũ đã được gộp vào Trang chủ.",
 };
 
-export default function TeamPage() {
-  return (
-    <div className="pt-6">
-      <TeamSection />
-    </div>
-  );
+export default function TeamRedirectPage() {
+  return <ClientRedirect to="/" />;
 }

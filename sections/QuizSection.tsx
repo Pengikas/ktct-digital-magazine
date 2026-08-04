@@ -69,10 +69,10 @@ export function QuizSection() {
             <span>Trắc Nghiệm 30 Câu • Quiz Interactive</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-bold font-serif tracking-tight text-white">
-            KIỂM TRA KIẾN THỨC KINHTẾ CHÍNH TRỊ
+            KIỂM TRA KIẾN THỨC KINH TẾ CHÍNH TRỊ
           </h2>
           <p className="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto leading-relaxed">
-            Bộ 30 câu hỏi trắc nghiệm tự động xây dựng từ 100% nội dung lý luận Chương 3, bản chất tiền tệ, 5 chức năng và số liệu thực tiễn.
+            Bộ 30 câu hỏi bám CQ5 (tích lũy tư bản, hình thức GTTD), nền tảng tiền–tư bản và số liệu thực tiễn.
           </p>
         </div>
 

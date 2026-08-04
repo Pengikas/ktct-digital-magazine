@@ -5,7 +5,7 @@ import { useTheme } from "next-themes";
 import { Sun, Moon } from "lucide-react";
 
 export function ThemeToggle() {
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = React.useState(false);
 
   React.useEffect(() => {
@@ -14,22 +14,33 @@ export function ThemeToggle() {
 
   if (!mounted) {
     return (
-      <div className="w-9 h-9 rounded-full bg-slate-200/50 dark:bg-slate-800/50 animate-pulse" />
+      <div
+        className="w-9 h-9 rounded-full bg-slate-200 dark:bg-slate-800 animate-pulse"
+        aria-hidden
+      />
     );
   }
 
+  const isDark = resolvedTheme === "dark";
+
   return (
     <button
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="relative p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-amber-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors focus:outline-none focus:ring-2 focus:ring-amber-500"
-      aria-label="Chuyển đổi giao diện sáng/tối"
-      title="Chuyển đổi chế độ Sáng / Tối"
+      type="button"
+      onClick={() => setTheme(isDark ? "light" : "dark")}
+      className="relative flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-sm transition-colors hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 dark:border-slate-700 dark:bg-slate-800 dark:text-amber-400 dark:hover:bg-slate-700"
+      aria-label={isDark ? "Chuyển sang giao diện sáng" : "Chuyển sang giao diện tối"}
+      title={isDark ? "Chế độ sáng" : "Chế độ tối"}
     >
-      {theme === "dark" ? (
-        <Sun className="w-5 h-5 transition-transform duration-300 rotate-0 hover:rotate-90 text-amber-400" />
-      ) : (
-        <Moon className="w-5 h-5 transition-transform duration-300 rotate-0 hover:-rotate-12 text-slate-700" />
-      )}
+      <Sun
+        className={`absolute h-5 w-5 text-amber-500 transition-all duration-300 ${
+          isDark ? "scale-100 rotate-0 opacity-100" : "scale-0 -rotate-90 opacity-0"
+        }`}
+      />
+      <Moon
+        className={`absolute h-5 w-5 text-slate-700 transition-all duration-300 ${
+          isDark ? "scale-0 rotate-90 opacity-0" : "scale-100 rotate-0 opacity-100"
+        }`}
+      />
     </button>
   );
 }

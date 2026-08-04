@@ -122,7 +122,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
       "T - T"
     ],
     correctAnswer: 1,
-    explanation: "Công thức lưu thông tư bản là T - H - T', trong đó T' = T + Δt (Δt là giá trị thặng dư).",
+    explanation: "Công thức lưu thông tư bản là T - H - T', trong đó T' = T + Δt (Δt là số gia tiền gắn với giá trị thặng dư m).",
     category: "Tư bản & Giá trị thặng dư"
   },
   {
@@ -135,7 +135,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
       "Nhà xưởng đất đai"
     ],
     correctAnswer: 2,
-    explanation: "Sức lao động là hàng hóa đặc biệt duy nhất khi sử dụng tạo ra một lượng giá trị mới lớn hơn giá trị của chính nó (nguồn gốc Δt).",
+    explanation: "Sức lao động là hàng hóa đặc biệt duy nhất khi sử dụng tạo ra một lượng giá trị mới lớn hơn giá trị của chính nó (nguồn gốc m / Δt).",
     category: "Tư bản & Giá trị thặng dư"
   },
   {
@@ -244,7 +244,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
   },
   {
     id: 19,
-    question: "Theo số liệu trong CONTENT.pdf, GDP bình quân đầu người của Việt Nam năm 2025 ước đạt bao nhiêu?",
+    question: "Theo số liệu thực tiễn trên tạp chí, GDP bình quân đầu người của Việt Nam năm 2025 ước đạt bao nhiêu?",
     options: [
       "4.110 USD",
       "4.284 USD",
@@ -348,7 +348,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
   },
   {
     id: 27,
-    question: "Theo quan điểm cân bằng trong CONTENT.pdf, tiền bạc đóng vai trò gì trong cuộc sống?",
+    question: "Theo quan điểm cân bằng trong phần phân tích CQ5, tiền bạc đóng vai trò gì trong cuộc sống?",
     options: [
       "Mục đích sống tối cao duy nhất",
       "Điều kiện cần (phương tiện) nhưng giá trị sống nằm ở mục đích sử dụng để nâng cao chất lượng sống và phát triển con người",
@@ -361,7 +361,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
   },
   {
     id: 28,
-    question: "Trong câu hỏi phản biện: 'Tại sao người nghèo vẫn có thể sống hạnh phúc?', câu trả lời từ CONTENT.pdf là gì?",
+    question: "Trong câu hỏi phản biện: 'Tại sao người nghèo vẫn có thể sống hạnh phúc?', câu trả lời từ phần Hỏi đáp là gì?",
     options: [
       "Vì họ không biết đến sự tồn tại của tiền",
       "Vì họ cảm thấy đủ với cuộc sống của mình và tìm thấy hạnh phúc ở bữa cơm đầm ấm, giấc ngủ ngon và tình bạn",

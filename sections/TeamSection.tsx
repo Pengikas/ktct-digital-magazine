@@ -14,7 +14,7 @@ export function TeamSection() {
   });
 
   return (
-    <section id="team" className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-900 text-slate-100 relative">
+    <section id="team" className="scroll-mt-28 py-20 px-4 sm:px-6 lg:px-8 bg-slate-900 text-slate-100 relative">
       <div className="max-w-7xl mx-auto space-y-16">
         {/* Section Header */}
         <div className="text-center space-y-4">
