@@ -32,9 +32,9 @@ export default function MagazinePage() {
               <span>Đang phát triển</span>
             </div>
             <h1 className="text-4xl sm:text-6xl font-extrabold font-serif tracking-tight">
-              <span className="text-gradient-gold">TẠP CHÍ</span>
+              <span className="text-gradient-marx">TẠP CHÍ</span>
             </h1>
-            <h2 className="text-2xl sm:text-3xl font-bold text-slate-600 dark:text-slate-300 font-serif">
+            <h2 className="text-2xl sm:text-3xl font-bold text-black dark:text-[hsl(var(--marx-gold))] font-serif">
               Coming Soon
             </h2>
           </motion.div>
@@ -44,7 +44,7 @@ export default function MagazinePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.6 }}
-            className="text-slate-500 dark:text-slate-400 text-sm sm:text-base leading-relaxed max-w-lg mx-auto"
+            className="text-black dark:text-[hsl(var(--marx-gold))] text-sm sm:text-base leading-relaxed max-w-lg mx-auto"
           >
             Phiên bản tạp chí số đầy đủ đang được biên soạn với nội dung học thuật chuyên sâu,
             hình ảnh minh họa chất lượng cao và trải nghiệm đọc tương tác hiện đại. Hãy chờ đón nhé!

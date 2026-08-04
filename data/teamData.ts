@@ -60,7 +60,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     role: "Frontend Developer",
     department: "Phát triển Phần mềm",
     avatarInitials: "GH",
-    bio: "Phát triển giao diện web với Next.js và TailwindCSS, tối ưu trải nghiệm mượt mà.",
+    bio: "Dựng khung giao diện tạp chí số với Next.js và TailwindCSS.",
     skills: ["React", "Next.js", "TailwindCSS"]
   },
   {
@@ -69,8 +69,8 @@ export const TEAM_MEMBERS: TeamMember[] = [
     role: "Frontend Developer",
     department: "Phát triển Phần mềm",
     avatarInitials: "VB",
-    bio: "Phát triển giao diện tạp chí số, theme sáng/tối và hiệu ứng tương tác.",
-    skills: ["React", "Next.js", "TypeScript"]
+    bio: "Làm các hiệu ứng tương tác, chuyển cảnh và trải nghiệm động trên web.",
+    skills: ["Framer Motion", "TypeScript", "CSS Animation"]
   },
   {
     id: "minh",

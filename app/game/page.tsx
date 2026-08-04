@@ -34,7 +34,7 @@ export default function GamePage() {
             <h1 className="text-4xl sm:text-6xl font-extrabold font-serif tracking-tight">
               <span className="text-gradient-marx">GAME</span>
             </h1>
-            <h2 className="text-2xl sm:text-3xl font-bold text-slate-600 dark:text-slate-300 font-serif">
+            <h2 className="text-2xl sm:text-3xl font-bold text-black dark:text-[hsl(var(--marx-gold))] font-serif">
               Coming Soon
             </h2>
           </motion.div>
@@ -44,7 +44,7 @@ export default function GamePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.6 }}
-            className="text-slate-500 dark:text-slate-400 text-sm sm:text-base leading-relaxed max-w-lg mx-auto"
+            className="text-black dark:text-[hsl(var(--marx-gold))] text-sm sm:text-base leading-relaxed max-w-lg mx-auto"
           >
             Chúng mình đang xây dựng một trải nghiệm game tương tác thú vị liên quan đến kiến thức
             Kinh tế Chính trị Mác - Lênin. Hãy quay lại sau nhé!

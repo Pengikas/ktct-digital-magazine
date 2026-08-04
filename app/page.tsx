@@ -3,6 +3,7 @@
 import { HeroSection } from "@/sections/HeroSection";
 import { TeamSection } from "@/sections/TeamSection";
 import { PageTransition } from "@/components/PageTransition";
+import { PageNavigation } from "@/components/PageNavigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import {
@@ -246,6 +247,7 @@ export default function HomePage() {
         </section>
 
         <TeamSection />
+        <PageNavigation />
       </div>
     </PageTransition>
   );
