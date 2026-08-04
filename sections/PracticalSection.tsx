@@ -14,18 +14,18 @@ export function PracticalSection() {
   });
 
   return (
-    <section id="practical" className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-950 text-slate-100 relative">
+    <section id="practical" className="py-20 px-4 sm:px-6 lg:px-8 bg-marx-surface text-foreground relative border-b border-marx">
       <div className="max-w-7xl mx-auto space-y-16">
         {/* Section Header */}
         <div className="text-center space-y-4">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-800 text-emerald-400 text-xs font-semibold uppercase tracking-wider">
+          <div className="label-press mx-auto">
             <Award className="w-3.5 h-3.5" />
             <span>Thực Tiễn & Dẫn Chứng Real-World</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-bold font-serif tracking-tight text-white">
+          <h2 className="text-3xl sm:text-5xl font-bold font-serif tracking-tight heading-display">
             CÂU CHUYỆN THỰC TẾ & PHÂN TÍCH Ý NGHĨA
           </h2>
-          <p className="text-sm sm:text-base text-slate-400 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Dẫn chứng từ các tỷ phú hàng đầu thế giới (Bill Gates, Warren Buffett), bi kịch sùng bái tiền tệ (Markus Persson) đến góc nhìn nghệ thuật đại chúng (Rap Việt, Đen Vâu, 14 Casper).
           </p>
         </div>
@@ -43,8 +43,8 @@ export function PracticalSection() {
               onClick={() => setActiveCategory(tab.value as any)}
               className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${
                 activeCategory === tab.value
-                  ? "bg-emerald-600 text-white shadow-lg shadow-emerald-600/20"
-                  : "bg-slate-900 text-slate-400 hover:bg-slate-800 hover:text-white border border-slate-800"
+                  ? "bg-[#9b1b1b] text-[#f4ebe0] shadow-md"
+                  : "bg-marx-raised text-muted-foreground hover:bg-[hsl(var(--muted))] hover:text-foreground border border-marx"
               }`}
             >
               {tab.label}
@@ -63,13 +63,13 @@ export function PracticalSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="p-6 rounded-3xl bg-slate-900 border border-slate-800 hover:border-emerald-500/50 transition-all shadow-2xl flex flex-col justify-between space-y-4 group"
+              className="p-6 rounded-sm bg-marx-raised border border-marx hover:border-[hsl(var(--marx-gold)/0.55)] transition-all shadow-xl flex flex-col justify-between space-y-4 group"
             >
               <div className="space-y-4">
                 {/* Visual Header / Image Placeholder Box */}
-                <div className="h-40 rounded-2xl bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 border border-slate-800 p-4 flex flex-col justify-between relative overflow-hidden group-hover:border-emerald-500/30 transition-colors">
+                <div className="h-40 rounded-sm bg-[hsl(var(--background))] border border-marx p-4 flex flex-col justify-between relative overflow-hidden group-hover:border-[hsl(var(--marx-gold)/0.4)] transition-colors">
                   <div className="flex justify-between items-start">
-                    <span className="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-slate-800 text-emerald-400 border border-slate-700">
+                    <span className="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-[hsl(var(--muted))] text-emerald-400 border border-marx">
                       {ex.badge}
                     </span>
                     <span
@@ -84,8 +84,8 @@ export function PracticalSection() {
                   </div>
 
                   <div>
-                    <span className="text-[11px] font-mono text-slate-400 block">{ex.subject}</span>
-                    <p className="text-xs font-serif italic text-slate-200 line-clamp-2">
+                    <span className="text-[11px] font-mono text-muted-foreground block">{ex.subject}</span>
+                    <p className="text-xs font-serif italic text-foreground/90 line-clamp-2">
                       {ex.imagePlaceholderText}
                     </p>
                   </div>
@@ -93,7 +93,7 @@ export function PracticalSection() {
 
                 {/* Case Title */}
                 <div>
-                  <h3 className="text-lg font-bold text-white group-hover:text-emerald-400 transition-colors font-serif">
+                  <h3 className="text-lg font-bold text-foreground group-hover:text-emerald-400 transition-colors font-serif">
                     {ex.title}
                   </h3>
                   <p className="text-xs text-emerald-300 font-serif italic mt-0.5">{ex.subtitle}</p>
@@ -101,16 +101,16 @@ export function PracticalSection() {
 
                 {/* Reality Fact */}
                 <div className="space-y-1">
-                  <h4 className="text-xs font-bold uppercase text-slate-400">Thực tế diễn ra:</h4>
-                  <p className="text-xs text-slate-300 leading-relaxed font-sans bg-slate-950/60 p-3 rounded-xl border border-slate-800/80">
+                  <h4 className="text-xs font-bold uppercase text-muted-foreground">Thực tế diễn ra:</h4>
+                  <p className="text-xs text-muted-foreground leading-relaxed font-sans bg-marx-raised p-3 rounded-xl border border-marx">
                     {ex.fact}
                   </p>
                 </div>
 
                 {/* Marxist Analysis */}
                 <div className="space-y-1">
-                  <h4 className="text-xs font-bold uppercase text-amber-400">Phân tích góc nhìn Mác - Lênin:</h4>
-                  <p className="text-xs text-slate-300 leading-relaxed font-sans bg-slate-950 p-3 rounded-xl border border-amber-900/30">
+                  <h4 className="text-xs font-bold uppercase text-gold">Phân tích góc nhìn Mác - Lênin:</h4>
+                  <p className="text-xs text-muted-foreground leading-relaxed font-sans bg-[hsl(var(--background))] p-3 rounded-xl border border-amber-900/30">
                     {ex.marxistAnalysis}
                   </p>
                 </div>

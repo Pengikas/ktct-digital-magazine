@@ -48,13 +48,12 @@ export default function RootLayout({
     <html lang="vi" suppressHydrationWarning className={`${inter.variable} ${playfair.variable}`}>
       <body className="relative bg-background text-foreground min-h-screen flex flex-col font-sans selection:bg-amber-500 selection:text-slate-950">
         <ThemeProvider>
-          <div className="relative z-0 flex min-h-screen flex-col">
+          <SiteBackground />
+          <div className="relative z-10 flex min-h-screen flex-col">
             <Navbar />
             <main className="flex-1">{children}</main>
             <Footer />
           </div>
-          {/* Above page surfaces, below sticky header (z-40) & modals */}
-          <SiteBackground />
         </ThemeProvider>
       </body>
     </html>

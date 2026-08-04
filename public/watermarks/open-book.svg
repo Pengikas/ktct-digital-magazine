@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 360" fill="none" aria-hidden="true">
+  <!-- Open book watermark  single-color via currentColor; theme switches crimson ” gold -->
+  <!-- Left page -->
+  <path
+    fill="currentColor"
+    d="M248 48C190 28 110 22 56 40c-8 3-14 10-14 19v214c0 12 8 21 19 24 52 14 120 22 187 8V48Z"
+    opacity="0.92"
+  />
+  <!-- Right page -->
+  <path
+    fill="currentColor"
+    d="M264 48C322 28 402 22 456 40c8 3 14 10 14 19v214c0 12-8 21-19 24-52 14-120 22-187 8V48Z"
+    opacity="0.92"
+  />
+  <!-- Spine gutter -->
+  <path
+    fill="currentColor"
+    d="M248 48v257c8 4 16 4 24 0V48c-8-3-16-3-24 0Z"
+    opacity="0.55"
+  />
+  <!-- Left page lines -->
+  <path
+    stroke="currentColor"
+    stroke-width="6"
+    stroke-linecap="round"
+    opacity="0.35"
+    d="M88 118h120M80 152h128M86 186h122M92 220h116"
+  />
+  <!-- Right page lines -->
+  <path
+    stroke="currentColor"
+    stroke-width="6"
+    stroke-linecap="round"
+    opacity="0.35"
+    d="M304 118h120M304 152h128M304 186h122M304 220h116"
+  />
+  <!-- Soft base shadow under book -->
+  <ellipse cx="256" cy="318" rx="168" ry="18" fill="currentColor" opacity="0.18" />
+</svg>

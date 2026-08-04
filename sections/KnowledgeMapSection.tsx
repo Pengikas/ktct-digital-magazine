@@ -23,22 +23,22 @@ export function KnowledgeMapSection() {
   });
 
   return (
-    <section id="knowledge-map" className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-950 text-slate-100 relative">
+    <section id="knowledge-map" className="py-20 px-4 sm:px-6 lg:px-8 bg-marx-surface text-foreground relative">
       <div className="max-w-7xl mx-auto space-y-12">
         <div className="text-center space-y-4">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-indigo-950/80 border border-indigo-800 text-indigo-300 text-xs font-semibold uppercase tracking-wider">
+          <div className="label-press mx-auto">
             <Network className="w-3.5 h-3.5" />
             <span>Sơ Đồ Tư Duy Tương Tác • Knowledge Mind Map</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-bold font-serif tracking-tight text-white">
+          <h2 className="text-3xl sm:text-5xl font-bold font-serif tracking-tight heading-display">
             BẢN ĐỒ TRI THỨC KINH TẾ CHÍNH TRỊ
           </h2>
-          <p className="text-sm sm:text-base text-slate-400 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Khám phá mạng lưới liên kết giữa nền tảng tiền–tư bản, tích lũy (3.2), phân phối GTTD (3.3), phân tích CQ5 và dẫn chứng thực tiễn.
           </p>
         </div>
 
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-slate-900/80 p-4 rounded-2xl border border-slate-800">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-marx-raised p-4 rounded-2xl border border-marx">
           <div className="flex flex-wrap gap-2">
             {[
               { label: "Tất cả Nút", value: "tất-cả" },
@@ -53,8 +53,8 @@ export function KnowledgeMapSection() {
                 onClick={() => setActiveCategoryFilter(tab.value)}
                 className={`px-3 py-1 rounded-lg text-xs font-semibold transition-all ${
                   activeCategoryFilter === tab.value
-                    ? "bg-indigo-600 text-white"
-                    : "bg-slate-950 text-slate-400 hover:bg-slate-800 hover:text-white"
+                    ? "bg-[#9b1b1b] text-[#f4ebe0]"
+                    : "bg-[hsl(var(--background))] text-muted-foreground hover:bg-[hsl(var(--muted))] hover:text-foreground"
                 }`}
               >
                 {tab.label}
@@ -65,31 +65,31 @@ export function KnowledgeMapSection() {
           <div className="flex items-center space-x-2">
             <button
               onClick={handleZoomIn}
-              className="p-2 rounded-lg bg-slate-950 hover:bg-slate-800 border border-slate-800 text-slate-300"
+              className="p-2 rounded-lg bg-[hsl(var(--background))] hover:bg-[hsl(var(--muted))] border border-marx text-muted-foreground"
               title="Phóng to"
             >
               <ZoomIn className="w-4 h-4" />
             </button>
             <button
               onClick={handleZoomOut}
-              className="p-2 rounded-lg bg-slate-950 hover:bg-slate-800 border border-slate-800 text-slate-300"
+              className="p-2 rounded-lg bg-[hsl(var(--background))] hover:bg-[hsl(var(--muted))] border border-marx text-muted-foreground"
               title="Thu nhỏ"
             >
               <ZoomOut className="w-4 h-4" />
             </button>
             <button
               onClick={handleResetZoom}
-              className="p-2 rounded-lg bg-slate-950 hover:bg-slate-800 border border-slate-800 text-slate-300"
+              className="p-2 rounded-lg bg-[hsl(var(--background))] hover:bg-[hsl(var(--muted))] border border-marx text-muted-foreground"
               title="Đặt lại"
             >
               <RotateCcw className="w-4 h-4" />
             </button>
-            <span className="text-xs font-mono text-amber-400 px-2">{Math.round(zoom * 100)}%</span>
+            <span className="text-xs font-mono text-gold px-2">{Math.round(zoom * 100)}%</span>
           </div>
         </div>
 
         {/* Map board + detail drawer (detail outside node layer so it never covers other nodes) */}
-        <div className="relative w-full rounded-3xl bg-slate-900/60 border border-slate-800 overflow-hidden shadow-2xl">
+        <div className="relative w-full rounded-3xl bg-marx-raised border border-marx overflow-hidden shadow-2xl">
           <div className="relative w-full h-[520px] overflow-hidden">
             <div
               className="w-full h-full relative transition-transform duration-300 ease-out"
@@ -135,11 +135,11 @@ export function KnowledgeMapSection() {
                         ? "bg-gradient-to-r from-red-600 via-amber-500 to-yellow-500 text-slate-950 font-extrabold border-amber-300 ring-2 ring-amber-500/40"
                         : isSelected
                           ? "bg-amber-500/95 text-slate-950 font-bold border-amber-200 ring-2 ring-amber-300"
-                          : "bg-slate-900 text-slate-100 border-slate-700 hover:border-amber-400"
+                          : "bg-marx-raised text-foreground border-marx hover:border-amber-400"
                     } ${dimmed ? "opacity-45" : "opacity-100"}`}
                     style={{ left: `${node.x}%`, top: `${node.y}%` }}
                   >
-                    <span className="w-2 h-2 rounded-full bg-amber-400 shrink-0" />
+                    <span className="w-2 h-2 rounded-sm bg-amber-400 shrink-0" />
                     <span className="text-[11px] sm:text-xs font-serif font-bold leading-snug">
                       {node.label}
                     </span>
@@ -156,32 +156,32 @@ export function KnowledgeMapSection() {
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
-                className="border-t border-amber-500/40 bg-slate-950/95"
+                className="border-t border-amber-500/40 bg-[hsl(var(--background))]/95"
               >
                 <div className="p-5 sm:p-6 space-y-3 relative">
                   <button
                     type="button"
                     onClick={() => setSelectedNode(null)}
-                    className="absolute top-4 right-4 p-1.5 rounded-full bg-slate-800 text-slate-400 hover:text-white"
+                    className="absolute top-4 right-4 p-1.5 rounded-sm bg-[hsl(var(--muted))] text-muted-foreground hover:text-foreground"
                     aria-label="Đóng"
                   >
                     <X className="w-4 h-4" />
                   </button>
 
                   <div className="pr-10 space-y-1">
-                    <span className="text-xs font-mono font-bold uppercase text-amber-400 tracking-wider">
+                    <span className="text-xs font-mono font-bold uppercase text-gold tracking-wider">
                       Nút: {selectedNode.category}
                     </span>
-                    <h4 className="text-lg sm:text-xl font-bold font-serif text-white">
+                    <h4 className="text-lg sm:text-xl font-bold font-serif text-foreground">
                       {selectedNode.label}
                     </h4>
                   </div>
 
-                  <p className="text-sm text-slate-300 leading-relaxed font-sans bg-slate-900 p-4 rounded-xl border border-slate-800">
+                  <p className="text-sm text-muted-foreground leading-relaxed font-sans bg-marx-raised p-4 rounded-xl border border-marx">
                     {selectedNode.description}
                   </p>
 
-                  <div className="flex flex-wrap items-center gap-2 text-xs text-slate-400">
+                  <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
                     <span>Liên kết:</span>
                     {selectedNode.connectedTo.map((targetId) => {
                       const target = KNOWLEDGE_MAP_NODES.find((n) => n.id === targetId);
@@ -193,7 +193,7 @@ export function KnowledgeMapSection() {
                             const next = KNOWLEDGE_MAP_NODES.find((n) => n.id === targetId);
                             if (next) setSelectedNode(next);
                           }}
-                          className="px-2 py-0.5 rounded bg-slate-800 text-amber-300 font-medium hover:bg-slate-700"
+                          className="px-2 py-0.5 rounded bg-[hsl(var(--muted))] text-gold font-medium hover:bg-[hsl(var(--border))]"
                         >
                           {target?.label}
                         </button>

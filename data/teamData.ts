@@ -65,12 +65,12 @@ export const TEAM_MEMBERS: TeamMember[] = [
   },
   {
     id: "bach",
-    name: "Vi Xuân Bách",
+    name: "Vũ Xuân Bách",
     role: "Frontend Developer",
     department: "Phát triển Phần mềm",
-    avatarInitials: "XB",
-    bio: "Lập trình animation hiệu ứng cuộn, Framer Motion và chuyển cảnh trực quan.",
-    skills: ["TypeScript", "Framer Motion", "CSS Animation"]
+    avatarInitials: "VB",
+    bio: "Phát triển giao diện tạp chí số, theme sáng/tối và hiệu ứng tương tác.",
+    skills: ["React", "Next.js", "TypeScript"]
   },
   {
     id: "minh",

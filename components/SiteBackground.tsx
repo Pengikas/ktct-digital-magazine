@@ -1,59 +1,82 @@
 /**
- * Fixed, low-opacity academic watermark: formulas + classical column motif
- * for Kinh tế Chính trị Mác – Lênin (non-intrusive behind / over page content).
+ * Watermark ấn phẩm KTCT — sách mở làm hình chìm chính + công thức phụ.
+ * Màu theo theme: đỏ son (sáng) / vàng kim (tối) qua currentColor.
+ * Section dùng bg bán trong suốt (bg-marx-surface / bg-page) để hình không bị che kín.
  */
 export function SiteBackground() {
   return (
     <div
-      className="pointer-events-none fixed inset-0 z-[25] overflow-hidden mix-blend-soft-light dark:mix-blend-overlay"
+      className="pointer-events-none fixed inset-0 z-0 overflow-hidden"
       aria-hidden="true"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_10%,rgba(185,28,28,0.14),transparent_55%),radial-gradient(ellipse_at_80%_90%,rgba(180,83,9,0.1),transparent_50%)]" />
+      {/* Wash đỏ–vàng dịu */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_15%_0%,rgba(155,27,27,0.08),transparent_50%),radial-gradient(ellipse_at_85%_100%,rgba(196,163,90,0.07),transparent_45%)] dark:bg-[radial-gradient(ellipse_at_15%_0%,rgba(185,28,28,0.18),transparent_55%),radial-gradient(ellipse_at_85%_100%,rgba(196,163,90,0.1),transparent_50%)]" />
 
+      {/* Corner stars — nhẹ */}
       <svg
-        className="absolute left-1/2 top-[48%] h-[min(88vh,860px)] w-[min(88vw,860px)] -translate-x-1/2 -translate-y-1/2 opacity-40 dark:opacity-35"
-        viewBox="0 0 400 400"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
+        className="absolute left-4 top-24 h-16 w-16 opacity-[0.50] dark:opacity-[0.60] text-[hsl(var(--marx-crimson))] dark:text-[hsl(var(--marx-gold))]"
+        viewBox="0 0 80 80"
+        fill="currentColor"
       >
-        <rect x="175" y="70" width="50" height="14" rx="2" fill="currentColor" className="text-slate-600 dark:text-amber-100" />
-        <rect x="182" y="84" width="36" height="200" fill="currentColor" className="text-slate-600 dark:text-amber-100" />
-        <rect x="168" y="284" width="64" height="12" rx="2" fill="currentColor" className="text-slate-600 dark:text-amber-100" />
-        <rect x="158" y="296" width="84" height="16" rx="2" fill="currentColor" className="text-slate-600 dark:text-amber-100" />
-
-        <path
-          d="M120 320 C160 300, 200 300, 200 320 L200 360 C160 340, 120 340, 120 360 Z"
-          fill="currentColor"
-          className="text-slate-500 dark:text-amber-200"
-          opacity="0.9"
-        />
-        <path
-          d="M200 320 C240 300, 280 300, 280 320 L280 360 C240 340, 200 340, 200 360 Z"
-          fill="currentColor"
-          className="text-slate-500 dark:text-amber-200"
-          opacity="0.9"
-        />
-
-        <path
-          d="M200 95 L208 118 L232 118 L212 132 L220 155 L200 141 L180 155 L188 132 L168 118 L192 118 Z"
-          fill="currentColor"
-          className="text-red-700 dark:text-amber-400"
-        />
+        <path d="M40 6 L46 28 L68 28 L50 40 L56 62 L40 50 L24 62 L30 40 L12 28 L34 28 Z" />
+      </svg>
+      <svg
+        className="absolute right-4 bottom-28 h-16 w-16 opacity-[0.14] dark:opacity-[0.18] text-[hsl(var(--marx-crimson))] dark:text-[hsl(var(--marx-gold))]"
+        viewBox="0 0 80 80"
+        fill="currentColor"
+      >
+        <path d="M40 6 L46 28 L68 28 L50 40 L56 62 L40 50 L24 62 L30 40 L12 28 L34 28 Z" />
       </svg>
 
+      {/* Center: open book watermark */}
+      <svg
+        className="absolute left-1/2 top-[48%] h-[min(58vh,520px)] w-[min(78vw,720px)] -translate-x-1/2 -translate-y-1/2 opacity-[0.50] dark:opacity-[0.60] text-[hsl(var(--marx-crimson))] dark:text-[hsl(var(--marx-gold))] transition-colors duration-300"
+        viewBox="0 0 512 360"
+        fill="none"
+      >
+        <path
+          fill="currentColor"
+          d="M248 48C190 28 110 22 56 40c-8 3-14 10-14 19v214c0 12 8 21 19 24 52 14 120 22 187 8V48Z"
+          opacity="0.92"
+        />
+        <path
+          fill="currentColor"
+          d="M264 48C322 28 402 22 456 40c8 3 14 10 14 19v214c0 12-8 21-19 24-52 14-120 22-187 8V48Z"
+          opacity="0.92"
+        />
+        <path
+          fill="currentColor"
+          d="M248 48v257c8 4 16 4 24 0V48c-8-3-16-3-24 0Z"
+          opacity="0.55"
+        />
+        <path
+          stroke="currentColor"
+          strokeWidth="6"
+          strokeLinecap="round"
+          opacity="0.45"
+          d="M88 118h120M80 152h128M86 186h122M92 220h116"
+        />
+        <path
+          stroke="currentColor"
+          strokeWidth="6"
+          strokeLinecap="round"
+          opacity="0.45"
+          d="M304 118h120M304 152h128M304 186h122M304 220h116"
+        />
+        <ellipse cx="256" cy="318" rx="168" ry="18" fill="currentColor" opacity="0.22" />
+      </svg>
+
+      {/* Formulas — phụ, cùng palette theme */}
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="relative h-full w-full max-w-6xl">
-          <span className="absolute left-[5%] top-[16%] rotate-[-12deg] select-none font-serif text-4xl sm:text-6xl font-bold tracking-widest text-slate-800/25 dark:text-amber-50/20">
+        <div className="relative h-full w-full max-w-5xl">
+          <span className="absolute left-[4%] top-[18%] rotate-[-10deg] select-none font-serif text-3xl sm:text-5xl font-bold tracking-[0.2em] text-[#9b1b1b]/[0.12] dark:text-[#c4a35a]/[0.15] transition-colors duration-300">
             T — H — T′
           </span>
-          <span className="absolute right-[6%] top-[40%] rotate-[8deg] select-none font-serif text-3xl sm:text-5xl font-bold tracking-widest text-slate-800/25 dark:text-amber-50/20">
+          <span className="absolute right-[5%] top-[52%] rotate-[7deg] select-none font-serif text-2xl sm:text-4xl font-bold tracking-[0.18em] text-[#9b1b1b]/[0.1] dark:text-[#c4a35a]/[0.13] transition-colors duration-300">
             H — T — H
           </span>
-          <span className="absolute bottom-[24%] left-[14%] rotate-[-6deg] select-none font-mono text-2xl sm:text-4xl font-semibold tracking-wide text-red-900/20 dark:text-red-100/15">
+          <span className="absolute bottom-[16%] left-[12%] rotate-[-5deg] select-none font-mono text-xl sm:text-3xl font-semibold text-[#9b1b1b]/[0.08] dark:text-[#c4a35a]/[0.11] transition-colors duration-300">
             m = G − (c + v)
-          </span>
-          <span className="absolute bottom-[10%] right-[10%] rotate-[4deg] select-none font-serif text-xl sm:text-3xl italic text-slate-800/25 dark:text-amber-50/20">
-            k = c + v
           </span>
         </div>
       </div>

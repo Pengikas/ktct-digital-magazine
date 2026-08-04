@@ -2,68 +2,84 @@
 
 @layer base {
   :root {
-    --background: 40 20% 98%;
-    --foreground: 222.2 84% 4.9%;
+    /* Ngà giấy / mực học thuật */
+    --background: 35 42% 92%;
+    --foreground: 20 25% 12%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 36 38% 96%;
+    --card-foreground: 20 25% 12%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 36 38% 96%;
+    --popover-foreground: 20 25% 12%;
 
-    --primary: 348 83% 47%;
-    --primary-foreground: 210 40% 98%;
+    /* Đỏ son */
+    --primary: 0 70% 36%;
+    --primary-foreground: 40 40% 96%;
 
-    --secondary: 38 92% 50%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Vàng kim dịu */
+    --secondary: 40 42% 48%;
+    --secondary-foreground: 20 30% 10%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 34 28% 88%;
+    --muted-foreground: 25 12% 38%;
 
-    --accent: 38 92% 50%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 40 45% 52%;
+    --accent-foreground: 20 30% 10%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 72% 42%;
+    --destructive-foreground: 40 40% 96%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 348 83% 47%;
+    --border: 30 22% 78%;
+    --input: 30 22% 78%;
+    --ring: 0 70% 36%;
 
-    --radius: 0.75rem;
+    --marx-surface: 34 30% 90%;
+    --marx-surface-raised: 36 35% 95%;
+    --marx-ink: 20 25% 14%;
+    --marx-gold: 40 42% 48%;
+    --marx-crimson: 0 70% 36%;
 
-    --font-serif: 'Playfair Display', Georgia, serif;
-    --font-sans: 'Inter', system-ui, sans-serif;
+    --radius: 0.4rem;
+
+    --font-serif: "Playfair Display", Georgia, serif;
+    --font-sans: "Inter", system-ui, sans-serif;
   }
 
   .dark {
-    --background: 224 71% 4%;
-    --foreground: 210 40% 98%;
+    /* Đỏ thẫm / nâu đỏ — không slate lạnh */
+    --background: 355 42% 7%;
+    --foreground: 38 35% 92%;
 
-    --card: 222.2 84% 6.5%;
-    --card-foreground: 210 40% 98%;
+    --card: 355 38% 11%;
+    --card-foreground: 38 35% 92%;
 
-    --popover: 222.2 84% 6.5%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 355 38% 11%;
+    --popover-foreground: 38 35% 92%;
 
-    --primary: 348 83% 55%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 0 68% 48%;
+    --primary-foreground: 40 40% 96%;
 
-    --secondary: 38 92% 50%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 40 40% 55%;
+    --secondary-foreground: 355 40% 8%;
 
-    --muted: 217.2 32.6% 14%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 355 28% 14%;
+    --muted-foreground: 35 18% 68%;
 
-    --accent: 38 92% 50%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 40 42% 52%;
+    --accent-foreground: 355 40% 8%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 55% 38%;
+    --destructive-foreground: 40 40% 96%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 348 83% 55%;
+    --border: 355 22% 20%;
+    --input: 355 22% 20%;
+    --ring: 40 42% 52%;
+
+    --marx-surface: 355 36% 10%;
+    --marx-surface-raised: 355 32% 14%;
+    --marx-ink: 38 30% 90%;
+    --marx-gold: 40 42% 58%;
+    --marx-crimson: 0 68% 48%;
   }
 }
 
@@ -78,43 +94,111 @@ body {
   transition: background-color 300ms, color 300ms;
 }
 
-/* Custom Magazine Glassmorphism & Typography */
-.glass-panel {
-  background-color: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(226, 232, 240, 0.5);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+/* Surfaces — nền section trong hơn để watermark lộ đúng theo opacity sách.
+   Card (.bg-marx-raised) vẫn đặc 100% → chữ trên thẻ không bị lấn. */
+.bg-marx-surface {
+  background-color: hsl(var(--marx-surface) / 0.45);
+}
+.dark .bg-marx-surface {
+  background-color: hsl(var(--marx-surface) / 0.4);
+}
+.bg-marx-raised {
+  background-color: hsl(var(--marx-surface-raised));
+}
+.bg-page {
+  background-color: hsl(var(--background) / 0.45);
+}
+.dark .bg-page {
+  background-color: hsl(var(--background) / 0.4);
+}
+.text-gold {
+  color: hsl(var(--marx-gold));
+}
+.text-crimson {
+  color: hsl(var(--marx-crimson));
 }
 
-.dark .glass-panel {
-  background-color: rgba(15, 23, 42, 0.7);
-  border: 1px solid rgba(30, 41, 59, 0.5);
+/* Tab active: đỏ son (sáng) / vàng kim (tối) — custom class vì text-gold không phải Tailwind utility */
+.nav-tab-active {
+  color: hsl(var(--marx-crimson));
+  border-bottom-color: hsl(var(--marx-gold));
+  background-color: hsl(var(--marx-crimson) / 0.06);
+}
+.dark .nav-tab-active {
+  color: hsl(var(--marx-gold));
+  background-color: hsl(var(--marx-gold) / 0.1);
+}
+
+/* Tiêu đề ấn phẩm: đỏ son (sáng) → vàng kim (tối) */
+.heading-display {
+  color: hsl(var(--marx-crimson));
+}
+.dark .heading-display {
+  color: hsl(var(--marx-gold));
+}
+
+.border-marx {
+  border-color: hsl(var(--border));
+}
+
+.border-double-rule {
+  border-top: 3px double hsl(var(--marx-crimson) / 0.55);
+  border-bottom: 1px solid hsl(var(--marx-gold) / 0.45);
+}
+
+.masthead-bar {
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    hsl(var(--marx-crimson)),
+    hsl(var(--marx-gold)),
+    hsl(var(--marx-crimson))
+  );
+}
+
+.glass-panel {
+  background-color: hsl(var(--marx-surface-raised) / 0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid hsl(var(--border) / 0.7);
 }
 
 .glass-card {
-  background-color: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(4px);
-  border: 1px solid #e2e8f0;
+  background-color: hsl(var(--marx-surface-raised) / 0.9);
+  border: 1px solid hsl(var(--border));
   transition: all 300ms;
-}
-
-.dark .glass-card {
-  background-color: rgba(15, 23, 42, 0.8);
-  border: 1px solid #1e293b;
 }
 
 .text-gradient-gold {
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
-  background-image: linear-gradient(to right, #f59e0b, #facc15, #d97706);
+  background-image: linear-gradient(
+    to right,
+    hsl(40 45% 42%),
+    hsl(40 50% 58%),
+    hsl(35 40% 38%)
+  );
+}
+
+.dark .text-gradient-gold {
+  background-image: linear-gradient(
+    to right,
+    hsl(40 45% 55%),
+    hsl(42 55% 68%),
+    hsl(38 40% 48%)
+  );
 }
 
 .text-gradient-marx {
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
-  background-image: linear-gradient(to right, #dc2626, #f59e0b, #ef4444);
+  background-image: linear-gradient(
+    to right,
+    hsl(0 70% 36%),
+    hsl(40 42% 48%),
+    hsl(0 65% 42%)
+  );
 }
 
 .magazine-header {
@@ -122,20 +206,36 @@ body {
   letter-spacing: -0.02em;
 }
 
-/* Custom Scrollbar */
+.label-press {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: hsl(var(--marx-crimson));
+  background: hsl(var(--marx-surface-raised));
+  border: 1px solid hsl(var(--marx-gold) / 0.55);
+  border-radius: 2px;
+}
+
+.dark .label-press {
+  color: hsl(var(--marx-gold));
+  border-color: hsl(var(--marx-gold) / 0.4);
+}
+
 ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: rgba(15, 23, 42, 0.1);
-}
-.dark ::-webkit-scrollbar-track {
-  background: rgba(2, 6, 23, 0.8);
+  background: hsl(var(--muted));
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(217, 119, 6, 0.5);
-  border-radius: 4px;
+  background: hsl(var(--marx-crimson) / 0.45);
+  border-radius: 2px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(220, 38, 38, 0.8);
+  background: hsl(var(--marx-crimson) / 0.7);
 }

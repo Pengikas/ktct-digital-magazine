@@ -2,18 +2,19 @@ export interface NavItem {
   label: string;
   href: string;
   badge?: string;
+  icon: "home" | "book" | "chart" | "award" | "trending" | "network" | "help" | "quiz";
 }
 
 /** Primary tab bar — full-width route navigation */
 export const NAV_ITEMS: NavItem[] = [
-  { label: "Trang chủ", href: "/" },
-  { label: "Nền tảng", href: "/nen-tang" },
-  { label: "Phân tích", href: "/analysis" },
-  { label: "Thực tiễn", href: "/practical-examples" },
-  { label: "Số liệu", href: "/statistics" },
-  { label: "Sơ đồ", href: "/knowledge-map" },
-  { label: "Hỏi đáp", href: "/qa" },
-  { label: "Trắc nghiệm", href: "/quiz", badge: "30" },
+  { label: "Trang chủ", href: "/", icon: "home" },
+  { label: "Nền tảng", href: "/nen-tang", icon: "book" },
+  { label: "Phân tích", href: "/analysis", icon: "chart" },
+  { label: "Thực tiễn", href: "/practical-examples", icon: "award" },
+  { label: "Số liệu", href: "/statistics", icon: "trending" },
+  { label: "Sơ đồ", href: "/knowledge-map", icon: "network" },
+  { label: "Hỏi đáp", href: "/qa", icon: "help" },
+  { label: "Trắc nghiệm", href: "/quiz", badge: "30", icon: "quiz" },
 ];
 
 /** Map search / legacy section ids → app routes */

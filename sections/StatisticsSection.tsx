@@ -25,18 +25,18 @@ export function StatisticsSection() {
   }, []);
 
   return (
-    <section id="statistics" className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-900 text-slate-100 relative">
+    <section id="statistics" className="py-20 px-4 sm:px-6 lg:px-8 bg-marx-surface text-foreground relative">
       <div className="max-w-7xl mx-auto space-y-16">
         {/* Section Header */}
         <div className="text-center space-y-4">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-amber-950/80 border border-amber-800 text-amber-300 text-xs font-semibold uppercase tracking-wider">
+          <div className="label-press mx-auto">
             <TrendingUp className="w-3.5 h-3.5" />
             <span>Bộ Số Liệu Thực Tiễn (2022 – 2025)</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-bold font-serif tracking-tight text-white">
+          <h2 className="text-3xl sm:text-5xl font-bold font-serif tracking-tight heading-display">
             TĂNG TRƯỞNG KINH TẾ & CHỈ SỐ HẠNH PHÚC
           </h2>
-          <p className="text-sm sm:text-base text-slate-400 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Nền tảng vật chất của lực lượng sản xuất xã hội thể hiện qua số liệu GDP bình quân đầu người, Thu nhập, Tỷ lệ hộ nghèo đa chiều và Chỉ số Hạnh phúc Việt Nam.
           </p>
         </div>
@@ -45,38 +45,38 @@ export function StatisticsSection() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <motion.div
             whileHover={{ y: -5 }}
-            className="p-6 rounded-2xl bg-slate-950 border border-slate-800 space-y-2 shadow-xl"
+            className="p-6 rounded-2xl bg-[hsl(var(--background))] border border-marx space-y-2 shadow-xl"
           >
-            <span className="text-xs font-mono font-bold text-amber-400 uppercase">GDP Bình quân 2025</span>
-            <div className="text-3xl sm:text-4xl font-extrabold font-serif text-white">$5,026</div>
-            <p className="text-xs text-slate-400">USD/người/năm (Tăng từ 4.110 USD năm 2022)</p>
+            <span className="text-xs font-mono font-bold text-gold uppercase">GDP Bình quân 2025</span>
+            <div className="text-3xl sm:text-4xl font-extrabold font-serif text-foreground">$5,026</div>
+            <p className="text-xs text-muted-foreground">USD/người/năm (Tăng từ 4.110 USD năm 2022)</p>
           </motion.div>
 
           <motion.div
             whileHover={{ y: -5 }}
-            className="p-6 rounded-2xl bg-slate-950 border border-slate-800 space-y-2 shadow-xl"
+            className="p-6 rounded-2xl bg-[hsl(var(--background))] border border-marx space-y-2 shadow-xl"
           >
             <span className="text-xs font-mono font-bold text-emerald-400 uppercase">Thu nhập hàng tháng</span>
-            <div className="text-3xl sm:text-4xl font-extrabold font-serif text-white">~6.0 Tr</div>
-            <p className="text-xs text-slate-400">VNĐ/tháng năm 2025 (Tăng từ 4,67 Tr VNĐ)</p>
+            <div className="text-3xl sm:text-4xl font-extrabold font-serif text-foreground">~6.0 Tr</div>
+            <p className="text-xs text-muted-foreground">VNĐ/tháng năm 2025 (Tăng từ 4,67 Tr VNĐ)</p>
           </motion.div>
 
           <motion.div
             whileHover={{ y: -5 }}
-            className="p-6 rounded-2xl bg-slate-950 border border-slate-800 space-y-2 shadow-xl"
+            className="p-6 rounded-2xl bg-[hsl(var(--background))] border border-marx space-y-2 shadow-xl"
           >
             <span className="text-xs font-mono font-bold text-red-500 uppercase">Hộ nghèo Đa chiều</span>
-            <div className="text-3xl sm:text-4xl font-extrabold font-serif text-white">&lt;1.5%</div>
-            <p className="text-xs text-slate-400">Giảm mạnh từ 4,30% năm 2022</p>
+            <div className="text-3xl sm:text-4xl font-extrabold font-serif text-foreground">&lt;1.5%</div>
+            <p className="text-xs text-muted-foreground">Giảm mạnh từ 4,30% năm 2022</p>
           </motion.div>
 
           <motion.div
             whileHover={{ y: -5 }}
-            className="p-6 rounded-2xl bg-slate-950 border border-slate-800 space-y-2 shadow-xl"
+            className="p-6 rounded-2xl bg-[hsl(var(--background))] border border-marx space-y-2 shadow-xl"
           >
             <span className="text-xs font-mono font-bold text-yellow-400 uppercase">Chỉ số Hạnh phúc</span>
-            <div className="text-3xl sm:text-4xl font-extrabold font-serif text-white">Hạng 46</div>
-            <p className="text-xs text-slate-400">Tăng 19 bậc (Từ vị trí 65 năm 2022)</p>
+            <div className="text-3xl sm:text-4xl font-extrabold font-serif text-foreground">Hạng 46</div>
+            <p className="text-xs text-muted-foreground">Tăng 19 bậc (Từ vị trí 65 năm 2022)</p>
           </motion.div>
         </div>
 
@@ -84,12 +84,12 @@ export function StatisticsSection() {
         {mounted && (
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Chart 1: GDP per Capita & Monthly Income */}
-            <div className="p-6 sm:p-8 rounded-3xl bg-slate-950 border border-slate-800 shadow-2xl space-y-4">
-              <div className="flex justify-between items-center border-b border-slate-800 pb-3">
-                <h3 className="text-lg font-bold font-serif text-white">
+            <div className="p-6 sm:p-8 rounded-3xl bg-[hsl(var(--background))] border border-marx shadow-2xl space-y-4">
+              <div className="flex justify-between items-center border-b border-marx pb-3">
+                <h3 className="text-lg font-bold font-serif text-foreground">
                   Tăng trưởng GDP & Thu nhập (2022–2025)
                 </h3>
-                <span className="text-[10px] font-mono uppercase bg-amber-950 text-amber-300 px-2 py-0.5 rounded border border-amber-800">
+                <span className="text-[10px] font-mono uppercase bg-amber-950 text-gold px-2 py-0.5 rounded border border-amber-800">
                   GSO VietNam
                 </span>
               </div>
@@ -111,9 +111,9 @@ export function StatisticsSection() {
             </div>
 
             {/* Chart 2: Multidimensional Poverty & World Happiness Rank */}
-            <div className="p-6 sm:p-8 rounded-3xl bg-slate-950 border border-slate-800 shadow-2xl space-y-4">
-              <div className="flex justify-between items-center border-b border-slate-800 pb-3">
-                <h3 className="text-lg font-bold font-serif text-white">
+            <div className="p-6 sm:p-8 rounded-3xl bg-[hsl(var(--background))] border border-marx shadow-2xl space-y-4">
+              <div className="flex justify-between items-center border-b border-marx pb-3">
+                <h3 className="text-lg font-bold font-serif text-foreground">
                   Tỷ lệ Nghèo & Thăng hạng Hạnh phúc
                 </h3>
                 <span className="text-[10px] font-mono uppercase bg-red-950 text-red-300 px-2 py-0.5 rounded border border-red-800">
@@ -141,25 +141,25 @@ export function StatisticsSection() {
         )}
 
         {/* Academic Commentary Box */}
-        <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 border border-slate-800 space-y-4 shadow-2xl">
-          <h3 className="text-xl font-bold font-serif text-amber-400">
+        <div className="p-6 sm:p-8 rounded-sm bg-marx-raised border border-marx space-y-4 shadow-xl">
+          <h3 className="text-xl font-bold font-serif text-gold">
             Nhận xét Lý luận & Đúc kết Từ Số liệu:
           </h3>
-          <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-sans italic">
+          <p className="text-sm sm:text-base text-muted-foreground leading-relaxed font-sans italic">
             &quot;{STATS_METADATA.analyticalSummary}&quot;
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 pt-2">
             {STATS_METADATA.keyTakeaways.map((point, idx) => (
-              <div key={idx} className="p-3 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-300 flex items-center space-x-2">
-                <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0" />
+              <div key={idx} className="p-3 rounded-xl bg-[hsl(var(--background))] border border-marx text-xs text-muted-foreground flex items-center space-x-2">
+                <CheckCircle2 className="w-4 h-4 text-gold shrink-0" />
                 <span>{point}</span>
               </div>
             ))}
           </div>
 
-          <div className="pt-4 border-t border-slate-800 text-xs text-slate-500 space-y-1">
-            <span className="font-semibold text-slate-400 block">Nguồn trích dẫn uy tín:</span>
+          <div className="pt-4 border-t border-marx text-xs text-muted-foreground space-y-1">
+            <span className="font-semibold text-muted-foreground block">Nguồn trích dẫn uy tín:</span>
             {STATS_METADATA.sources.map((src, i) => (
               <p key={i}>• {src}</p>
             ))}
