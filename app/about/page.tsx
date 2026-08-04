@@ -1,14 +1,16 @@
-import { AboutSection } from "@/sections/AboutSection";
+"use client";
 
-export const metadata = {
-  title: "Giới thiệu & Lịch sử Tiền tệ | KTCT Magazine",
-  description: "Tổng quan dự án đồ án KTCT và tiến trình lịch sử 6 giai đoạn phát triển của tiền tệ.",
-};
+import { AboutSection } from "@/sections/AboutSection";
+import { PageNavigation } from "@/components/PageNavigation";
+import { PageTransition } from "@/components/PageTransition";
 
 export default function AboutPage() {
   return (
-    <div className="pt-6">
-      <AboutSection />
-    </div>
+    <PageTransition>
+      <div className="pt-6">
+        <AboutSection />
+      </div>
+      <PageNavigation />
+    </PageTransition>
   );
 }

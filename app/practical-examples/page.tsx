@@ -1,14 +1,16 @@
-import { PracticalSection } from "@/sections/PracticalSection";
+"use client";
 
-export const metadata = {
-  title: "Case Studies Thực Tế | KTCT Magazine",
-  description: "Dẫn chứng thực tiễn từ Bill Gates, Warren Buffett, Markus Persson đến Rap Việt, Đen Vâu và 14 Casper.",
-};
+import { PracticalSection } from "@/sections/PracticalSection";
+import { PageNavigation } from "@/components/PageNavigation";
+import { PageTransition } from "@/components/PageTransition";
 
 export default function PracticalExamplesPage() {
   return (
-    <div className="pt-6">
-      <PracticalSection />
-    </div>
+    <PageTransition>
+      <div className="pt-6">
+        <PracticalSection />
+      </div>
+      <PageNavigation />
+    </PageTransition>
   );
 }

@@ -1,6 +1,8 @@
 "use client";
 
 import * as React from "react";
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { ThemeToggle } from "./ThemeToggle";
 import { SearchModal } from "./SearchModal";
 import { Search, Menu, X, BookOpen, Sparkles } from "lucide-react";
@@ -12,82 +14,53 @@ interface NavItem {
 }
 
 const NAV_ITEMS: NavItem[] = [
-  { label: "Trang chủ", href: "#hero" },
-  { label: "Giới thiệu", href: "#about" },
-  { label: "Lý thuyết", href: "#theory" },
-  { label: "Phân tích", href: "#analysis" },
-  { label: "Thực tiễn", href: "#practical" },
-  { label: "Số liệu", href: "#statistics" },
-  { label: "Sơ đồ", href: "#knowledge-map" },
-  { label: "Hỏi đáp", href: "#qa" },
-  { label: "Trắc nghiệm", href: "#quiz", badge: "30 Câu" },
-  { label: "Đội ngũ", href: "#team" },
+  { label: "Trang chủ", href: "/" },
+  { label: "Giới thiệu", href: "/about" },
+  { label: "Lý thuyết", href: "/theory" },
+  { label: "Phân tích", href: "/analysis" },
+  { label: "Số liệu", href: "/statistics" },
+  { label: "Thực tiễn", href: "/practical-examples" },
+  { label: "Sơ đồ", href: "/knowledge-map" },
+  { label: "Hỏi đáp", href: "/qa" },
+  { label: "Trắc nghiệm", href: "/quiz", badge: "30 Câu" },
+  { label: "Game", href: "/game", badge: "Mới" },
+  { label: "Tạp Chí", href: "/magazine", badge: "Mới" },
 ];
 
 export function Navbar() {
-  const [scrollProgress, setScrollProgress] = React.useState(0);
-  const [activeSection, setActiveSection] = React.useState("hero");
   const [isSearchOpen, setIsSearchOpen] = React.useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
-
-  // Track scroll progress & active section
-  React.useEffect(() => {
-    const handleScroll = () => {
-      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const currentScroll = window.scrollY;
-      const progress = totalHeight > 0 ? (currentScroll / totalHeight) * 100 : 0;
-      setScrollProgress(progress);
-
-      // Section scroll spy
-      const sections = NAV_ITEMS.map((item) => item.href.substring(1));
-      for (const sectionId of sections.reverse()) {
-        const el = document.getElementById(sectionId);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          if (rect.top <= 180) {
-            setActiveSection(sectionId);
-            break;
-          }
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
-    const targetId = href.substring(1);
-    const targetEl = document.getElementById(targetId);
-    if (targetEl) {
-      targetEl.scrollIntoView({ behavior: "smooth" });
-      setActiveSection(targetId);
-      setIsMobileMenuOpen(false);
-    }
-  };
+  const pathname = usePathname();
+  const router = useRouter();
 
   const handleSearchSelect = (targetId: string) => {
-    const targetEl = document.getElementById(targetId);
-    if (targetEl) {
-      targetEl.scrollIntoView({ behavior: "smooth" });
+    let targetPath = "/";
+    if (targetId.startsWith("concept-")) {
+      targetPath = `/theory#${targetId}`;
+    } else if (targetId === "money-functions") {
+      targetPath = "/theory#money-functions";
+    } else if (targetId.startsWith("analysis-")) {
+      targetPath = `/analysis#${targetId}`;
+    } else if (targetId.startsWith("practical-")) {
+      targetPath = `/practical-examples#${targetId}`;
+    } else if (targetId === "qa-section") {
+      targetPath = "/qa";
+    } else if (targetId === "team-section") {
+      targetPath = "/";
     }
+
+    router.push(targetPath);
   };
 
   return (
     <>
       <header className="sticky top-0 z-40 w-full bg-white/85 dark:bg-slate-950/85 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800/80 transition-colors">
-        {/* Top Scroll Progress Bar */}
-        <div
-          className="h-1 bg-gradient-to-r from-red-600 via-amber-500 to-yellow-400 transition-all duration-150 ease-out"
-          style={{ width: `${scrollProgress}%` }}
-        />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           {/* Logo / Brand */}
-          <a
-            href="#hero"
-            onClick={(e) => handleNavClick(e, "#hero")}
+          <Link
+            href="/"
+            onClick={() => setIsMobileMenuOpen(false)}
             className="flex items-center space-x-3 group"
           >
             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-red-600 via-amber-500 to-yellow-500 flex items-center justify-center text-white shadow-lg shadow-red-500/20 group-hover:scale-105 transition-transform">
@@ -101,18 +74,16 @@ export function Navbar() {
                 UIT 2026
               </span>
             </div>
-          </a>
+          </Link>
 
           {/* Desktop Navigation Links */}
           <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2">
             {NAV_ITEMS.map((item) => {
-              const sectionId = item.href.substring(1);
-              const isActive = activeSection === sectionId;
+              const isActive = pathname === item.href;
               return (
-                <a
+                <Link
                   key={item.href}
                   href={item.href}
-                  onClick={(e) => handleNavClick(e, item.href)}
                   className={`relative px-3 py-1.5 rounded-lg text-xs font-semibold tracking-wide transition-all ${
                     isActive
                       ? "text-red-600 dark:text-amber-400 bg-red-50 dark:bg-amber-950/40"
@@ -128,7 +99,7 @@ export function Navbar() {
                   {isActive && (
                     <span className="absolute bottom-0 left-2 right-2 h-0.5 bg-amber-500 rounded-full" />
                   )}
-                </a>
+                </Link>
               );
             })}
           </nav>
@@ -167,13 +138,12 @@ export function Navbar() {
           <div className="lg:hidden bg-white/95 dark:bg-slate-950/95 border-b border-slate-200 dark:border-slate-800 px-4 pt-2 pb-6 space-y-2 animate-in slide-in-from-top-5 duration-200">
             <div className="grid grid-cols-2 gap-2 pt-2">
               {NAV_ITEMS.map((item) => {
-                const sectionId = item.href.substring(1);
-                const isActive = activeSection === sectionId;
+                const isActive = pathname === item.href;
                 return (
-                  <a
+                  <Link
                     key={item.href}
                     href={item.href}
-                    onClick={(e) => handleNavClick(e, item.href)}
+                    onClick={() => setIsMobileMenuOpen(false)}
                     className={`flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold transition-colors ${
                       isActive
                         ? "bg-red-600 text-white"
@@ -186,7 +156,7 @@ export function Navbar() {
                         {item.badge}
                       </span>
                     )}
-                  </a>
+                  </Link>
                 );
               })}
             </div>

@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { ArrowDown, Sparkles, BookOpen, Layers, Award, ChevronRight, Coins } from "lucide-react";
 
 export function HeroSection() {
@@ -105,29 +106,29 @@ export function HeroSection() {
           transition={{ duration: 0.8, delay: 0.7 }}
           className="flex flex-wrap items-center justify-center gap-4 pt-2"
         >
-          <button
-            onClick={() => scrollToSection("theory")}
+          <Link
+            href="/theory"
             className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-red-600 via-amber-500 to-yellow-500 text-slate-950 font-bold text-sm shadow-xl shadow-red-600/20 hover:scale-105 transition-all flex items-center space-x-2"
           >
             <span>Khám phá Lý thuyết</span>
             <ChevronRight className="w-4 h-4" />
-          </button>
+          </Link>
 
-          <button
-            onClick={() => scrollToSection("analysis")}
+          <Link
+            href="/analysis"
             className="px-6 py-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-100 border border-slate-700 hover:border-amber-500 font-semibold text-sm transition-all flex items-center space-x-2"
           >
             <span>Đọc Bài phân tích</span>
             <BookOpen className="w-4 h-4 text-amber-400" />
-          </button>
+          </Link>
 
-          <button
-            onClick={() => scrollToSection("quiz")}
+          <Link
+            href="/quiz"
             className="px-6 py-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-amber-400 border border-amber-500/40 font-semibold text-sm transition-all flex items-center space-x-2"
           >
             <span>Làm Trắc nghiệm (30 Câu)</span>
             <Award className="w-4 h-4" />
-          </button>
+          </Link>
         </motion.div>
 
         {/* Scroll Indicator */}
@@ -136,7 +137,7 @@ export function HeroSection() {
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1 }}
           className="pt-8 flex flex-col items-center justify-center cursor-pointer text-slate-500 hover:text-amber-400 transition-colors"
-          onClick={() => scrollToSection("about")}
+          onClick={() => scrollToSection("dashboard")}
         >
           <span className="text-xs uppercase tracking-widest font-semibold mb-2">Cuộn xuống để khám phá</span>
           <ArrowDown className="w-4 h-4 animate-bounce text-amber-400" />

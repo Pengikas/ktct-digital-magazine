@@ -1,14 +1,16 @@
-import { KnowledgeMapSection } from "@/sections/KnowledgeMapSection";
+"use client";
 
-export const metadata = {
-  title: "Bản Đồ Tri Thức Tương Tác | KTCT Magazine",
-  description: "Sơ đồ tư duy tương tác kết nối mạng lưới lý thuyết và thực tiễn Kinh tế Chính trị Mác - Lênin.",
-};
+import { KnowledgeMapSection } from "@/sections/KnowledgeMapSection";
+import { PageNavigation } from "@/components/PageNavigation";
+import { PageTransition } from "@/components/PageTransition";
 
 export default function KnowledgeMapPage() {
   return (
-    <div className="pt-6">
-      <KnowledgeMapSection />
-    </div>
+    <PageTransition>
+      <div className="pt-6">
+        <KnowledgeMapSection />
+      </div>
+      <PageNavigation />
+    </PageTransition>
   );
 }

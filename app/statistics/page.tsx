@@ -1,14 +1,14 @@
 "use client";
 
-import { QuizSection } from "@/sections/QuizSection";
+import { StatisticsSection } from "@/sections/StatisticsSection";
 import { PageNavigation } from "@/components/PageNavigation";
 import { PageTransition } from "@/components/PageTransition";
 
-export default function QuizPage() {
+export default function StatisticsPage() {
   return (
     <PageTransition>
       <div className="pt-6">
-        <QuizSection />
+        <StatisticsSection />
       </div>
       <PageNavigation />
     </PageTransition>

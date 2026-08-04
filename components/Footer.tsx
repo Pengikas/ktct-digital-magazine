@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Link from "next/link";
 import { BookOpen, Heart, ArrowUp, Sparkles, Shield, Landmark } from "lucide-react";
 
 export function Footer() {
@@ -45,29 +46,29 @@ export function Footer() {
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
-                <a href="#about" className="hover:text-amber-400 transition-colors">
+                <Link href="/about" className="hover:text-amber-400 transition-colors">
                   Giới thiệu & Lịch sử Tiền tệ
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#theory" className="hover:text-amber-400 transition-colors">
+                <Link href="/theory" className="hover:text-amber-400 transition-colors">
                   Lý thuyết Chương 3 & 14 Khái niệm
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#analysis" className="hover:text-amber-400 transition-colors">
+                <Link href="/analysis" className="hover:text-amber-400 transition-colors">
                   Phân tích &quot;Tiền nhiều để làm gì?&quot;
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#practical" className="hover:text-amber-400 transition-colors">
+                <Link href="/practical-examples" className="hover:text-amber-400 transition-colors">
                   Case Studies (Bill Gates, Notch, Rap)
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#statistics" className="hover:text-amber-400 transition-colors">
+                <Link href="/statistics" className="hover:text-amber-400 transition-colors">
                   Bộ số liệu GDP & Chỉ số Hạnh phúc
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -79,24 +80,29 @@ export function Footer() {
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
-                <a href="#knowledge-map" className="hover:text-amber-400 transition-colors">
+                <Link href="/knowledge-map" className="hover:text-amber-400 transition-colors">
                   Sơ đồ Tư duy (Knowledge Mind Map)
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#qa" className="hover:text-amber-400 transition-colors">
+                <Link href="/qa" className="hover:text-amber-400 transition-colors">
                   Hệ thống Câu hỏi & Phản biện
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#quiz" className="hover:text-amber-400 transition-colors">
+                <Link href="/quiz" className="hover:text-amber-400 transition-colors">
                   Bộ Trắc nghiệm 30 Câu hỏi
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#team" className="hover:text-amber-400 transition-colors">
-                  Đội ngũ 20 Thành viên Nhóm
-                </a>
+                <Link href="/game" className="hover:text-amber-400 transition-colors">
+                  Game tương tác <span className="text-[10px] text-slate-500">(Coming Soon)</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/magazine" className="hover:text-amber-400 transition-colors">
+                  Tạp Chí số <span className="text-[10px] text-slate-500">(Coming Soon)</span>
+                </Link>
               </li>
             </ul>
           </div>
