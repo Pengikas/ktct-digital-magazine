@@ -115,12 +115,12 @@ export function AnalysisSection() {
 
               {/* Magazine Pull Quote */}
               {sec.pullQuote && (
-                <div className="my-8 p-6 rounded-2xl bg-gradient-to-r from-red-950/40 via-slate-900 to-amber-950/40 border border-red-500/30 relative overflow-hidden">
-                  <Quote className="absolute top-3 right-4 w-16 h-16 text-amber-500/10 pointer-events-none" />
-                  <p className="text-base sm:text-xl font-serif italic text-amber-200 leading-relaxed relative z-10">
+                <div className="my-8 p-6 rounded-2xl bg-[hsl(var(--marx-crimson)/0.06)] dark:bg-gradient-to-r dark:from-red-950/40 dark:via-slate-900 dark:to-amber-950/40 border border-[hsl(var(--marx-crimson)/0.25)] dark:border-red-500/30 relative overflow-hidden">
+                  <Quote className="absolute top-3 right-4 w-16 h-16 text-[hsl(var(--marx-gold)/0.15)] dark:text-amber-500/10 pointer-events-none" />
+                  <p className="text-base sm:text-xl font-serif italic text-foreground dark:text-amber-100 leading-relaxed relative z-10">
                     &ldquo;{sec.pullQuote.text}&rdquo;
                   </p>
-                  <span className="block mt-3 text-xs font-bold uppercase tracking-wider text-red-400 font-sans">
+                  <span className="block mt-3 text-xs font-bold uppercase tracking-wider text-crimson dark:text-red-400 font-sans">
                     — {sec.pullQuote.author}
                   </span>
                 </div>
@@ -134,17 +134,17 @@ export function AnalysisSection() {
                       key={idx}
                       className={`p-4 rounded-xl border text-xs sm:text-sm space-y-1.5 ${
                         callout.type === "warning"
-                          ? "bg-red-950/40 border-red-800/80 text-red-200"
+                          ? "bg-[hsl(var(--marx-crimson)/0.08)] border-[hsl(var(--marx-crimson)/0.35)] text-foreground dark:bg-red-950/40 dark:border-red-800/80 dark:text-red-100"
                           : callout.type === "info"
-                          ? "bg-blue-950/40 border-blue-800/80 text-blue-200"
-                          : "bg-amber-950/40 border-amber-800/80 text-amber-200"
+                          ? "bg-[hsl(210_40%_94%)] border-[hsl(210_35%_70%)] text-foreground dark:bg-blue-950/40 dark:border-blue-800/80 dark:text-blue-100"
+                          : "bg-[hsl(var(--marx-gold)/0.12)] border-[hsl(var(--marx-gold)/0.4)] text-foreground dark:bg-amber-950/40 dark:border-amber-800/80 dark:text-amber-100"
                       }`}
                     >
-                      <div className="font-bold flex items-center gap-1.5">
-                        <AlertTriangle className="w-4 h-4 shrink-0" />
+                      <div className="font-bold flex items-center gap-1.5 text-crimson dark:text-inherit">
+                        <AlertTriangle className="w-4 h-4 shrink-0 text-gold" />
                         <span>{callout.title}</span>
                       </div>
-                      <p className="leading-relaxed opacity-90">{callout.text}</p>
+                      <p className="leading-relaxed text-muted-foreground dark:opacity-90 dark:text-inherit">{callout.text}</p>
                     </div>
                   ))}
                 </div>
@@ -216,8 +216,8 @@ export function AnalysisSection() {
                   </div>
                 </div>
 
-                <div className="p-3 rounded-lg bg-gradient-to-r from-red-950/60 to-amber-950/60 border border-red-800/50 text-xs text-foreground/90 font-serif italic">
-                  <strong>Kết luận:</strong> {arg.conclusion}
+                <div className="p-3 rounded-lg bg-gradient-to-r from-[hsl(var(--marx-crimson)/0.92)] via-[hsl(20_25%_18%)] to-[hsl(var(--marx-gold)/0.55)] dark:from-red-950/80 dark:via-slate-900 dark:to-amber-950/70 border border-[hsl(var(--marx-gold)/0.45)] dark:border-red-800/50 text-xs text-white font-serif italic">
+                  <strong className="text-gold not-italic">Kết luận:</strong> {arg.conclusion}
                 </div>
               </motion.div>
             ))}

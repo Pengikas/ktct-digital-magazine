@@ -48,7 +48,7 @@ export function QASection() {
                   className="w-full p-6 text-left flex justify-between items-center space-x-4 focus:outline-none"
                 >
                   <div className="space-y-1">
-                    <span className="px-2.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-amber-950 text-gold border border-amber-800">
+                    <span className="px-2.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-[hsl(var(--marx-gold)/0.15)] text-gold border border-[hsl(var(--marx-gold)/0.45)]">
                       {item.questionNumber} • {item.category}
                     </span>
                     <h3 className="text-base sm:text-xl font-bold font-serif text-foreground pt-1">
@@ -70,7 +70,7 @@ export function QASection() {
                       className="px-6 pb-6 pt-2 border-t border-marx space-y-4"
                     >
                       {/* Short Answer Lead */}
-                      <div className="p-4 rounded-xl bg-amber-950/30 border border-amber-800/50 text-sm font-semibold text-gold">
+                      <div className="p-4 rounded-xl bg-[hsl(var(--marx-gold)/0.12)] dark:bg-amber-950/30 border border-[hsl(var(--marx-gold)/0.4)] dark:border-amber-800/50 text-sm font-semibold text-foreground dark:text-gold">
                         {item.shortAnswer}
                       </div>
 

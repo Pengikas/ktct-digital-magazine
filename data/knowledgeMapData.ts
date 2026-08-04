@@ -74,7 +74,7 @@ export const KNOWLEDGE_MAP_NODES: MapNode[] = [
   },
   {
     id: "real-wealth",
-    label: "CỦA CẢI THỰC SỰ",
+    label: "Của cải thực sự",
     category: "phân-tích",
     x: 75,
     y: 75,

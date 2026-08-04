@@ -14,7 +14,82 @@ import {
   SECONDARY_CONCEPTS,
   MONEY_FUNCTIONS,
   VALUE_FORMS,
+  type Concept,
 } from "@/data/theoryData";
+
+function categoryClass(category: Concept["category"]) {
+  if (category === "cơ-bản") {
+    return "bg-[hsl(var(--marx-crimson)/0.12)] text-crimson border border-[hsl(var(--marx-crimson)/0.35)] dark:text-gold dark:border-[hsl(var(--marx-gold)/0.4)] dark:bg-[hsl(var(--marx-gold)/0.1)]";
+  }
+  if (category === "nâng-cao") {
+    return "bg-[hsl(var(--marx-crimson)/0.18)] text-[hsl(var(--marx-crimson))] border border-[hsl(var(--marx-crimson)/0.45)] dark:text-red-300 dark:bg-red-950/50 dark:border-red-800";
+  }
+  return "bg-emerald-950/20 text-emerald-700 border border-emerald-800/40 dark:text-emerald-300 dark:bg-emerald-950 dark:border-emerald-800";
+}
+
+function ConceptCard({
+  item,
+  isExpanded,
+  onToggle,
+}: {
+  item: Concept;
+  isExpanded: boolean;
+  onToggle: () => void;
+}) {
+  return (
+    <motion.div
+      layout
+      id={`concept-${item.id}`}
+      className={`relative overflow-hidden p-6 rounded-2xl border transition-all ${
+        isExpanded
+          ? "bg-marx-raised border-[hsl(var(--marx-gold))] shadow-2xl"
+          : "bg-marx-raised border-marx hover:border-[hsl(var(--marx-gold)/0.45)]"
+      }`}
+    >
+      <div className="relative z-[1]">
+        <div className="flex justify-between items-start mb-3">
+          <span className="w-8 h-8 rounded-lg bg-[hsl(var(--marx-gold)/0.15)] text-gold font-mono font-bold text-xs flex items-center justify-center border border-[hsl(var(--marx-gold)/0.35)]">
+            #{item.number}
+          </span>
+          <span className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase ${categoryClass(item.category)}`}>
+            {item.category}
+          </span>
+        </div>
+        <h4 className="text-lg font-bold text-foreground mb-1">{item.title}</h4>
+        <p className="text-xs font-mono text-gold mb-3">{item.originalTerm}</p>
+        <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{item.definition}</p>
+        {item.extendedExplanation && (
+          <div className="mt-4 pt-3 border-t border-marx">
+            <button
+              type="button"
+              onClick={onToggle}
+              className="flex items-center space-x-1.5 text-xs font-semibold text-gold hover:opacity-80"
+            >
+              <span>{isExpanded ? "Thu gọn" : "Xem phân tích mở rộng"}</span>
+              {isExpanded ? (
+                <ChevronUp className="w-3.5 h-3.5" />
+              ) : (
+                <ChevronDown className="w-3.5 h-3.5" />
+              )}
+            </button>
+            <AnimatePresence>
+              {isExpanded && (
+                <motion.p
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  className="text-xs text-muted-foreground mt-2 leading-relaxed bg-[hsl(var(--background))] p-3 rounded-lg border border-marx"
+                >
+                  {item.extendedExplanation}
+                </motion.p>
+              )}
+            </AnimatePresence>
+          </div>
+        )}
+      </div>
+    </motion.div>
+  );
+}
 
 export function TheorySection() {
   const [expandedConceptId, setExpandedConceptId] = React.useState<string | null>(null);
@@ -24,12 +99,12 @@ export function TheorySection() {
   const [activeFormStep, setActiveFormStep] = React.useState<number>(1);
   const [hoveredCirculation, setHoveredCirculation] = React.useState<"simple" | "capital" | null>(null);
 
+  const activeValueForm = VALUE_FORMS.find((f) => f.step === activeFormStep) || VALUE_FORMS[0];
+
   const toggleConcept = (id: string) =>
     setExpandedConceptId((prev) => (prev === id ? null : id));
   const toggleFunc = (id: string) =>
     setExpandedFuncId((prev) => (prev === id ? null : id));
-
-  const activeValueForm = VALUE_FORMS.find((f) => f.step === activeFormStep) || VALUE_FORMS[0];
 
   return (
     <section id="theory" className="py-16 px-4 sm:px-6 lg:px-8 bg-marx-surface text-foreground relative">
@@ -139,77 +214,22 @@ export function TheorySection() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {PRIMARY_CONCEPTS.map((item) => {
-              const isExpanded = expandedConceptId === item.id;
-              return (
-                <motion.div
-                  key={item.id}
-                  layout
-                  id={`concept-${item.id}`}
-                  className={`p-6 rounded-2xl border transition-all ${
-                    isExpanded
-                      ? "bg-marx-raised border-amber-500/80 shadow-2xl"
-                      : "bg-marx-raised border-marx hover:border-marx"
-                  }`}
-                >
-                  <div className="flex justify-between items-start mb-3">
-                    <span className="w-8 h-8 rounded-lg bg-amber-500/10 text-gold font-mono font-bold text-xs flex items-center justify-center border border-amber-500/20">
-                      #{item.number}
-                    </span>
-                    <span
-                      className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase ${
-                        item.category === "cơ-bản"
-                          ? "bg-blue-950 text-blue-300 border border-blue-800"
-                          : item.category === "nâng-cao"
-                            ? "bg-red-950 text-red-300 border border-red-800"
-                            : "bg-emerald-950 text-emerald-300 border border-emerald-800"
-                      }`}
-                    >
-                      {item.category}
-                    </span>
-                  </div>
-                  <h4 className="text-lg font-bold text-foreground mb-1">{item.title}</h4>
-                  <p className="text-xs font-mono text-gold/90 mb-3">{item.originalTerm}</p>
-                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{item.definition}</p>
-                  {item.extendedExplanation && (
-                    <div className="mt-4 pt-3 border-t border-marx">
-                      <button
-                        type="button"
-                        onClick={() => toggleConcept(item.id)}
-                        className="flex items-center space-x-1.5 text-xs font-semibold text-gold hover:opacity-80"
-                      >
-                        <span>{isExpanded ? "Thu gọn" : "Xem thêm"}</span>
-                        {isExpanded ? (
-                          <ChevronUp className="w-3.5 h-3.5" />
-                        ) : (
-                          <ChevronDown className="w-3.5 h-3.5" />
-                        )}
-                      </button>
-                      <AnimatePresence>
-                        {isExpanded && (
-                          <motion.p
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: "auto" }}
-                            exit={{ opacity: 0, height: 0 }}
-                            className="text-xs text-muted-foreground mt-2 leading-relaxed bg-[hsl(var(--background))] p-3 rounded-lg border border-marx"
-                          >
-                            {item.extendedExplanation}
-                          </motion.p>
-                        )}
-                      </AnimatePresence>
-                    </div>
-                  )}
-                </motion.div>
-              );
-            })}
+            {PRIMARY_CONCEPTS.map((item) => (
+              <ConceptCard
+                key={item.id}
+                item={item}
+                isExpanded={expandedConceptId === item.id}
+                onToggle={() => toggleConcept(item.id)}
+              />
+            ))}
           </div>
 
           <div className="pt-2">
             <button
               onClick={() => setShowSecondary(!showSecondary)}
-              className="text-xs font-semibold text-muted-foreground hover:text-gold flex items-center gap-1.5"
+              className="text-sm sm:text-base font-semibold text-muted-foreground hover:text-gold flex items-center gap-2"
             >
-              {showSecondary ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+              {showSecondary ? <ChevronUp className="w-4 h-4 sm:w-5 sm:h-5" /> : <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5" />}
               {showSecondary ? "Ẩn khái niệm nền Chương 2" : "Hiện thêm khái niệm nền Chương 2 (HH, GTSD…)"}
             </button>
             <AnimatePresence>
@@ -218,54 +238,16 @@ export function TheorySection() {
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
-                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4"
+                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4"
                 >
-                  {SECONDARY_CONCEPTS.map((item) => {
-                    const isExpanded = expandedConceptId === item.id;
-                    return (
-                      <motion.div
-                        key={item.id}
-                        layout
-                        id={`concept-${item.id}`}
-                        className={`p-4 rounded-xl border transition-all ${
-                          isExpanded
-                            ? "bg-marx-raised border-amber-500/80 shadow-xl"
-                            : "bg-marx-raised/40 border-marx hover:border-[hsl(var(--marx-gold)/0.4)]"
-                        }`}
-                      >
-                        <h4 className="text-sm font-bold text-foreground">{item.title}</h4>
-                        <p className="text-xs text-muted-foreground mt-1 leading-relaxed">{item.definition}</p>
-                        {item.extendedExplanation && (
-                          <div className="mt-3 pt-2 border-t border-marx">
-                            <button
-                              type="button"
-                              onClick={() => toggleConcept(item.id)}
-                              className="flex items-center space-x-1.5 text-xs font-semibold text-gold hover:opacity-80"
-                            >
-                              <span>{isExpanded ? "Thu gọn" : "Xem thêm"}</span>
-                              {isExpanded ? (
-                                <ChevronUp className="w-3.5 h-3.5" />
-                              ) : (
-                                <ChevronDown className="w-3.5 h-3.5" />
-                              )}
-                            </button>
-                            <AnimatePresence>
-                              {isExpanded && (
-                                <motion.p
-                                  initial={{ opacity: 0, height: 0 }}
-                                  animate={{ opacity: 1, height: "auto" }}
-                                  exit={{ opacity: 0, height: 0 }}
-                                  className="text-xs text-muted-foreground mt-2 leading-relaxed bg-[hsl(var(--background))] p-3 rounded-lg border border-marx"
-                                >
-                                  {item.extendedExplanation}
-                                </motion.p>
-                              )}
-                            </AnimatePresence>
-                          </div>
-                        )}
-                      </motion.div>
-                    );
-                  })}
+                  {SECONDARY_CONCEPTS.map((item) => (
+                    <ConceptCard
+                      key={item.id}
+                      item={item}
+                      isExpanded={expandedConceptId === item.id}
+                      onToggle={() => toggleConcept(item.id)}
+                    />
+                  ))}
                 </motion.div>
               )}
             </AnimatePresence>
@@ -302,62 +284,66 @@ export function TheorySection() {
                 className="px-5 pb-8 space-y-10 border-t border-marx"
               >
                 <div id="money-functions" className="space-y-4 pt-6">
-                  <h4 className="text-lg font-bold font-serif text-foreground">5 chức năng tiền tệ</h4>
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <h4 className="text-2xl sm:text-3xl font-bold font-serif text-foreground">5 chức năng tiền tệ</h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {MONEY_FUNCTIONS.map((func) => {
                       const isExpanded = expandedFuncId === func.id;
                       return (
                         <motion.div
                           key={func.id}
                           layout
-                          className={`p-4 rounded-xl border space-y-2 transition-all ${
+                          className={`relative overflow-hidden p-6 rounded-2xl border transition-all ${
                             isExpanded
-                              ? "bg-marx-raised border-amber-500/80 shadow-xl"
+                              ? "bg-marx-raised border-[hsl(var(--marx-gold))] shadow-xl"
                               : "bg-marx-raised border-marx hover:border-[hsl(var(--marx-gold)/0.4)]"
                           }`}
                         >
-                          <div className="flex justify-between">
-                            <span className="text-amber-500/50 font-black font-serif text-xl">
-                              {func.number}
-                            </span>
-                            <span className="text-[10px] px-2 py-0.5 rounded-full bg-red-950 text-red-300 border border-red-800">
-                              {func.keyBadge}
-                            </span>
-                          </div>
-                          <h5 className="font-bold text-foreground text-sm">{func.title}</h5>
-                          <p className="text-xs text-muted-foreground leading-relaxed">{func.definition}</p>
-                          <div className="pt-2 border-t border-marx">
-                            <button
-                              type="button"
-                              onClick={() => toggleFunc(func.id)}
-                              className="flex items-center space-x-1.5 text-xs font-semibold text-gold hover:opacity-80"
-                            >
-                              <span>{isExpanded ? "Thu gọn" : "Xem thêm"}</span>
-                              {isExpanded ? (
-                                <ChevronUp className="w-3.5 h-3.5" />
-                              ) : (
-                                <ChevronDown className="w-3.5 h-3.5" />
-                              )}
-                            </button>
-                            <AnimatePresence>
-                              {isExpanded && (
-                                <motion.div
-                                  initial={{ opacity: 0, height: 0 }}
-                                  animate={{ opacity: 1, height: "auto" }}
-                                  exit={{ opacity: 0, height: 0 }}
-                                  className="mt-2 space-y-2 overflow-hidden"
-                                >
-                                  <p className="text-xs text-muted-foreground leading-relaxed bg-[hsl(var(--background))] p-3 rounded-lg border border-marx">
-                                    {func.detailedAnalysis}
-                                  </p>
-                                  {func.example && (
-                                    <p className="text-xs text-muted-foreground leading-relaxed italic px-1">
-                                      Ví dụ: {func.example}
+                          <div className="relative z-[1] space-y-2">
+                            <div className="flex justify-between items-start">
+                              <span className="w-8 h-8 rounded-lg bg-[hsl(var(--marx-gold)/0.15)] text-gold font-mono font-bold text-xs flex items-center justify-center border border-[hsl(var(--marx-gold)/0.35)]">
+                                #{func.number.replace(/^0/, "")}
+                              </span>
+                              <span className="text-[10px] px-2 py-0.5 rounded font-bold uppercase bg-[hsl(var(--marx-crimson)/0.12)] text-crimson border border-[hsl(var(--marx-crimson)/0.35)] dark:text-gold dark:border-[hsl(var(--marx-gold)/0.4)] dark:bg-[hsl(var(--marx-gold)/0.1)]">
+                                {func.keyBadge}
+                              </span>
+                            </div>
+                            <h5 className="font-bold text-foreground text-lg">{func.title}</h5>
+                            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                              {func.definition}
+                            </p>
+                            <div className="pt-3 border-t border-marx">
+                              <button
+                                type="button"
+                                onClick={() => toggleFunc(func.id)}
+                                className="flex items-center space-x-1.5 text-xs font-semibold text-gold hover:opacity-80"
+                              >
+                                <span>{isExpanded ? "Thu gọn" : "Xem phân tích mở rộng"}</span>
+                                {isExpanded ? (
+                                  <ChevronUp className="w-3.5 h-3.5" />
+                                ) : (
+                                  <ChevronDown className="w-3.5 h-3.5" />
+                                )}
+                              </button>
+                              <AnimatePresence>
+                                {isExpanded && (
+                                  <motion.div
+                                    initial={{ opacity: 0, height: 0 }}
+                                    animate={{ opacity: 1, height: "auto" }}
+                                    exit={{ opacity: 0, height: 0 }}
+                                    className="mt-2 space-y-2 overflow-hidden"
+                                  >
+                                    <p className="text-xs text-muted-foreground leading-relaxed bg-[hsl(var(--background))] p-3 rounded-lg border border-marx">
+                                      {func.detailedAnalysis}
                                     </p>
-                                  )}
-                                </motion.div>
-                              )}
-                            </AnimatePresence>
+                                    {func.example && (
+                                      <p className="text-xs text-muted-foreground leading-relaxed italic px-1">
+                                        Ví dụ: {func.example}
+                                      </p>
+                                    )}
+                                  </motion.div>
+                                )}
+                              </AnimatePresence>
+                            </div>
                           </div>
                         </motion.div>
                       );
@@ -366,7 +352,7 @@ export function TheorySection() {
                 </div>
 
                 <div id="money-origin" className="space-y-4">
-                  <h4 className="text-lg font-bold font-serif text-foreground">4 hình thái giá trị</h4>
+                  <h4 className="text-2xl sm:text-3xl font-bold font-serif text-foreground">4 hình thái giá trị</h4>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                     {VALUE_FORMS.map((form) => (
                       <button

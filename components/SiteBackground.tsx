@@ -1,7 +1,6 @@
 /**
- * Watermark ấn phẩm KTCT — sách mở làm hình chìm chính + công thức phụ.
- * Màu theo theme: đỏ son (sáng) / vàng kim (tối) qua currentColor.
- * Section dùng bg bán trong suốt (bg-marx-surface / bg-page) để hình không bị che kín.
+ * Watermark ấn phẩm KTCT — sách mở + sao + công thức.
+ * Màu: đỏ son (sáng) / vàng kim (tối). Opacity hình chìm: 0.5 / 0.6.
  */
 export function SiteBackground() {
   return (
@@ -12,16 +11,16 @@ export function SiteBackground() {
       {/* Wash đỏ–vàng dịu */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_15%_0%,rgba(155,27,27,0.08),transparent_50%),radial-gradient(ellipse_at_85%_100%,rgba(196,163,90,0.07),transparent_45%)] dark:bg-[radial-gradient(ellipse_at_15%_0%,rgba(185,28,28,0.18),transparent_55%),radial-gradient(ellipse_at_85%_100%,rgba(196,163,90,0.1),transparent_50%)]" />
 
-      {/* Corner stars — nhẹ */}
+      {/* Corner stars */}
       <svg
-        className="absolute left-4 top-24 h-16 w-16 opacity-[0.50] dark:opacity-[0.60] text-[hsl(var(--marx-crimson))] dark:text-[hsl(var(--marx-gold))]"
+        className="absolute left-4 top-24 h-16 w-16 opacity-50 dark:opacity-60 text-[hsl(var(--marx-crimson))] dark:text-[hsl(var(--marx-gold))]"
         viewBox="0 0 80 80"
         fill="currentColor"
       >
         <path d="M40 6 L46 28 L68 28 L50 40 L56 62 L40 50 L24 62 L30 40 L12 28 L34 28 Z" />
       </svg>
       <svg
-        className="absolute right-4 bottom-28 h-16 w-16 opacity-[0.14] dark:opacity-[0.18] text-[hsl(var(--marx-crimson))] dark:text-[hsl(var(--marx-gold))]"
+        className="absolute right-4 bottom-28 h-16 w-16 opacity-50 dark:opacity-60 text-[hsl(var(--marx-crimson))] dark:text-[hsl(var(--marx-gold))]"
         viewBox="0 0 80 80"
         fill="currentColor"
       >
@@ -30,7 +29,7 @@ export function SiteBackground() {
 
       {/* Center: open book watermark */}
       <svg
-        className="absolute left-1/2 top-[48%] h-[min(58vh,520px)] w-[min(78vw,720px)] -translate-x-1/2 -translate-y-1/2 opacity-[0.50] dark:opacity-[0.60] text-[hsl(var(--marx-crimson))] dark:text-[hsl(var(--marx-gold))] transition-colors duration-300"
+        className="absolute left-1/2 top-[48%] h-[min(58vh,520px)] w-[min(78vw,720px)] -translate-x-1/2 -translate-y-1/2 opacity-50 dark:opacity-60 text-[hsl(var(--marx-crimson))] dark:text-[hsl(var(--marx-gold))] transition-colors duration-300"
         viewBox="0 0 512 360"
         fill="none"
       >
@@ -66,16 +65,16 @@ export function SiteBackground() {
         <ellipse cx="256" cy="318" rx="168" ry="18" fill="currentColor" opacity="0.22" />
       </svg>
 
-      {/* Formulas — phụ, cùng palette theme */}
+      {/* Formulas */}
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="relative h-full w-full max-w-5xl">
-          <span className="absolute left-[4%] top-[18%] rotate-[-10deg] select-none font-serif text-3xl sm:text-5xl font-bold tracking-[0.2em] text-[#9b1b1b]/[0.12] dark:text-[#c4a35a]/[0.15] transition-colors duration-300">
+          <span className="absolute left-[4%] top-[18%] rotate-[-10deg] select-none font-serif text-3xl sm:text-5xl font-bold tracking-[0.2em] text-[#9b1b1b]/50 dark:text-[#c4a35a]/60 transition-colors duration-300">
             T — H — T′
           </span>
-          <span className="absolute right-[5%] top-[52%] rotate-[7deg] select-none font-serif text-2xl sm:text-4xl font-bold tracking-[0.18em] text-[#9b1b1b]/[0.1] dark:text-[#c4a35a]/[0.13] transition-colors duration-300">
+          <span className="absolute right-[5%] top-[52%] rotate-[7deg] select-none font-serif text-2xl sm:text-4xl font-bold tracking-[0.18em] text-[#9b1b1b]/50 dark:text-[#c4a35a]/60 transition-colors duration-300">
             H — T — H
           </span>
-          <span className="absolute bottom-[16%] left-[12%] rotate-[-5deg] select-none font-mono text-xl sm:text-3xl font-semibold text-[#9b1b1b]/[0.08] dark:text-[#c4a35a]/[0.11] transition-colors duration-300">
+          <span className="absolute bottom-[16%] left-[12%] rotate-[-5deg] select-none font-mono text-xl sm:text-3xl font-semibold text-[#9b1b1b]/50 dark:text-[#c4a35a]/60 transition-colors duration-300">
             m = G − (c + v)
           </span>
         </div>

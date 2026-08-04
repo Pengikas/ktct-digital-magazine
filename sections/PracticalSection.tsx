@@ -52,6 +52,28 @@ export function PracticalSection() {
           ))}
         </div>
 
+        {/* Category color legend */}
+        <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-xs text-muted-foreground border border-marx rounded-xl bg-marx-raised/60 px-4 py-3">
+          <div className="flex items-center gap-2">
+            <span className="w-3 h-3 rounded-full bg-emerald-600 shrink-0" aria-hidden />
+            <span>
+              <strong className="text-foreground">Xanh:</strong> Tài chính &amp; Xã hội
+            </span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="w-3 h-3 rounded-full bg-red-600 shrink-0" aria-hidden />
+            <span>
+              <strong className="text-foreground">Đỏ:</strong> Tha hóa &amp; Tâm lý
+            </span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="w-3 h-3 rounded-full bg-amber-600 shrink-0" aria-hidden />
+            <span>
+              <strong className="text-foreground">Vàng:</strong> Nghệ thuật &amp; Rap
+            </span>
+          </div>
+        </div>
+
         {/* Practical Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredExamples.map((ex) => (
@@ -69,16 +91,23 @@ export function PracticalSection() {
                 {/* Visual Header / Image Placeholder Box */}
                 <div className="h-40 rounded-sm bg-[hsl(var(--background))] border border-marx p-4 flex flex-col justify-between relative overflow-hidden group-hover:border-[hsl(var(--marx-gold)/0.4)] transition-colors">
                   <div className="flex justify-between items-start">
-                    <span className="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-[hsl(var(--muted))] text-emerald-400 border border-marx">
+                    <span className="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-[hsl(var(--muted))] text-emerald-700 dark:text-emerald-500 border border-marx">
                       {ex.badge}
                     </span>
                     <span
+                      title={
+                        ex.category === "tài-chính-xã-hội"
+                          ? "Tài chính & Xã hội"
+                          : ex.category === "tha-hóa-tâm-lý"
+                            ? "Tha hóa & Tâm lý"
+                            : "Nghệ thuật & Rap"
+                      }
                       className={`w-3 h-3 rounded-full ${
-                        ex.direction === "thuận"
-                          ? "bg-emerald-500"
-                          : ex.direction === "nghịch"
-                          ? "bg-red-500"
-                          : "bg-amber-500"
+                        ex.category === "tài-chính-xã-hội"
+                          ? "bg-emerald-600"
+                          : ex.category === "tha-hóa-tâm-lý"
+                          ? "bg-red-600"
+                          : "bg-amber-600"
                       }`}
                     />
                   </div>
@@ -93,10 +122,10 @@ export function PracticalSection() {
 
                 {/* Case Title */}
                 <div>
-                  <h3 className="text-lg font-bold text-foreground group-hover:text-emerald-400 transition-colors font-serif">
+                  <h3 className="text-lg font-bold text-foreground group-hover:text-emerald-700 dark:group-hover:text-emerald-500 transition-colors font-serif">
                     {ex.title}
                   </h3>
-                  <p className="text-xs text-emerald-300 font-serif italic mt-0.5">{ex.subtitle}</p>
+                  <p className="text-xs text-emerald-700 dark:text-emerald-500 font-serif italic mt-0.5">{ex.subtitle}</p>
                 </div>
 
                 {/* Reality Fact */}
