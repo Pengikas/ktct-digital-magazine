@@ -2,13 +2,13 @@
 
 import * as React from "react";
 import { motion } from "framer-motion";
-import { BookOpen, Sparkles, Layers, Download, ExternalLink, Monitor, LayoutGrid } from "lucide-react";
+import { BookOpen, Sparkles, Layers, Download, ExternalLink, Monitor, LayoutGrid, FileText } from "lucide-react";
 import { PageNavigation } from "@/components/PageNavigation";
 import { PageTransition } from "@/components/PageTransition";
 import { Flipbook } from "@/components/magazine/Flipbook";
 
 export default function MagazinePage() {
-  const [viewMode, setViewMode] = React.useState<"native" | "heyzine">("native");
+  const [viewMode, setViewMode] = React.useState<"native" | "pdf">("native");
 
   return (
     <PageTransition>
@@ -22,7 +22,7 @@ export default function MagazinePage() {
             className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-500 text-xs font-bold uppercase tracking-wider"
           >
             <Sparkles className="w-4 h-4 text-amber-400" />
-            <span>ẤN PHẨM TẠP CHÍ SỐ TƯƠNG TÁC (FLIPBOOK 3D)</span>
+            <span>ẤN PHẨM TẠP CHÍ SỐ CHUYÊN ĐỀ (FLIPBOOK &amp; PDF)</span>
           </motion.div>
 
           <motion.h1
@@ -40,7 +40,7 @@ export default function MagazinePage() {
             transition={{ delay: 0.3, duration: 0.6 }}
             className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed"
           >
-            Lật xem ấn phẩm sách điện tử với câu chủ đề <strong>&ldquo;TIỀN NHIỀU ĐỂ LÀM GÌ?&rdquo;</strong>, đầy đủ nội dung lý luận <strong>Chương 3</strong>, phân tích 2 hình thái lưu thông <strong>(H—T—H &amp; T—H—T')</strong>, dẫn chứng số liệu thực tiễn Việt Nam và các câu chuyện từ Tỷ phú đến Rap Việt.
+            Nội dung bài làm chuyên đề <strong>&ldquo;TIỀN NHIỀU ĐỂ LÀM GÌ?&rdquo;</strong> — Đầy đủ 6 phần: Khái niệm cốt lõi, 2 hình thái lưu thông (H—T—H &amp; T—H—T'), Giá trị thặng dư &amp; Của cải thực sự, Phản biện 2 luồng quan điểm, Bộ số liệu Việt Nam (2022–2025), Case studies Bill Gates, Markus Persson, Rap Việt và Bài học sinh viên.
           </motion.p>
 
           {/* Action Buttons & Mode Switcher */}
@@ -57,7 +57,7 @@ export default function MagazinePage() {
               className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-red-600 via-amber-600 to-amber-500 hover:from-red-500 hover:to-amber-400 text-white font-bold text-xs sm:text-sm shadow-xl hover:scale-105 transition-all flex items-center space-x-2 border border-amber-400/30"
             >
               <Download className="w-4 h-4" />
-              <span>Tải file PDF Tạp chí chính thức (1.7 MB)</span>
+              <span>Tải file PDF Tạp chí chính thức (1.6 MB)</span>
             </a>
 
             {/* View Mode Toggle */}
@@ -71,47 +71,47 @@ export default function MagazinePage() {
                 }`}
               >
                 <LayoutGrid className="w-3.5 h-3.5" />
-                <span>Bản 3D Interactive (HTML5)</span>
+                <span>Bản 3D Interactive Flipbook</span>
               </button>
               <button
-                onClick={() => setViewMode("heyzine")}
+                onClick={() => setViewMode("pdf")}
                 className={`px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-all ${
-                  viewMode === "heyzine"
+                  viewMode === "pdf"
                     ? "bg-amber-500 text-slate-950 shadow-md font-bold"
                     : "text-slate-400 hover:text-slate-200"
                 }`}
               >
-                <Monitor className="w-3.5 h-3.5" />
-                <span>Bản Heyzine Reader</span>
+                <FileText className="w-3.5 h-3.5" />
+                <span>Bản Đọc PDF Gốc (6 Trang)</span>
               </button>
             </div>
           </motion.div>
         </section>
 
-        {/* 3D Interactive Flipbook Magazine Content */}
+        {/* Magazine Viewer Stage */}
         <section className="max-w-5xl mx-auto">
           {viewMode === "native" ? (
             <Flipbook />
           ) : (
             <div className="space-y-4">
+              {/* PDF Viewer Container */}
               <div className="relative w-full rounded-2xl overflow-hidden border border-amber-500/30 shadow-2xl bg-slate-950">
                 <iframe
-                  src="https://heyzine.com/flip-book/a73f27f03f.html"
-                  title="Heyzine Digital Magazine Flipbook"
-                  className="w-full h-[600px] sm:h-[780px] border-0"
-                  allowFullScreen
+                  src="/documents/KTCT_Digital_Magazine_Chuyen_De_Tien_Nhieu_De_Lam_Gi.pdf#toolbar=1&navpanes=1&view=FitH"
+                  title="PDF Reader - Chuyên đề KTCT Tiền Nhiều Để Làm Gì"
+                  className="w-full h-[650px] sm:h-[820px] border-0"
                 />
               </div>
 
-              <div className="flex justify-between items-center text-xs text-muted-foreground px-2">
-                <span>Trải nghiệm xem trực tiếp qua trình đọc Heyzine Reader chuẩn quốc tế</span>
+              <div className="flex flex-wrap justify-between items-center text-xs text-muted-foreground px-2 gap-2">
+                <span>Hiển thị đầy đủ 6 trang bản thảo chính thức chuyên đề &ldquo;Tiền Nhiều Để Làm Gì?&rdquo;</span>
                 <a
-                  href="https://heyzine.com/flip-book/a73f27f03f.html"
+                  href="/documents/KTCT_Digital_Magazine_Chuyen_De_Tien_Nhieu_De_Lam_Gi.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center space-x-1 text-gold hover:underline font-semibold"
                 >
-                  <span>Mở Heyzine trên tab mới</span>
+                  <span>Mở PDF toàn màn hình</span>
                   <ExternalLink className="w-3.5 h-3.5" />
                 </a>
               </div>
