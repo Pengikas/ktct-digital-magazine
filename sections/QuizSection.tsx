@@ -65,7 +65,7 @@ export function QuizSection() {
             <Award className="w-3.5 h-3.5" />
             <span>Trắc Nghiệm 5 Câu Cốt Lõi • Quiz Interactive</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-bold font-serif tracking-tight heading-display">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-serif tracking-tight heading-display whitespace-nowrap">
             KIỂM TRA KIẾN THỨC KINH TẾ CHÍNH TRỊ
           </h2>
           <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
