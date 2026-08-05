@@ -144,7 +144,7 @@ export function Flipbook() {
       scale: 1,
       transition: {
         duration: 0.55,
-        ease: [0.25, 1, 0.5, 1],
+        ease: "easeOut" as const,
       },
     },
     exit: (dir: number) => ({
@@ -153,7 +153,7 @@ export function Flipbook() {
       scale: 0.96,
       transition: {
         duration: 0.45,
-        ease: [0.5, 0, 0.75, 0],
+        ease: "easeIn" as const,
       },
     }),
   };
