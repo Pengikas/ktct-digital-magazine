@@ -1,12 +1,15 @@
 "use client";
 
+import * as React from "react";
 import { motion } from "framer-motion";
-import { BookOpen, Sparkles, Layers, Download } from "lucide-react";
+import { BookOpen, Sparkles, Layers, Download, ExternalLink, Monitor, LayoutGrid } from "lucide-react";
 import { PageNavigation } from "@/components/PageNavigation";
 import { PageTransition } from "@/components/PageTransition";
 import { Flipbook } from "@/components/magazine/Flipbook";
 
 export default function MagazinePage() {
+  const [viewMode, setViewMode] = React.useState<"native" | "heyzine">("native");
+
   return (
     <PageTransition>
       <div className="min-h-screen bg-[hsl(var(--background))] text-foreground py-10 px-4 sm:px-6 lg:px-8 space-y-10">
@@ -37,29 +40,83 @@ export default function MagazinePage() {
             transition={{ delay: 0.3, duration: 0.6 }}
             className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed"
           >
-            Lật xem ấn phẩm sách điện tử với đầy đủ nội dung lý luận <strong>Chương 3</strong>, phân tích 2 hình thái lưu thông <strong>(H—T—H &amp; T—H—T')</strong>, dẫn chứng số liệu thực tiễn Việt Nam (2022–2025) và các câu chuyện từ Tỷ phú đến Rap Việt.
+            Lật xem ấn phẩm sách điện tử với câu chủ đề <strong>&ldquo;TIỀN NHIỀU ĐỂ LÀM GÌ?&rdquo;</strong>, đầy đủ nội dung lý luận <strong>Chương 3</strong>, phân tích 2 hình thái lưu thông <strong>(H—T—H &amp; T—H—T')</strong>, dẫn chứng số liệu thực tiễn Việt Nam và các câu chuyện từ Tỷ phú đến Rap Việt.
           </motion.p>
 
+          {/* Action Buttons & Mode Switcher */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="pt-2 flex flex-wrap justify-center gap-4"
+            className="pt-2 flex flex-wrap justify-center items-center gap-3"
           >
+            {/* Download PDF Button */}
             <a
               href="/documents/KTCT_Digital_Magazine_Chuyen_De_Tien_Nhieu_De_Lam_Gi.pdf"
               download="KTCT_Digital_Magazine_Chuyen_De_Tien_Nhieu_De_Lam_Gi.pdf"
-              className="px-6 py-3 rounded-xl bg-gradient-to-r from-red-600 via-amber-600 to-amber-500 hover:from-red-500 hover:to-amber-400 text-white font-bold text-sm shadow-xl hover:scale-105 transition-all flex items-center space-x-2 border border-amber-400/30"
+              className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-red-600 via-amber-600 to-amber-500 hover:from-red-500 hover:to-amber-400 text-white font-bold text-xs sm:text-sm shadow-xl hover:scale-105 transition-all flex items-center space-x-2 border border-amber-400/30"
             >
               <Download className="w-4 h-4" />
               <span>Tải file PDF Tạp chí chính thức (1.7 MB)</span>
             </a>
+
+            {/* View Mode Toggle */}
+            <div className="flex items-center p-1 rounded-xl bg-slate-900/80 border border-amber-500/30 text-xs font-semibold">
+              <button
+                onClick={() => setViewMode("native")}
+                className={`px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-all ${
+                  viewMode === "native"
+                    ? "bg-amber-500 text-slate-950 shadow-md font-bold"
+                    : "text-slate-400 hover:text-slate-200"
+                }`}
+              >
+                <LayoutGrid className="w-3.5 h-3.5" />
+                <span>Bản 3D Interactive (HTML5)</span>
+              </button>
+              <button
+                onClick={() => setViewMode("heyzine")}
+                className={`px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-all ${
+                  viewMode === "heyzine"
+                    ? "bg-amber-500 text-slate-950 shadow-md font-bold"
+                    : "text-slate-400 hover:text-slate-200"
+                }`}
+              >
+                <Monitor className="w-3.5 h-3.5" />
+                <span>Bản Heyzine Reader</span>
+              </button>
+            </div>
           </motion.div>
         </section>
 
-        {/* 3D Interactive Flipbook Magazine */}
+        {/* 3D Interactive Flipbook Magazine Content */}
         <section className="max-w-5xl mx-auto">
-          <Flipbook />
+          {viewMode === "native" ? (
+            <Flipbook />
+          ) : (
+            <div className="space-y-4">
+              <div className="relative w-full rounded-2xl overflow-hidden border border-amber-500/30 shadow-2xl bg-slate-950">
+                <iframe
+                  src="https://heyzine.com/flip-book/a73f27f03f.html"
+                  title="Heyzine Digital Magazine Flipbook"
+                  className="w-full h-[600px] sm:h-[780px] border-0"
+                  allowFullScreen
+                />
+              </div>
+
+              <div className="flex justify-between items-center text-xs text-muted-foreground px-2">
+                <span>Trải nghiệm xem trực tiếp qua trình đọc Heyzine Reader chuẩn quốc tế</span>
+                <a
+                  href="https://heyzine.com/flip-book/a73f27f03f.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center space-x-1 text-gold hover:underline font-semibold"
+                >
+                  <span>Mở Heyzine trên tab mới</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              </div>
+            </div>
+          )}
         </section>
 
         <PageNavigation />
