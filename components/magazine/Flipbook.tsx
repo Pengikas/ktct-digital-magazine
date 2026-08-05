@@ -26,6 +26,7 @@ import {
   AlertCircle,
   Music,
   Heart,
+  Download,
 } from "lucide-react";
 import Image from "next/image";
 import {
@@ -229,6 +230,17 @@ export function Flipbook() {
           >
             {isFullscreen ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
           </button>
+
+          {/* Download PDF Button */}
+          <a
+            href="/documents/KTCT_Digital_Magazine_Chuyen_De_Tien_Nhieu_De_Lam_Gi.pdf"
+            download="KTCT_Digital_Magazine_Chuyen_De_Tien_Nhieu_De_Lam_Gi.pdf"
+            className="p-2 px-3 rounded-xl bg-gradient-to-r from-red-600 to-amber-600 hover:from-red-500 hover:to-amber-500 text-white text-xs font-bold flex items-center gap-1.5 shadow-md transition-all hover:scale-105"
+            title="Tải về file PDF Tạp chí chính thức"
+          >
+            <Download className="w-4 h-4" />
+            <span className="hidden sm:inline">Tải PDF</span>
+          </a>
         </div>
       </div>
 

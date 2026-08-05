@@ -64,8 +64,8 @@ export function AboutSection() {
             GIỚI THIỆU ĐỒ ÁN
           </h2>
           <p className="text-sm sm:text-base text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            CQ5: &quot;Tiền nhiều để làm gì?&quot; — trình bày dưới góc Chương 3 (3.2 Tích lũy tư bản &amp;
-            3.3 Hình thức biểu hiện giá trị thặng dư).
+            SS008.Q31: &quot;Tiền nhiều để làm gì?&quot; — trình bày dưới góc Chương 3 (Tích lũy tư bản &amp;
+            Hình thức biểu hiện giá trị thặng dư).
           </p>
         </div>
 
@@ -93,8 +93,8 @@ export function AboutSection() {
             </div>
             <h3 className="text-lg font-bold font-serif text-foreground">Phạm vi Nghiên cứu</h3>
             <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-              Trọng tâm CQ5 Chương 3: tích lũy tư bản (3.2) và các hình thức biểu hiện giá trị thặng dư
-              (3.3 — lợi nhuận, lợi tức, địa tô). Nền Chương 2 chỉ làm cầu nối ngắn (H–T–H → T–H–T′).
+              Trọng tâm SS008.Q31 Chương 3: tích lũy tư bản và các hình thức biểu hiện giá trị thặng dư
+              (lợi nhuận, lợi tức, địa tô). Nền Chương 2 chỉ làm cầu nối ngắn (H–T–H → T–H–T′).
             </p>
           </motion.div>
 

@@ -66,13 +66,13 @@ export function QuizSection() {
         <div className="text-center space-y-4">
           <div className="label-press mx-auto">
             <Award className="w-3.5 h-3.5" />
-            <span>Trắc Nghiệm 30 Câu • Quiz Interactive</span>
+            <span>Trắc Nghiệm 5 Câu Cốt Lõi • Quiz Interactive</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-bold font-serif tracking-tight heading-display">
             KIỂM TRA KIẾN THỨC KINH TẾ CHÍNH TRỊ
           </h2>
           <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Bộ 30 câu hỏi bám CQ5 (tích lũy tư bản, hình thức GTTD), nền tảng tiền–tư bản và số liệu thực tiễn.
+            Bộ 5 câu hỏi trắc nghiệm trọng tâm bám sát chuyên đề (lưu thông tư bản H-T-H &amp; T-H-T', của cải thực sự, sùng bái tiền tệ &amp; liên hệ thực tiễn).
           </p>
         </div>
 

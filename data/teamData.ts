@@ -132,7 +132,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     role: "Nghiên cứu Nội dung",
     department: "Nội dung & Nghiên cứu",
     avatarInitials: "BT",
-    bio: "Tổng hợp lý luận Chương 3 (3.2–3.3) và cầu nối từ tiền đến tư bản.",
+    bio: "Tổng hợp lý luận Chương 3 và cầu nối từ tiền đến tư bản.",
     skills: ["Kinh tế chính trị", "Nghiên cứu học thuật", "Biên tập"]
   },
   {

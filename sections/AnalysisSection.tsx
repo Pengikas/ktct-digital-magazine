@@ -30,13 +30,13 @@ export function AnalysisSection() {
         <div className="text-center space-y-4">
           <div className="label-press mx-auto">
             <BarChart className="w-3.5 h-3.5" />
-            <span>CQ5 · Chương 3 mục 3.2–3.3</span>
+            <span>SS008.Q31 · Chương 3</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-extrabold font-serif tracking-tight heading-display leading-tight">
             TRẢ LỜI: TIỀN NHIỀU ĐỂ LÀM GÌ?
           </h2>
           <p className="text-sm sm:text-base text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Trọng tâm đồ án: tích lũy tư bản (3.2) và các hình thức biểu hiện giá trị thặng dư (3.3),
+            Trọng tâm đồ án: tích lũy tư bản và các hình thức biểu hiện giá trị thặng dư,
             kết nối H–T–H → T–H–T′ và kết luận về của cải thực sự.
           </p>
         </div>
