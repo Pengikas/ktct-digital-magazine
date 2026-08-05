@@ -14,7 +14,6 @@ import {
   ZoomIn,
   ZoomOut,
   BookOpen,
-  Download,
   Search,
   Grid,
   List,
@@ -22,7 +21,6 @@ import {
 } from "lucide-react";
 import { MAGAZINE_PAGES_DATA, CONCEPTS_LIST, STORIES_LIST } from "@/data/magazineData";
 import { MagazinePages } from "@/components/magazine/MagazinePages";
-import { downloadMagazineFromScreen } from "@/lib/magazineExport";
 
 export function Flipbook() {
   const [currentPageIndex, setCurrentPageIndex] = React.useState(0);
@@ -476,16 +474,6 @@ export function Flipbook() {
             title={isFullscreen ? "Thoát toàn màn hình" : "Toàn màn hình"}
           >
             {isFullscreen ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
-          </button>
-
-          <button
-            type="button"
-            onClick={() => downloadMagazineFromScreen(bookRef.current)}
-            className="p-2 px-3 rounded-lg bg-gradient-to-r from-[hsl(var(--marx-crimson))] to-[hsl(var(--marx-gold))] hover:brightness-110 text-[hsl(var(--primary-foreground))] text-xs font-bold flex items-center gap-1.5 shadow-md transition-all border border-[hsl(var(--marx-gold)/0.4)]"
-            title="Tải / in đúng nội dung tạp chí flip trên màn hình (Lưu thành PDF)"
-          >
-            <Download className="w-4 h-4" />
-            <span className="hidden sm:inline">Tải tạp chí</span>
           </button>
         </div>
       </div>
