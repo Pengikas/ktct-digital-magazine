@@ -480,7 +480,7 @@ export function Flipbook() {
 
           <button
             type="button"
-            onClick={() => downloadMagazineFromScreen()}
+            onClick={() => downloadMagazineFromScreen(bookRef.current)}
             className="p-2 px-3 rounded-lg bg-gradient-to-r from-[hsl(var(--marx-crimson))] to-[hsl(var(--marx-gold))] hover:brightness-110 text-[hsl(var(--primary-foreground))] text-xs font-bold flex items-center gap-1.5 shadow-md transition-all border border-[hsl(var(--marx-gold)/0.4)]"
             title="Tải / in đúng nội dung tạp chí flip trên màn hình (Lưu thành PDF)"
           >
