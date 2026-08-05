@@ -78,15 +78,16 @@ export function PracticalSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredExamples.map((ex) => (
             <motion.div
-              key={ex.id}
-              id={`practical-${ex.id}`}
-              layout
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="p-6 rounded-sm bg-marx-raised border border-marx transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-[1.02] hover:shadow-2xl hover:border-[hsl(var(--marx-gold)/0.6)] flex flex-col justify-between space-y-4 group cursor-pointer"
-            >
+  key={ex.id}
+  id={`practical-${ex.id}`}
+  layout
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  whileHover={{ scale: 1.03, y: -8 }}
+  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+  className="p-6 rounded-sm bg-marx-raised border border-marx hover:border-[hsl(var(--marx-gold)/0.6)] shadow-xl hover:shadow-2xl flex flex-col justify-between space-y-4 group cursor-pointer"
+>
               <div className="space-y-4">
               
                 
