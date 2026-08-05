@@ -31,7 +31,7 @@ export function Footer() {
               </span>
             </div>
             <p className="text-sm text-muted-foreground max-w-md leading-relaxed">
-              Đồ án CQ5 môn Kinh tế Chính trị Mác - Lênin: trả lời &quot;Tiền nhiều để làm gì?&quot; qua
+              Đồ án SS008.Q31 - Kinh tế Chính trị Mác - Lênin: trả lời &quot;Tiền nhiều để làm gì?&quot; qua
               Chương 3 (3.2 Tích lũy tư bản &amp; 3.3 Hình thức biểu hiện giá trị thặng dư), kết hợp
               số liệu thực tiễn và minh họa đại chúng.
             </p>
