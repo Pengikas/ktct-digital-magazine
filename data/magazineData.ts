@@ -2,6 +2,7 @@ export interface ConceptItem {
   term: string;
   definition: string;
   symbol?: string;
+  citation?: string;
 }
 
 export interface StatItem {
@@ -10,6 +11,11 @@ export interface StatItem {
   y2023: string;
   y2024: string;
   y2025: string;
+  val2022: number;
+  val2023: number;
+  val2024: number;
+  val2025: number;
+  unit: string;
   note: string;
 }
 
@@ -21,117 +27,136 @@ export interface StoryCase {
   marxistAnalysis: string;
   image?: string;
   quote?: string;
+  citation?: string;
 }
 
 export interface MagazinePageData {
   id: number;
   title: string;
   subtitle?: string;
-  sectionTag?: string;
-  layoutType: "cover" | "concepts" | "theory" | "debate_stats" | "cases_music" | "conclusion" | "backcover";
+  sectionTag: string;
+  layoutType: "cover" | "concepts" | "theory" | "circulation" | "surplus" | "debate" | "stats" | "cases_music" | "conclusion" | "backcover";
 }
 
-export const MAGAZINE_PAGES_DATA = [
+export const MAGAZINE_PAGES_DATA: MagazinePageData[] = [
   {
     id: 1,
     title: "TIỀN NHIỀU ĐỂ LÀM GÌ?",
-    subtitle: "Chuyên đề đặc biệt Kinh tế Chính trị Mác - Lênin | Số 01 - 2026",
-    sectionTag: "BÌA TẠP CHÍ",
+    subtitle: "Số Đặc Biệt Tạp Chí Số Kinh Tế Chính Trị Mác - Lênin | SS008.Q31",
+    sectionTag: "BÌA CHÍNH TẠP CHÍ",
     layoutType: "cover",
   },
   {
     id: 2,
-    title: "DANH MỤC KHÁI NIỆM CỐT LÕI",
-    subtitle: "Nền tảng lý luận Chương 3: Sản xuất hàng hóa & Tiền tệ",
-    sectionTag: "PHẦN 1: KHÁI NIỆM",
+    title: "DANH MỤC KHÁI NIỆM CỐT LÕI (PHẦN 1)",
+    subtitle: "Nền tảng phạm trù Chương 3: Sản xuất hàng hóa & Tiền tệ (Khái niệm 1 - 7)",
+    sectionTag: "PHẦN 1: KHÁI NIỆM CỐT LÕI",
     layoutType: "concepts",
   },
   {
     id: 3,
-    title: "HAI HÌNH THÁI LƯU THÔNG & BẢN CHẤT TIỀN TỆ",
-    subtitle: "Giải mã vận động của Tiền từ H-T-H đến T-H-T'",
-    sectionTag: "PHẦN 2: NỘI DUNG CHI TIẾT",
-    layoutType: "theory",
+    title: "DANH MỤC KHÁI NIỆM CỐT LÕI (PHẦN 2)",
+    subtitle: "Tư bản, Giá trị thặng dư, Tích lũy, Lợi nhuận & Lợi tức (Khái niệm 8 - 14)",
+    sectionTag: "PHẦN 1: KHÁI NIỆM CỐT LÕI",
+    layoutType: "concepts",
   },
   {
     id: 4,
-    title: "PHÂN PHỐI GIÁ TRỊ THẶNG DƯ & CỦA CẢI THỰC SỰ",
-    subtitle: "Lợi nhuận bình quân, Lợi tức, Địa tô và Bản chất của Của cải",
-    sectionTag: "PHẦN 2: CHUYÊN SÂU",
+    title: "SẢN XUẤT HÀNG HÓA & NGUỒN GỐC TIỀN TỆ",
+    subtitle: "2 Điều kiện ra đời, Hai thuộc tính của hàng hóa & 4 Hình thái giá trị",
+    sectionTag: "PHẦN 2: LÝ LUẬN CHƯƠNG 3",
     layoutType: "theory",
   },
   {
     id: 5,
-    title: "PHẢN BIỆN LÝ LUẬN & SỐ LIỆU THỰC TIỄN VIỆT NAM",
-    subtitle: "So sánh 2 luồng quan điểm & Bộ dữ liệu Tăng trưởng 2022 - 2025",
-    sectionTag: "PHẦN 3 & 4: PHẢN BIỆN & SỐ LIỆU",
-    layoutType: "debate_stats",
+    title: "5 CHỨC NĂNG TIỀN TỆ & 2 HÌNH THÁI LƯU THÔNG",
+    subtitle: "Phân tích H—T—H và T—H—T' (với T' = T + Δt) dưới góc nhìn Mác - Lênin",
+    sectionTag: "PHẦN 2: CHUYÊN SÂU LƯU THÔNG",
+    layoutType: "circulation",
   },
   {
     id: 6,
-    title: "CÂU CHUYỆN THỰC TẾ & ÂM NHẠC ĐẠI CHÚNG",
-    subtitle: "Từ Tỷ phú thế giới đến Rap Việt: Tiền tệ dưới góc nhìn Mác - Lênin",
-    sectionTag: "PHẦN 4: THỰC TIỄN & VĂN HÓA",
-    layoutType: "cases_music",
+    title: "PHÂN PHỐI GIÁ TRỊ THẶNG DƯ & BẢN CHẤT CỦA CẢI",
+    subtitle: "Lợi nhuận bình quân (P̄), Lợi tức (z), Địa tô (R) & Hiện tượng Sùng bái tiền tệ",
+    sectionTag: "PHẦN 2: CỦA CẢI & SÙNG BÁI TIỀN TỆ",
+    layoutType: "surplus",
   },
   {
     id: 7,
-    title: "LIÊN HỆ THỰC TIỄN & BÀI HỌC SINH VIÊN",
-    subtitle: "Làm chủ đồng tiền — Biến tiền thành phương tiện phục vụ hạnh phúc",
-    sectionTag: "PHẦN KẾT: KẾT LUẬN",
-    layoutType: "conclusion",
+    title: "PHẢN BIỆN LÝ LUẬN 3 LUỒNG QUAN ĐIỂM",
+    subtitle: "So sánh Tiền là quan trọng nhất vs Tiền không quan trọng vs Góc nhìn Cân bằng Mác - Lênin",
+    sectionTag: "PHẦN 3: PHẢN BIỆN LÝ LUẬN",
+    layoutType: "debate",
   },
   {
     id: 8,
-    title: "KTCT DIGITAL MAGAZINE",
-    subtitle: "Đồ án Môn học SS008.Q31 — Trường Đại học CNTT (UIT)",
-    sectionTag: "BÌA SAU",
-    layoutType: "backcover",
+    title: "BỘ SỐ LIỆU VIỆT NAM (2022–2025) & CHỈ SỐ HẠNH PHÚC",
+    subtitle: "Tăng trưởng GDP, Thu nhập, Tỷ lệ hộ nghèo đa chiều & Xếp hạng World Happiness Report",
+    sectionTag: "PHẦN 4: DỮ LIỆU THỰC TIỄN",
+    layoutType: "stats",
+  },
+  {
+    id: 9,
+    title: "CÂU CHUYỆN THỰC TẾ & ÂM NHẠC ĐẠI CHÚNG",
+    subtitle: "Từ Bill Gates, Markus Persson (Minecraft) đến Rap Việt (GDucky, Đen Vâu, 14 Casper)",
+    sectionTag: "PHẦN 4: CÂU CHUYỆN & VĂN HÓA",
+    layoutType: "cases_music",
+  },
+  {
+    id: 10,
+    title: "LIÊN HỆ THỰC TIỄN & BÀI HỌC SINH VIÊN UIT",
+    subtitle: "Kết luận, Sơ đồ Tư duy & Thông tin Biên tập Tạp chí (9 Thành viên)",
+    sectionTag: "PHẦN KẾT & BÌA SAU",
+    layoutType: "conclusion",
   },
 ];
 
 export const CONCEPTS_LIST: ConceptItem[] = [
   {
     term: "Sản xuất hàng hóa",
-    definition: "Kiểu tổ chức kinh tế mà sản phẩm làm ra không phải để tiêu dùng cá nhân mà để bán, trao đổi trên thị trường.",
+    definition: "Kiểu tổ chức kinh tế mà sản phẩm làm ra để bán, trao đổi trên thị trường.",
   },
   {
     term: "Hàng hóa",
-    definition: "Sản phẩm của lao động, có thể thỏa mãn nhu cầu nào đó của con người thông qua trao đổi, mua bán.",
+    definition: "Sản phẩm của lao động, thỏa mãn nhu cầu con người thông qua trao đổi, mua bán.",
   },
   {
     term: "Giá trị sử dụng",
-    definition: "Công dụng của vật thể thỏa mãn nhu cầu vật chất hoặc tinh thần của con người (thuộc tính tự nhiên).",
+    definition: "Công dụng của vật thể thỏa mãn nhu cầu con người (vật chất/tinh thần).",
   },
   {
-    term: "Giá trị hàng hóa",
-    definition: "Lao động xã hội của người sản xuất kết tinh bên trong hàng hóa (thuộc tính xã hội).",
+    term: "Giá trị của hàng hóa",
+    definition: "Lao động xã hội của người sản xuất kết tinh bên trong hàng hóa.",
   },
   {
     term: "Tiền tệ",
-    definition: "Hàng hóa đặc biệt đóng vai trò vật ngang giá chung cho tất cả các hàng hóa khác, thể hiện lao động xã hội.",
+    definition: "Hàng hóa đặc biệt làm vật ngang giá chung, thể hiện giá trị xã hội và quan hệ sản xuất.",
   },
   {
     term: "Kinh tế thị trường",
     definition: "Nền kinh tế vận hành theo các quy luật thị trường; tiền tệ là phương tiện thanh toán và thước đo giá trị trung tâm.",
   },
   {
+    term: "Giá cả hàng hóa",
+    definition: "Biểu hiện bằng tiền của giá trị hàng hóa.",
+  },
+  {
     term: "Tư bản",
-    definition: "Giá trị mang lại giá trị thặng dư bằng cách tự lớn lên thông qua việc bóc lột lao động làm thuê.",
+    definition: "Giá trị mang lại giá trị thặng dư bằng cách tự lớn lên qua bóc lột lao động làm thuê.",
   },
   {
     term: "Giá trị thặng dư",
     symbol: "Δt / m",
-    definition: "Bộ phận giá trị mới phát sinh ngoài giá trị sức lao động do công nhân tạo ra nhưng bị nhà tư bản chiếm đoạt.",
+    definition: "Bộ phận giá trị mới ngoài giá trị sức lao động do công nhân tạo ra nhưng bị nhà tư bản chiếm đoạt.",
   },
   {
     term: "Tích lũy tư bản",
-    definition: "Sự chuyển hóa một phần giá trị thặng dư trở lại thành tư bản phụ thêm nhằm tái sản xuất mở rộng.",
+    definition: "Sự chuyển hóa một phần giá trị thặng dư trở lại thành tư bản phụ thêm để tái sản xuất mở rộng.",
   },
   {
     term: "Chi phí sản xuất",
     symbol: "k = c + v",
-    definition: "Phần giá trị hàng hóa bù lại giá cả tư liệu sản xuất đã tiêu dùng (c) và giá cả sức lao động (v).",
+    definition: "Phần giá trị hàng hóa bù lại giá cả tư liệu sản xuất (c) và sức lao động (v) đã tiêu dùng.",
   },
   {
     term: "Lợi nhuận",
@@ -141,12 +166,12 @@ export const CONCEPTS_LIST: ConceptItem[] = [
   {
     term: "Lợi nhuận bình quân",
     symbol: "P̄",
-    definition: "Số lợi nhuận bằng nhau của những tư bản bằng nhau đầu tư vào các ngành khác nhau do cạnh tranh tự do.",
+    definition: "Số lợi nhuận bằng nhau của những tư bản bằng nhau đầu tư vào các ngành khác nhau, hình thành do cạnh tranh giữa các ngành.",
   },
   {
     term: "Lợi tức & Tư bản cho vay",
     symbol: "z",
-    definition: "Lợi tức là một phần lợi nhuận bình quân mà người đi vay phải trả cho người cho vay để sử dụng tiền nhàn rỗi.",
+    definition: "Lợi tức là một phần lợi nhuận bình quân người đi vay trả cho người cho vay để sử dụng tiền nhàn rỗi.",
   },
 ];
 
@@ -157,7 +182,12 @@ export const VIETNAM_STATS: StatItem[] = [
     y2023: "4.284 USD",
     y2024: "4.700 USD",
     y2025: "5.026 USD",
-    note: "Nguồn: Tổng cục Thống kê (GSO 2022-2026)",
+    val2022: 4110,
+    val2023: 4284,
+    val2024: 4700,
+    val2025: 5026,
+    unit: "USD",
+    note: "[GSO, 12/2022 → 1/2026]",
   },
   {
     label: "Thu nhập bình quân / tháng",
@@ -165,7 +195,12 @@ export const VIETNAM_STATS: StatItem[] = [
     y2023: "4,96 triệu VNĐ",
     y2024: "5,40 triệu VNĐ",
     y2025: "5,9–6,0 triệu VNĐ",
-    note: "Nguồn: GSO & Báo cáo Kinh tế Xã hội",
+    val2022: 4.67,
+    val2023: 4.96,
+    val2024: 5.4,
+    val2025: 5.95,
+    unit: "triệu VNĐ",
+    note: "[GSO, 1/2024 → 2025]",
   },
   {
     label: "Tỷ lệ hộ nghèo đa chiều",
@@ -173,44 +208,63 @@ export const VIETNAM_STATS: StatItem[] = [
     y2023: "2,93%",
     y2024: "1,93%",
     y2025: "< 1,50%",
-    note: "Nguồn: Bộ LĐ-TB&XH (2022-2025)",
+    val2022: 4.3,
+    val2023: 2.93,
+    val2024: 1.93,
+    val2025: 1.45,
+    unit: "%",
+    note: "[Bộ LĐ-TB&XH, 2023 → 2025]",
   },
-  {
-    label: "Chỉ số Hạnh phúc Thế giới",
-    y2022: "Hạng 65/146",
-    y2023: "Hạng 65/137",
-    y2024: "Hạng 54/143",
-    y2025: "Hạng 46/143",
-    note: "Nguồn: World Happiness Report (UNSDSN)",
-  },
+];
+
+export const HAPPINESS_STATS = [
+  { year: "2022", rank: 65, total: 146, label: "Hạng 65/146", source: "UNSDSN, WHR2022" },
+  { year: "2023", rank: 65, total: 137, label: "Hạng 65/137", source: "UNSDSN, WHR2023" },
+  { year: "2024", rank: 54, total: 143, label: "Hạng 54/143", source: "UNSDSN, WHR2024" },
+  { year: "2025", rank: 46, total: 143, label: "Hạng 46/143", source: "UNSDSN, WHR2025" },
 ];
 
 export const STORIES_LIST: StoryCase[] = [
   {
     title: "Bill Gates & Quỹ Gates Foundation",
-    subtitle: "Chuyển tiền thành Của cải xã hội thực sự",
+    subtitle: "Chuyển tiền thành 'Tư bản tích cực' & Của cải thực sự",
     type: "positive",
     image: "/watermarks/images/tu-thien.jpeg",
-    content: "Bill Gates đã chuyển hơn 100 tỷ USD tài sản cá nhân vào các quỹ từ thiện tài trợ y tế, vắc-xin và giáo dục toàn cầu. Warren Buffett cam kết cho đi hơn 99% tài sản.",
+    content: "Bill Gates đã chuyển hơn 100 tỷ USD vào các quỹ từ thiện tài trợ y tế, vắc-xin và giáo dục toàn cầu. Warren Buffett cam kết cho đi hơn 99% tài sản cá nhân.",
     marxistAnalysis: "Góc nhìn Mác - Lênin: Đưa tiền trở lại lưu thông, chuyển hóa từ đại biểu sở hữu thành Giá trị sử dụng và Của cải thực sự giúp phát triển hạ tầng và giải phóng sức lao động.",
     quote: "Tiền chỉ phát huy vai trò tích cực khi được chuyển hóa thành Của cải xã hội.",
+    citation: "[GatesFoundationReport, 2024; Forbes, 2025; C.Mác, Tư bản, Tập 1]",
   },
   {
     title: "Markus Persson (Minecraft)",
-    subtitle: "Bi kịch của sự Sùng bái Tiền tệ",
+    subtitle: "Bi kịch của sự Sùng bái Tiền tệ & Khủng hoảng tinh thần",
     type: "negative",
     image: "/watermarks/images/khung-hoang.webp",
-    content: "Sau khi bán Mojang (Minecraft) cho Microsoft lấy 2,5 tỷ USD cash, Markus Persson rơi vào khủng hoảng tinh thần, cảm giác cô lập và mất phương hướng sống.",
-    marxistAnalysis: "Góc nhìn Mác - Lênin: Tiền không đo lường được giá trị tinh thần. Sùng bái tiền tệ biến tiền từ phương tiện thành mục đích sống duy nhất gây tha hóa con người.",
-    quote: "Tiền tài vô hạn không mua được sự kết nối tinh thần và bình yên nội tại.",
+    content: "Sau khi bán Mojang (Minecraft) cho Microsoft lấy 2,5 tỷ USD cash, Markus Persson rơi vào khủng hoảng tinh thần, cảm giác cô lập và mất phương hướng cuộc sống.",
+    marxistAnalysis: "Góc nhìn Mác - Lênin: Tiền không đo lường được giá trị tinh thần. Sùng bái tiền tệ khiến tiền từ công cụ trở thành mục đích sống duy nhất gây tha hóa con người.",
+    quote: "Tiền tài vô hạn không mua được sự kết nối tinh thần và hạnh phúc thực sự.",
+    citation: "[BBC, 2015; BusinessInsider, 2023; C.Mác, Bản thảo KT-TH 1844]",
   },
   {
     title: "Văn hóa & Rap Việt",
-    subtitle: "\"Tiền Nhiều Để Làm Gì?\" — GDucky & Đen Vâu",
+    subtitle: "'Tiền Nhiều Để Làm Gì?' — GDucky, Đen Vâu, 14 Casper",
     type: "culture",
     image: "/watermarks/images/com.webp",
-    content: "Ca khúc 'Tiền Nhiều Để Làm Gì?' (GDucky) và 'Bài này chill phết' (Đen Vâu ft. MIN), 'Bao tiền một mớ bình yên' (14 Casper) phản ánh tâm lý giới trẻ.",
-    marxistAnalysis: "Minh họa quy luật tái sản xuất sức lao động: Áp lực 'cơm áo gạo tiền' đòi hỏi nền tảng vật chất tối thiểu, nhưng tiền cũng gây mâu thuẫn giữa Giá trị và Giá trị sử dụng tinh thần.",
-    quote: "Bao tiền một mớ bình yên — Mâu thuẫn giữa Giá trị vật ngang giá và Ý thức tinh thần.",
+    content: "Ca khúc 'Tiền Nhiều Để Làm Gì?' (GDucky) khắc họa đấu tranh làm giàu vs bị tiền thao túng. 'Bài này chill phết' (Đen Vâu) phản ánh áp lực cơm áo gạo tiền. 'Bao tiền một mớ bình yên' (14 Casper) thể hiện mâu thuẫn giữa tiền và bình yên.",
+    marxistAnalysis: "Minh họa quy luật tái sản xuất sức lao động: Cần nền tảng vật chất tối thiểu, nhưng tiền cũng bộc lộ mâu thuẫn giữa Giá trị vật ngang giá và Giá trị sử dụng tinh thần.",
+    quote: "Bao tiền một mớ bình yên — Mâu thuẫn giữa Giá trị và Giá trị sử dụng.",
+    citation: "[GDucky, Đen Vâu, 14 Casper; C.Mác, Tư bản, Tập 1]",
   },
+];
+
+export const EDITORIAL_TEAM = [
+  { name: "Nguyễn Bảo Chinh", role: "Trưởng nhóm / Biên tập chính", id: "UIT" },
+  { name: "Lê Gia Huy", role: "Nội dung Lý luận", id: "UIT" },
+  { name: "Vi Xuân Bách", role: "Phân tích Số liệu", id: "UIT" },
+  { name: "Lương Vi Ngọc Minh", role: "Thiết kế & Layout", id: "UIT" },
+  { name: "Nguyễn Vi Đức Hạnh", role: "Case Studies Thực tiễn", id: "UIT" },
+  { name: "Trần Minh Vy", role: "Nội dung Văn hóa & Rap", id: "UIT" },
+  { name: "Nguyễn Thiền An", role: "Phản biện & Tổng hợp", id: "UIT" },
+  { name: "Phạm Minh Khoa", role: "Kiểm tra Dữ liệu", id: "UIT" },
+  { name: "Hoàng Ngọc Uyên Chi", role: "Biên tập & Kiểm duyệt", id: "UIT" },
 ];

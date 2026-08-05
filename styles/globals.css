@@ -263,3 +263,32 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: hsl(var(--marx-crimson) / 0.7);
 }
+
+/* StPageFlip Flipbook Engine Styles */
+.stpageflip-container {
+  margin: 0 auto;
+  perspective: 1500px;
+  touch-action: pan-y;
+}
+
+.page-item {
+  background-color: #0f172a;
+  color: #f8fafc;
+  overflow: hidden;
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.5);
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.page-item[data-density="hard"] {
+  background-color: #090d16;
+}
+
+.stpageflip-container .--left {
+  box-shadow: -10px 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.stpageflip-container .--right {
+  box-shadow: 10px 0 20px rgba(0, 0, 0, 0.4);
+}
+
