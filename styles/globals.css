@@ -66,8 +66,8 @@
 
     --radius: 0.4rem;
 
-    --font-serif: "Playfair Display", Georgia, serif;
-    --font-sans: "Inter", system-ui, sans-serif;
+    --font-serif: "Source Serif 4", "Times New Roman", Times, serif;
+    --font-sans: "Inter", "Segoe UI", system-ui, sans-serif;
   }
 
   .dark {
@@ -290,5 +290,84 @@ body {
 
 .stpageflip-container .--right {
   box-shadow: 10px 0 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Dây leo dát vàng — bay nhẹ trong trang tạp chí */
+@keyframes mag-vine-float-tl {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(4px, 5px) rotate(1.2deg);
+  }
+}
+@keyframes mag-vine-float-tr {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(-5px, 4px) rotate(-1deg);
+  }
+}
+@keyframes mag-vine-float-bl {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(5px, -4px) rotate(-0.8deg);
+  }
+}
+@keyframes mag-vine-float-br {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(-4px, -5px) rotate(1deg);
+  }
+}
+@keyframes mag-vine-drift {
+  0%,
+  100% {
+    transform: translateX(0) translateY(0);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translateX(10px) translateY(-4px);
+    opacity: 0.32;
+  }
+}
+
+.mag-vine--tl {
+  animation: mag-vine-float-tl 9s ease-in-out infinite;
+}
+.mag-vine--tr {
+  animation: mag-vine-float-tr 11s ease-in-out infinite;
+  animation-delay: -2s;
+}
+.mag-vine--bl {
+  animation: mag-vine-float-bl 12s ease-in-out infinite;
+  animation-delay: -4s;
+}
+.mag-vine--br {
+  animation: mag-vine-float-br 10s ease-in-out infinite;
+  animation-delay: -1.5s;
+}
+.mag-vine--mid {
+  animation: mag-vine-drift 14s ease-in-out infinite;
+  animation-delay: -3s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mag-vine--tl,
+  .mag-vine--tr,
+  .mag-vine--bl,
+  .mag-vine--br,
+  .mag-vine--mid {
+    animation: none;
+  }
 }
 

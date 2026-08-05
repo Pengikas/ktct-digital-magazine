@@ -303,11 +303,22 @@ export function SearchModal({ isOpen: externalIsOpen, onClose: externalOnClose }
     <>
       {/* ── FAB BUTTON ── */}
       <button
-        onClick={handleOpenChat}
-        aria-label="Mở Trợ lý AI"
-        className="fixed bottom-6 right-6 z-[100] w-12 h-12 rounded-full bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-200 flex items-center justify-center"
+        type="button"
+        onClick={() => (isOpen ? handleClose() : handleOpenChat())}
+        aria-label={isOpen ? "Đóng Trợ lý AI" : "Mở Trợ lý AI"}
+        aria-expanded={isOpen}
+        className="fixed bottom-6 right-6 z-[100] w-12 h-12 rounded-full bg-[#9b1b1b] text-[#f4ebe0] border border-[hsl(var(--marx-gold)/0.5)] shadow-lg shadow-[rgba(155,27,27,0.25)] hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center dark:bg-[hsl(var(--marx-gold))] dark:text-[hsl(20_30%_10%)] dark:border-amber-300/40 dark:shadow-[rgba(184,134,11,0.3)]"
       >
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          className={`transition-transform duration-500 ease-out ${
+            isOpen ? "rotate-[225deg] scale-90" : "rotate-0 scale-100"
+          }`}
+          aria-hidden
+        >
           <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" />
         </svg>
       </button>

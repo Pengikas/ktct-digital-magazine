@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Inter, Source_Serif_4 } from "next/font/google";
 import "@/styles/globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Navbar } from "@/components/Navbar";
@@ -12,7 +12,8 @@ const inter = Inter({
   display: "swap",
 });
 
-const playfair = Playfair_Display({
+/** Serif hỗ trợ đủ dấu tiếng Việt (Playfair italic hay thiếu glyph khi in/PDF) */
+const sourceSerif = Source_Serif_4({
   subsets: ["latin", "vietnamese"],
   variable: "--font-serif",
   display: "swap",
@@ -45,7 +46,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="vi" suppressHydrationWarning className={`${inter.variable} ${playfair.variable}`}>
+    <html lang="vi" suppressHydrationWarning className={`${inter.variable} ${sourceSerif.variable}`}>
       <body className="relative bg-background text-foreground min-h-screen flex flex-col font-sans selection:bg-amber-500 selection:text-slate-950">
         <ThemeProvider>
           <SiteBackground />

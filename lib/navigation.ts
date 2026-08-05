@@ -31,7 +31,7 @@ export const NAV_ITEMS: NavItem[] = [
   { label: "Hỏi đáp", href: "/qa", icon: "help" },
   { label: "Trắc nghiệm", href: "/quiz", icon: "quiz" },
   { label: "Game", href: "/game", icon: "game" },
-  { label: "Tạp chí", href: "/magazine", badge: "Soon", icon: "magazine" },
+  { label: "Tạp chí", href: "/magazine", icon: "magazine" },
 ];
 
 /** Alias cho điều hướng prev/next — cùng thứ tự tab bar */

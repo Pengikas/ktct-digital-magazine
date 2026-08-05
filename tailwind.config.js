@@ -17,9 +17,9 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        sans: ["var(--font-sans)", "Inter", "system-ui", "sans-serif"],
-        serif: ["var(--font-serif)", "Playfair Display", "Merriweather", "serif"],
+        serif: ["var(--font-serif)", "Source Serif 4", "Times New Roman", "serif"],
         mono: ["var(--font-mono)", "JetBrains Mono", "monospace"],
+        sans: ["var(--font-sans)", "Inter", "Segoe UI", "system-ui", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
