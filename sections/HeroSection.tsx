@@ -28,7 +28,7 @@ export function HeroSection() {
           <div className="mx-auto max-w-xs border-double-rule" />
           <div className="label-press mx-auto">
             <Star className="w-3 h-3 fill-current" />
-            <span>CQ5 · Chương 3 (3.2–3.3) · UIT 2026</span>
+            <span>SS008 · Chương 3 · UIT 2026</span>
           </div>
         </motion.div>
 
@@ -42,7 +42,7 @@ export function HeroSection() {
             TIỀN NHIỀU ĐỂ LÀM GÌ?
           </h1>
           <p className="text-lg sm:text-2xl font-serif italic text-gradient-gold max-w-3xl mx-auto">
-            Trả lời qua tích lũy t các hìnư bản vàh thức biểu hiện giá trị thặng dư
+            Trả lời về quá trình tích lũy tư bản và các hình thức biểu hiện của giá trị thặng dư
           </p>
         </motion.div>
 
@@ -52,7 +52,7 @@ export function HeroSection() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-sm sm:text-base text-muted-foreground max-w-3xl mx-auto leading-relaxed font-sans"
         >
-          Tạp chí số đồ án KTCT: nền tảng ngắn từ tiền đến tư bản, phân tích CQ5 (3.2–3.3),
+          Tạp chí số đồ án KTCT: nền tảng ngắn từ tiền đến tư bản, phân tích SS008,
           case thực tiễn, số liệu Việt Nam và trắc nghiệm.
         </motion.p>
 
@@ -90,7 +90,7 @@ export function HeroSection() {
             </div>
           </div>
           <div>
-            <div className="text-2xl sm:text-3xl font-extrabold text-gold font-serif">30</div>
+            <div className="text-2xl sm:text-3xl font-extrabold text-gold font-serif">5</div>
             <div className="text-[11px] sm:text-xs text-muted-foreground uppercase tracking-wider mt-0.5">
               Câu trắc nghiệm
             </div>
