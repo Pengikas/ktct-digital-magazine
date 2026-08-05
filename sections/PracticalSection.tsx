@@ -87,6 +87,7 @@ export function PracticalSection() {
   whileHover={{ scale: 1.03, y: -8 }}
   transition={{ type: "spring", stiffness: 300, damping: 20 }}
   className="p-6 rounded-sm bg-marx-raised border border-marx hover:border-[hsl(var(--marx-gold)/0.6)] shadow-xl hover:shadow-2xl flex flex-col justify-between space-y-4 group cursor-pointer"
+  onClick={() => ex.sourceUrl && window.open(ex.sourceUrl, "_blank", "noopener,noreferrer")}
 >
               <div className="space-y-4">
               

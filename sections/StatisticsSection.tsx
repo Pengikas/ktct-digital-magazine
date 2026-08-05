@@ -66,8 +66,8 @@ export function StatisticsSection() {
             className="p-6 rounded-2xl bg-[hsl(var(--background))] border border-marx space-y-2 shadow-xl"
           >
             <span className="text-xs font-mono font-bold text-red-500 uppercase">Hộ nghèo Đa chiều</span>
-            <div className="text-3xl sm:text-4xl font-extrabold font-serif text-foreground">&lt;1.5%</div>
-            <p className="text-xs text-muted-foreground">Giảm mạnh từ 4,30% năm 2022</p>
+            <div className="text-3xl sm:text-4xl font-extrabold font-serif text-foreground">&lt;2.95%</div>
+            <p className="text-xs text-muted-foreground">Giảm mạnh từ 7,52% năm 2022</p>
           </motion.div>
 
           <motion.div
@@ -76,7 +76,7 @@ export function StatisticsSection() {
           >
             <span className="text-xs font-mono font-bold text-yellow-400 uppercase">Chỉ số Hạnh phúc</span>
             <div className="text-3xl sm:text-4xl font-extrabold font-serif text-foreground">Hạng 46</div>
-            <p className="text-xs text-muted-foreground">Tăng 19 bậc (Từ vị trí 65 năm 2022)</p>
+            <p className="text-xs text-muted-foreground">Tăng 31 bậc (Từ vị trí 77 năm 2022)</p>
           </motion.div>
         </div>
 
