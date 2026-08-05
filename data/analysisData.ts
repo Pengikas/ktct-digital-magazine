@@ -113,7 +113,7 @@ export const CENTRAL_QUESTION_ANALYSIS: AnalysisSection[] = [
     id: "nature-of-wealth",
     sectionNumber: "04",
     title: "Bản chất thực sự của 'Của cải' xã hội",
-    subtitle: "Tiền tệ hay Giá trị sử dụng? — kết luận cho câu hỏi CQ5",
+    subtitle: "Tiền tệ hay Giá trị sử dụng? — kết luận cho câu hỏi SS008.Q31",
     summary: "C.Mác đã vạch rõ sự khác biệt giữa Tiền tệ (đại biểu chứng nhận) và Của cải thực sự (Giá trị sử dụng của xã hội).",
     contentParagraphs: [
       "C.Mác đã vạch rõ sự khác biệt bản chất giữa Tiền và Của cải thực sự của xã hội:",

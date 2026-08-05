@@ -23,12 +23,12 @@ export function HeroSection() {
           className="space-y-3"
         >
           <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.28em] text-gold">
-            Kinh tế Chính trị Mác — Lênin · Ấn phẩm số
+            Kinh tế Chính trị Mác — Lênin
           </p>
           <div className="mx-auto max-w-xs border-double-rule" />
           <div className="label-press mx-auto">
             <Star className="w-3 h-3 fill-current" />
-            <span>SS008 · Chương 3 · UIT 2026</span>
+            <span>SS008.Q31 · Chương 3 · UIT 2026</span>
           </div>
         </motion.div>
 
@@ -52,7 +52,7 @@ export function HeroSection() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-sm sm:text-base text-muted-foreground max-w-3xl mx-auto leading-relaxed font-sans"
         >
-          Tạp chí số đồ án KTCT: nền tảng ngắn từ tiền đến tư bản, phân tích SS008,
+          Tạp chí số đồ án KTCT: nền tảng ngắn từ tiền đến tư bản, phân tích SS008.Q31,
           case thực tiễn, số liệu Việt Nam và trắc nghiệm.
         </motion.p>
 
@@ -107,7 +107,7 @@ export function HeroSection() {
             href="/analysis"
             className="px-6 py-3.5 rounded-sm bg-[#9b1b1b] text-[#f4ebe0] font-bold text-sm shadow-md hover:bg-[#7f1515] transition-all flex items-center space-x-2 border border-[hsl(var(--marx-gold)/0.5)]"
           >
-            <span>Đọc phân tích CQ5</span>
+            <span>Đọc phân tích SS008.Q31</span>
             <ChevronRight className="w-4 h-4" />
           </Link>
 

@@ -45,7 +45,7 @@ const TOPICS: TopicCard[] = [
   {
     title: "Nền tảng lý luận",
     description:
-      "Cầu nối Chương 2→3: H–T–H / T–H–T′, tư bản, giá trị thặng dư và các khái niệm cần cho CQ5.",
+      "Cầu nối Chương 2→3: H–T–H / T–H–T′, tư bản, giá trị thặng dư và các khái niệm cần cho SS008.Q31.",
     href: "/nen-tang",
     icon: Layers,
     gradient: "from-amber-500 to-yellow-400",

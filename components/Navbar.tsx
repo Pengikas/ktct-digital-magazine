@@ -88,7 +88,7 @@ export function Navbar() {
                 KTCT Magazine
               </span>
               <span className="hidden sm:inline-block ml-2 text-[10px] uppercase font-bold tracking-widest px-2 py-0.5 rounded-sm bg-[hsl(var(--muted))] text-gold border border-[hsl(var(--marx-gold)/0.45)]">
-                CQ5 · UIT 2026
+                SS008.Q31 · UIT 2026
               </span>
             </div>
           </Link>

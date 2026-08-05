@@ -118,14 +118,14 @@ export function TheorySection() {
             TỪ TIỀN ĐẾN TƯ BẢN
           </h2>
           <p className="text-sm sm:text-base text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Nắm nhanh H–T–H và T–H–T′, rồi các khái niệm cần cho CQ5 (3.2 Tích lũy tư bản &amp; 3.3
+            Nắm nhanh H–T–H và T–H–T′, rồi các khái niệm cần cho SS008.Q31 (Tích lũy tư bản &amp;
             Hình thức biểu hiện GTTD). Chi tiết Chương 2 (hình thái giá trị, 5 chức năng) nằm ở phụ lục.
           </p>
           <Link
             href="/analysis"
             className="inline-flex items-center gap-2 mt-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-red-600 to-amber-500 text-foreground text-sm font-semibold hover:opacity-95 transition-opacity"
           >
-            Sang phần Phân tích CQ5
+            Sang phần Phân tích SS008.Q31
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
@@ -196,20 +196,20 @@ export function TheorySection() {
               <div className="space-y-2 text-xs sm:text-sm text-muted-foreground">
                 <p>• Mục đích: giá trị thặng dư m</p>
                 <p>• Môi giới: sức lao động + tư liệu sản xuất</p>
-                <p>• Vận động vô hạn → tích lũy tư bản (3.2)</p>
+                <p>• Vận động vô hạn → tích lũy tư bản</p>
               </div>
             </motion.div>
           </div>
         </div>
 
-        {/* PART 2: Primary concepts for CQ5 */}
+        {/* PART 2: Primary concepts for SS008.Q31 */}
         <div className="space-y-8">
           <div className="border-b border-marx pb-4">
             <span className="text-xs font-mono font-bold text-red-500 uppercase tracking-widest">
-              Khái niệm cần cho CQ5
+              Khái niệm cần cho SS008.Q31
             </span>
             <h3 className="text-2xl font-bold font-serif text-foreground mt-1">
-              Tư bản · GTTD · Tích lũy · Phân phối (3.2–3.3)
+              Tư bản · GTTD · Tích lũy · Phân phối
             </h3>
           </div>
 
