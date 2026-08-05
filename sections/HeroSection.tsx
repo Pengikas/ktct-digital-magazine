@@ -52,7 +52,7 @@ export function HeroSection() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-sm sm:text-base text-muted-foreground max-w-3xl mx-auto leading-relaxed font-sans"
         >
-          Tạp chí số đồ án KTCT: nền tảng ngắn từ tiền đến tư bản, phân tích SS008.Q31,
+          Tạp chí số đồ án KTCT: nền tảng ngắn từ tiền đến tư bản, phân tích,
           case thực tiễn, số liệu Việt Nam và trắc nghiệm.
         </motion.p>
 
@@ -107,7 +107,7 @@ export function HeroSection() {
             href="/analysis"
             className="px-6 py-3.5 rounded-sm bg-[#9b1b1b] text-[#f4ebe0] font-bold text-sm shadow-md hover:bg-[#7f1515] transition-all flex items-center space-x-2 border border-[hsl(var(--marx-gold)/0.5)]"
           >
-            <span>Đọc phân tích SS008.Q31</span>
+            <span>Đọc phân tích</span>
             <ChevronRight className="w-4 h-4" />
           </Link>
 
