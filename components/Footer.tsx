@@ -52,8 +52,9 @@ export function Footer() {
             <ul className="space-y-2 text-xs">
               {contentLinks.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="hover:text-crimson transition-colors">
+                  <Link href={item.href} className="hover:text-[hsl(var(--marx-gold))] transition-colors">
                     {item.label}
+
                   </Link>
                 </li>
               ))}
