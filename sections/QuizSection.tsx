@@ -15,10 +15,7 @@ export function QuizSection() {
   const [userAnswers, setUserAnswers] = React.useState<{ [key: number]: number }>({});
   const [selectedCategory, setSelectedCategory] = React.useState<string>("Tất cả");
 
-  const filteredQuestions = React.useMemo(() => {
-    if (selectedCategory === "Tất cả") return QUIZ_QUESTIONS;
-    return QUIZ_QUESTIONS.filter((q) => q.category === selectedCategory);
-  }, [selectedCategory]);
+  const filteredQuestions = QUIZ_QUESTIONS;
 
   const currentQ = filteredQuestions[currentQuestionIndex] || filteredQuestions[0];
   const progressPercent = Math.round(((currentQuestionIndex + 1) / filteredQuestions.length) * 100);
@@ -75,34 +72,6 @@ export function QuizSection() {
             Bộ 5 câu hỏi trắc nghiệm trọng tâm bám sát chuyên đề (lưu thông tư bản H-T-H &amp; T-H-T', của cải thực sự, sùng bái tiền tệ &amp; liên hệ thực tiễn).
           </p>
         </div>
-
-        {/* Category Filters */}
-        {!isQuizCompleted && (
-          <div className="flex flex-wrap justify-center gap-2">
-            {[
-              "Tất cả",
-              "Khái niệm",
-              "Chức năng & Nguồn gốc",
-              "Tư bản & Giá trị thặng dư",
-              "Phân tích & Thực tiễn",
-            ].map((cat) => (
-              <button
-                key={cat}
-                onClick={() => {
-                  setSelectedCategory(cat);
-                  handleRestartQuiz();
-                }}
-                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
-                  selectedCategory === cat
-                    ? "bg-[#9b1b1b] text-[#f4ebe0]"
-                    : "bg-marx-raised text-muted-foreground hover:bg-[hsl(var(--muted))] hover:text-foreground border border-marx"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
-        )}
 
         {/* Quiz Board */}
         {!isQuizCompleted ? (
@@ -209,11 +178,10 @@ export function QuizSection() {
               <button
                 onClick={handleNextQuestion}
                 disabled={!isAnswerSubmitted}
-                className={`px-6 py-2.5 rounded-xl font-bold text-xs sm:text-sm flex items-center space-x-2 transition-all ${
-                  isAnswerSubmitted
-                    ? "bg-gradient-to-r from-red-600 to-amber-500 text-foreground shadow-lg hover:scale-105"
-                    : "bg-[hsl(var(--muted))] text-muted-foreground cursor-not-allowed"
-                }`}
+                className={`px-6 py-2.5 rounded-xl font-bold text-xs sm:text-sm flex items-center space-x-2 transition-all ${isAnswerSubmitted
+                  ? "bg-gradient-to-r from-red-600 to-amber-500 text-foreground shadow-lg hover:scale-105"
+                  : "bg-[hsl(var(--muted))] text-muted-foreground cursor-not-allowed"
+                  }`}
               >
                 <span>
                   {currentQuestionIndex < filteredQuestions.length - 1 ? "Câu tiếp theo" : "Xem kết quả hoàn thành"}
