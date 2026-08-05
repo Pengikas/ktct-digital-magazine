@@ -99,36 +99,24 @@ const TOPICS: TopicCard[] = [
     tag: "Thảo luận",
   },
   {
-    title: "Trắc nghiệm 30 câu",
+    title: "Trắc nghiệm 5 câu",
     description:
-      "Thử thách trí nhớ và củng cố tri thức qua bộ câu hỏi trắc nghiệm tự động có tính điểm và xếp hạng.",
+      "Thử thách trí nhớ và củng cố tri thức qua bộ 5 câu hỏi trắc nghiệm tự động có tính điểm và giải thích chi tiết.",
     href: "/quiz",
     icon: CheckSquare,
     gradient: "from-orange-500 to-amber-500",
     tag: "Luyện tập",
-    badge: "30 Câu",
-  },
-  {
-    title: "Game",
-    description:
-      "Trải nghiệm game tương tác vui nhộn giúp ghi nhớ kiến thức Kinh tế Chính trị Mác - Lênin một cách tự nhiên.",
-    href: "/game",
-    icon: Gamepad2,
-    gradient: "from-purple-600 to-pink-500",
-    tag: "Giải trí",
-    badge: "Coming Soon",
-    comingSoon: true,
+    badge: "5 Câu",
   },
   {
     title: "Tạp Chí",
     description:
-      "Phiên bản tạp chí số đầy đủ với nội dung học thuật chuyên sâu, hình ảnh minh họa và trải nghiệm đọc hiện đại.",
+      "Ấn phẩm tạp chí số 3D Flipbook lật trang với đầy đủ nội dung lý luận, biểu đồ và dẫn chứng thực tiễn.",
     href: "/magazine",
     icon: BookOpen,
     gradient: "from-red-600 to-amber-500",
-    tag: "Xuất bản",
-    badge: "Coming Soon",
-    comingSoon: true,
+    tag: "Ấn phẩm 3D",
+    badge: "Flipbook",
   },
 ];
 
