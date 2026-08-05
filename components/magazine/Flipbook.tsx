@@ -629,7 +629,6 @@ export function Flipbook() {
                   <Landmark className="w-3.5 h-3.5 text-amber-400" />
                   <span className="font-semibold text-slate-300">Trường Đại học Công nghệ Thông tin (UIT)</span>
                 </div>
-                <span>Biên tập: Nhóm K kỹ thuật &amp; Nội dung (9 Thành viên)</span>
               </div>
             </div>
           </div>
