@@ -169,7 +169,7 @@ export const CONCEPTS_LIST: ConceptItem[] = [
     definition: "Số lợi nhuận bằng nhau của những tư bản bằng nhau đầu tư vào các ngành khác nhau, hình thành do cạnh tranh giữa các ngành.",
   },
   {
-    term: "Lợi tức & Tư bản cho vay",
+    term: "Lợi tức (z) & Tư bản cho vay (T - T')",
     symbol: "z",
     definition: "Lợi tức là một phần lợi nhuận bình quân người đi vay trả cho người cho vay để sử dụng tiền nhàn rỗi.",
   },

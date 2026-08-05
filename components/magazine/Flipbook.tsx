@@ -820,7 +820,7 @@ export function Flipbook() {
                     <p className="text-[10px] text-slate-300">Tối ưu hóa dòng vốn sinh lời, tự do di chuyển vốn sang ngành có tỷ suất lợi nhuận cao.</p>
                   </div>
                   <div className="p-3 rounded-xl bg-slate-950/80 border border-rose-500/20 space-y-1">
-                    <span className="font-bold text-rose-300 text-xs block">Lợi tức (z) &amp; Tư bản cho vay</span>
+                    <span className="font-bold text-rose-300 text-xs block">Lợi tức (z) &amp; Tư bản cho vay (T - T')</span>
                     <p className="text-[10px] text-slate-300">Cho vay hoặc đầu tư tư bản giả (cổ phiếu, trái phiếu) theo công thức T—T' ("tiền đẻ ra tiền").</p>
                   </div>
                   <div className="p-3 rounded-xl bg-slate-950/80 border border-yellow-500/20 space-y-1">
