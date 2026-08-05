@@ -1,0 +1,384 @@
+"use client";
+
+import * as React from "react";
+import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  BookOpen,
+  ChevronDown,
+  ChevronUp,
+  ArrowRight,
+} from "lucide-react";
+import {
+  PRIMARY_CONCEPTS,
+  SECONDARY_CONCEPTS,
+  MONEY_FUNCTIONS,
+  VALUE_FORMS,
+  type Concept,
+} from "@/data/theoryData";
+
+function categoryClass(category: Concept["category"]) {
+  if (category === "cơ-bản") {
+    return "bg-[hsl(var(--marx-crimson)/0.12)] text-crimson border border-[hsl(var(--marx-crimson)/0.35)] dark:text-gold dark:border-[hsl(var(--marx-gold)/0.4)] dark:bg-[hsl(var(--marx-gold)/0.1)]";
+  }
+  if (category === "nâng-cao") {
+    return "bg-[hsl(var(--marx-crimson)/0.18)] text-[hsl(var(--marx-crimson))] border border-[hsl(var(--marx-crimson)/0.45)] dark:text-red-300 dark:bg-red-950/50 dark:border-red-800";
+  }
+  return "bg-emerald-950/20 text-emerald-700 border border-emerald-800/40 dark:text-emerald-300 dark:bg-emerald-950 dark:border-emerald-800";
+}
+
+function ConceptCard({
+  item,
+  isExpanded,
+  onToggle,
+}: {
+  item: Concept;
+  isExpanded: boolean;
+  onToggle: () => void;
+}) {
+  return (
+    <motion.div
+      layout
+      id={`concept-${item.id}`}
+      className={`relative overflow-hidden p-6 rounded-2xl border transition-all ${
+        isExpanded
+          ? "bg-marx-raised border-[hsl(var(--marx-gold))] shadow-2xl"
+          : "bg-marx-raised border-marx hover:border-[hsl(var(--marx-gold)/0.45)]"
+      }`}
+    >
+      <div className="relative z-[1]">
+        <div className="flex justify-between items-start mb-3">
+          <span className="w-8 h-8 rounded-lg bg-[hsl(var(--marx-gold)/0.15)] text-gold font-mono font-bold text-xs flex items-center justify-center border border-[hsl(var(--marx-gold)/0.35)]">
+            #{item.number}
+          </span>
+          <span className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase ${categoryClass(item.category)}`}>
+            {item.category}
+          </span>
+        </div>
+        <h4 className="text-lg font-bold text-foreground mb-1">{item.title}</h4>
+        <p className="text-xs font-mono text-gold mb-3">{item.originalTerm}</p>
+        <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{item.definition}</p>
+        {item.extendedExplanation && (
+          <div className="mt-4 pt-3 border-t border-marx">
+            <button
+              type="button"
+              onClick={onToggle}
+              className="flex items-center space-x-1.5 text-xs font-semibold text-gold hover:opacity-80"
+            >
+              <span>{isExpanded ? "Thu gọn" : "Xem phân tích mở rộng"}</span>
+              {isExpanded ? (
+                <ChevronUp className="w-3.5 h-3.5" />
+              ) : (
+                <ChevronDown className="w-3.5 h-3.5" />
+              )}
+            </button>
+            <AnimatePresence>
+              {isExpanded && (
+                <motion.p
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  className="text-xs text-muted-foreground mt-2 leading-relaxed bg-[hsl(var(--background))] p-3 rounded-lg border border-marx"
+                >
+                  {item.extendedExplanation}
+                </motion.p>
+              )}
+            </AnimatePresence>
+          </div>
+        )}
+      </div>
+    </motion.div>
+  );
+}
+
+export function TheorySection() {
+  const [expandedConceptId, setExpandedConceptId] = React.useState<string | null>(null);
+  const [expandedFuncId, setExpandedFuncId] = React.useState<string | null>(null);
+  const [showAppendix, setShowAppendix] = React.useState(false);
+  const [showSecondary, setShowSecondary] = React.useState(false);
+  const [activeFormStep, setActiveFormStep] = React.useState<number>(1);
+  const [hoveredCirculation, setHoveredCirculation] = React.useState<"simple" | "capital" | null>(null);
+
+  const activeValueForm = VALUE_FORMS.find((f) => f.step === activeFormStep) || VALUE_FORMS[0];
+
+  const toggleConcept = (id: string) =>
+    setExpandedConceptId((prev) => (prev === id ? null : id));
+  const toggleFunc = (id: string) =>
+    setExpandedFuncId((prev) => (prev === id ? null : id));
+
+  return (
+    <section id="theory" className="py-16 px-4 sm:px-6 lg:px-8 bg-marx-surface text-foreground relative">
+      <div className="max-w-7xl mx-auto space-y-16">
+        <div className="text-center space-y-4">
+          <div className="label-press mx-auto">
+            <BookOpen className="w-3.5 h-3.5" />
+            <span>Nền tảng ngắn · Cầu nối Chương 2 → Chương 3</span>
+          </div>
+          <h2 className="text-3xl sm:text-5xl font-bold font-serif tracking-tight heading-display">
+            TỪ TIỀN ĐẾN TƯ BẢN
+          </h2>
+          <p className="text-sm sm:text-base text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            Nắm nhanh H–T–H và T–H–T′, rồi các khái niệm cần cho CQ5 (3.2 Tích lũy tư bản &amp; 3.3
+            Hình thức biểu hiện GTTD). Chi tiết Chương 2 (hình thái giá trị, 5 chức năng) nằm ở phụ lục.
+          </p>
+          <Link
+            href="/analysis"
+            className="inline-flex items-center gap-2 mt-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-red-600 to-amber-500 text-foreground text-sm font-semibold hover:opacity-95 transition-opacity"
+          >
+            Sang phần Phân tích CQ5
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+
+        {/* PART 1: Circulation first */}
+        <div id="circulation-diagram" className="space-y-8">
+          <div className="border-b border-marx pb-4">
+            <span className="text-xs font-mono font-bold text-gold uppercase tracking-widest">
+              Cầu nối then chốt
+            </span>
+            <h3 className="text-2xl sm:text-3xl font-bold font-serif text-foreground mt-1">
+              H – T – H so với T – H – T&apos;
+            </h3>
+            <p className="text-xs sm:text-sm text-muted-foreground mt-1">
+              Tiền tiêu dùng (phương tiện) khác tiền tư bản (mục đích sinh giá trị thặng dư).
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <motion.div
+              onMouseEnter={() => setHoveredCirculation("simple")}
+              onMouseLeave={() => setHoveredCirculation(null)}
+              className={`p-6 sm:p-8 rounded-3xl border transition-all ${
+                hoveredCirculation === "simple"
+                  ? "bg-marx-raised border-amber-500 shadow-2xl scale-[1.02]"
+                  : "bg-marx-raised border-marx"
+              }`}
+            >
+              <div className="flex justify-between items-center mb-4">
+                <span className="px-3 py-1 rounded-full text-xs font-bold uppercase bg-blue-950 text-blue-300 border border-blue-800">
+                  Lưu thông giản đơn
+                </span>
+                <span className="text-xs font-mono text-muted-foreground">GTSD</span>
+              </div>
+              <div className="py-6 text-center bg-[hsl(var(--background))] rounded-2xl border border-marx my-4">
+                <div className="text-2xl sm:text-4xl font-extrabold font-mono text-gold tracking-wider">
+                  H — T — H&apos;
+                </div>
+              </div>
+              <div className="space-y-2 text-xs sm:text-sm text-muted-foreground">
+                <p>• Mục đích: thỏa mãn nhu cầu sinh hoạt (giá trị sử dụng)</p>
+                <p>• Tiền chỉ là môi giới trung gian</p>
+                <p>• Kết thúc khi có hàng hóa cần dùng</p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              onMouseEnter={() => setHoveredCirculation("capital")}
+              onMouseLeave={() => setHoveredCirculation(null)}
+              className={`p-6 sm:p-8 rounded-3xl border transition-all ${
+                hoveredCirculation === "capital"
+                  ? "bg-marx-raised border-red-500 shadow-2xl scale-[1.02]"
+                  : "bg-marx-raised border-marx"
+              }`}
+            >
+              <div className="flex justify-between items-center mb-4">
+                <span className="px-3 py-1 rounded-full text-xs font-bold uppercase bg-red-950 text-red-300 border border-red-800">
+                  Lưu thông tư bản · Ch.3
+                </span>
+                <span className="text-xs font-mono text-muted-foreground">GTTD m</span>
+              </div>
+              <div className="py-6 text-center bg-[hsl(var(--background))] rounded-2xl border border-marx my-4">
+                <div className="text-2xl sm:text-4xl font-extrabold font-mono text-red-500 tracking-wider">
+                  T — H — T&apos;
+                </div>
+                <p className="text-xs text-muted-foreground mt-2">T&apos; = T + Δt (Δt gắn với m)</p>
+              </div>
+              <div className="space-y-2 text-xs sm:text-sm text-muted-foreground">
+                <p>• Mục đích: giá trị thặng dư m</p>
+                <p>• Môi giới: sức lao động + tư liệu sản xuất</p>
+                <p>• Vận động vô hạn → tích lũy tư bản (3.2)</p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* PART 2: Primary concepts for CQ5 */}
+        <div className="space-y-8">
+          <div className="border-b border-marx pb-4">
+            <span className="text-xs font-mono font-bold text-red-500 uppercase tracking-widest">
+              Khái niệm cần cho CQ5
+            </span>
+            <h3 className="text-2xl font-bold font-serif text-foreground mt-1">
+              Tư bản · GTTD · Tích lũy · Phân phối (3.2–3.3)
+            </h3>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {PRIMARY_CONCEPTS.map((item) => (
+              <ConceptCard
+                key={item.id}
+                item={item}
+                isExpanded={expandedConceptId === item.id}
+                onToggle={() => toggleConcept(item.id)}
+              />
+            ))}
+          </div>
+
+          <div className="pt-2">
+            <button
+              onClick={() => setShowSecondary(!showSecondary)}
+              className="text-sm sm:text-base font-semibold text-muted-foreground hover:text-gold flex items-center gap-2"
+            >
+              {showSecondary ? <ChevronUp className="w-4 h-4 sm:w-5 sm:h-5" /> : <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5" />}
+              {showSecondary ? "Ẩn khái niệm nền Chương 2" : "Hiện thêm khái niệm nền Chương 2 (HH, GTSD…)"}
+            </button>
+            <AnimatePresence>
+              {showSecondary && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4"
+                >
+                  {SECONDARY_CONCEPTS.map((item) => (
+                    <ConceptCard
+                      key={item.id}
+                      item={item}
+                      isExpanded={expandedConceptId === item.id}
+                      onToggle={() => toggleConcept(item.id)}
+                    />
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        </div>
+
+        {/* Appendix: C2 detail */}
+        <div className="border border-marx rounded-2xl overflow-hidden">
+          <button
+            onClick={() => setShowAppendix(!showAppendix)}
+            className="w-full flex items-center justify-between px-5 py-4 bg-marx-raised text-left hover:bg-marx-raised transition-colors"
+          >
+            <div>
+              <span className="text-[10px] font-mono font-bold text-slate-500 uppercase tracking-widest">
+                Phụ lục Chương 2
+              </span>
+              <p className="text-sm font-semibold text-foreground/90">
+                5 chức năng tiền tệ &amp; 4 hình thái giá trị
+              </p>
+            </div>
+            {showAppendix ? (
+              <ChevronUp className="w-5 h-5 text-gold" />
+            ) : (
+              <ChevronDown className="w-5 h-5 text-slate-500" />
+            )}
+          </button>
+
+          <AnimatePresence>
+            {showAppendix && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                className="px-5 pb-8 space-y-10 border-t border-marx"
+              >
+                <div id="money-functions" className="space-y-4 pt-6">
+                  <h4 className="text-2xl sm:text-3xl font-bold font-serif text-foreground">5 chức năng tiền tệ</h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {MONEY_FUNCTIONS.map((func) => {
+                      const isExpanded = expandedFuncId === func.id;
+                      return (
+                        <motion.div
+                          key={func.id}
+                          layout
+                          className={`relative overflow-hidden p-6 rounded-2xl border transition-all ${
+                            isExpanded
+                              ? "bg-marx-raised border-[hsl(var(--marx-gold))] shadow-xl"
+                              : "bg-marx-raised border-marx hover:border-[hsl(var(--marx-gold)/0.4)]"
+                          }`}
+                        >
+                          <div className="relative z-[1] space-y-2">
+                            <div className="flex justify-between items-start">
+                              <span className="w-8 h-8 rounded-lg bg-[hsl(var(--marx-gold)/0.15)] text-gold font-mono font-bold text-xs flex items-center justify-center border border-[hsl(var(--marx-gold)/0.35)]">
+                                #{func.number.replace(/^0/, "")}
+                              </span>
+                              <span className="text-[10px] px-2 py-0.5 rounded font-bold uppercase bg-[hsl(var(--marx-crimson)/0.12)] text-crimson border border-[hsl(var(--marx-crimson)/0.35)] dark:text-gold dark:border-[hsl(var(--marx-gold)/0.4)] dark:bg-[hsl(var(--marx-gold)/0.1)]">
+                                {func.keyBadge}
+                              </span>
+                            </div>
+                            <h5 className="font-bold text-foreground text-lg">{func.title}</h5>
+                            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                              {func.definition}
+                            </p>
+                            <div className="pt-3 border-t border-marx">
+                              <button
+                                type="button"
+                                onClick={() => toggleFunc(func.id)}
+                                className="flex items-center space-x-1.5 text-xs font-semibold text-gold hover:opacity-80"
+                              >
+                                <span>{isExpanded ? "Thu gọn" : "Xem phân tích mở rộng"}</span>
+                                {isExpanded ? (
+                                  <ChevronUp className="w-3.5 h-3.5" />
+                                ) : (
+                                  <ChevronDown className="w-3.5 h-3.5" />
+                                )}
+                              </button>
+                              <AnimatePresence>
+                                {isExpanded && (
+                                  <motion.div
+                                    initial={{ opacity: 0, height: 0 }}
+                                    animate={{ opacity: 1, height: "auto" }}
+                                    exit={{ opacity: 0, height: 0 }}
+                                    className="mt-2 space-y-2 overflow-hidden"
+                                  >
+                                    <p className="text-xs text-muted-foreground leading-relaxed bg-[hsl(var(--background))] p-3 rounded-lg border border-marx">
+                                      {func.detailedAnalysis}
+                                    </p>
+                                    {func.example && (
+                                      <p className="text-xs text-muted-foreground leading-relaxed italic px-1">
+                                        Ví dụ: {func.example}
+                                      </p>
+                                    )}
+                                  </motion.div>
+                                )}
+                              </AnimatePresence>
+                            </div>
+                          </div>
+                        </motion.div>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                <div id="money-origin" className="space-y-4">
+                  <h4 className="text-2xl sm:text-3xl font-bold font-serif text-foreground">4 hình thái giá trị</h4>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                    {VALUE_FORMS.map((form) => (
+                      <button
+                        key={form.step}
+                        onClick={() => setActiveFormStep(form.step)}
+                        className={`p-3 rounded-xl border text-left text-xs ${
+                          activeFormStep === form.step
+                            ? "border-amber-500 bg-amber-950/40 text-foreground"
+                            : "border-marx text-muted-foreground"
+                        }`}
+                      >
+                        <div className="font-mono text-gold mb-1">0{form.step}</div>
+                        <div className="font-bold line-clamp-2">{form.title}</div>
+                      </button>
+                    ))}
+                  </div>
+                  <div className="p-5 rounded-2xl bg-marx-raised border border-marx space-y-2">
+                    <div className="font-mono text-gold text-sm">{activeValueForm.formula}</div>
+                    <p className="text-sm text-muted-foreground">{activeValueForm.description}</p>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      </div>
+    </section>
+  );
+}

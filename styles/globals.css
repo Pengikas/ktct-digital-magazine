@@ -1,0 +1,265 @@
+@import "tailwindcss";
+
+/* Tailwind v4: dark: theo class .dark trên <html> (next-themes) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+}
+
+@layer base {
+  :root {
+    /* Nga giay / muc hoc thuat */
+    --background: 35 42% 92%;
+    --foreground: 20 25% 12%;
+
+    --card: 36 38% 96%;
+    --card-foreground: 20 25% 12%;
+
+    --popover: 36 38% 96%;
+    --popover-foreground: 20 25% 12%;
+
+    /* Do son */
+    --primary: 0 70% 36%;
+    --primary-foreground: 40 40% 96%;
+
+    /* Vang kim diu */
+    --secondary: 40 42% 48%;
+    --secondary-foreground: 20 30% 10%;
+
+    --muted: 34 28% 88%;
+    --muted-foreground: 25 12% 38%;
+
+    --accent: 40 45% 52%;
+    --accent-foreground: 20 30% 10%;
+
+    --destructive: 0 72% 42%;
+    --destructive-foreground: 40 40% 96%;
+
+    --border: 30 22% 78%;
+    --input: 30 22% 78%;
+    --ring: 0 70% 36%;
+
+    --marx-surface: 34 30% 90%;
+    --marx-surface-raised: 36 35% 95%;
+    --marx-ink: 20 25% 14%;
+    --marx-gold: 40 42% 48%;
+    --marx-crimson: 0 70% 36%;
+
+    --radius: 0.4rem;
+
+    --font-serif: "Playfair Display", Georgia, serif;
+    --font-sans: "Inter", system-ui, sans-serif;
+  }
+
+  .dark {
+    /* Do tham / nau do — khong slate lanh */
+    --background: 355 42% 7%;
+    --foreground: 38 35% 92%;
+
+    --card: 355 38% 11%;
+    --card-foreground: 38 35% 92%;
+
+    --popover: 355 38% 11%;
+    --popover-foreground: 38 35% 92%;
+
+    --primary: 0 68% 48%;
+    --primary-foreground: 40 40% 96%;
+
+    --secondary: 40 40% 55%;
+    --secondary-foreground: 355 40% 8%;
+
+    --muted: 355 28% 14%;
+    --muted-foreground: 35 18% 68%;
+
+    --accent: 40 42% 52%;
+    --accent-foreground: 355 40% 8%;
+
+    --destructive: 0 55% 38%;
+    --destructive-foreground: 40 40% 96%;
+
+    --border: 355 22% 20%;
+    --input: 355 22% 20%;
+    --ring: 40 42% 52%;
+
+    --marx-surface: 355 36% 10%;
+    --marx-surface-raised: 355 32% 14%;
+    --marx-ink: 38 30% 90%;
+    --marx-gold: 40 42% 58%;
+    --marx-crimson: 0 68% 48%;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: var(--font-sans);
+  transition: background-color 300ms, color 300ms;
+}
+
+/* Surfaces */
+.bg-marx-surface {
+  background-color: hsl(var(--marx-surface) / 0.82);
+}
+.dark .bg-marx-surface {
+  background-color: hsl(var(--marx-surface) / 0.78);
+}
+.bg-marx-raised {
+  background-color: hsl(var(--marx-surface-raised));
+}
+.bg-page {
+  background-color: hsl(var(--background) / 0.82);
+}
+.dark .bg-page {
+  background-color: hsl(var(--background) / 0.78);
+}
+.text-gold {
+  color: hsl(var(--marx-gold));
+}
+.text-crimson {
+  color: hsl(var(--marx-crimson));
+}
+
+/* Tab active: do son (sang) / vang kim (toi) */
+.nav-tab-active {
+  color: hsl(var(--marx-crimson));
+  border-bottom-color: hsl(var(--marx-gold));
+  background-color: hsl(var(--marx-crimson) / 0.06);
+}
+.dark .nav-tab-active {
+  color: hsl(var(--marx-gold));
+  background-color: hsl(var(--marx-gold) / 0.1);
+}
+
+/* Tieu de: do son (sang) -> vang kim (toi) */
+.heading-display {
+  color: hsl(var(--marx-crimson));
+}
+.dark .heading-display {
+  color: hsl(var(--marx-gold));
+}
+
+.border-marx {
+  border-color: hsl(var(--border));
+}
+
+.border-double-rule {
+  border-top: 3px double hsl(var(--marx-crimson) / 0.55);
+  border-bottom: 1px solid hsl(var(--marx-gold) / 0.45);
+}
+
+.masthead-bar {
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    hsl(var(--marx-crimson)),
+    hsl(var(--marx-gold)),
+    hsl(var(--marx-crimson))
+  );
+}
+
+.glass-panel {
+  background-color: hsl(var(--marx-surface-raised) / 0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid hsl(var(--border) / 0.7);
+}
+
+.glass-card {
+  background-color: hsl(var(--marx-surface-raised) / 0.9);
+  border: 1px solid hsl(var(--border));
+  transition: all 300ms;
+}
+
+.text-gradient-gold {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(
+    to right,
+    hsl(40 45% 42%),
+    hsl(40 50% 58%),
+    hsl(35 40% 38%)
+  );
+}
+
+.dark .text-gradient-gold {
+  background-image: linear-gradient(
+    to right,
+    hsl(40 45% 55%),
+    hsl(42 55% 68%),
+    hsl(38 40% 48%)
+  );
+}
+
+.text-gradient-marx {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(
+    to right,
+    hsl(0 70% 36%),
+    hsl(40 42% 48%),
+    hsl(0 65% 42%)
+  );
+}
+
+.magazine-header {
+  font-family: var(--font-serif);
+  letter-spacing: -0.02em;
+}
+
+.label-press {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: hsl(var(--marx-crimson));
+  background: hsl(var(--marx-surface-raised));
+  border: 1px solid hsl(var(--marx-gold) / 0.55);
+  border-radius: 2px;
+}
+
+.dark .label-press {
+  color: hsl(var(--marx-gold));
+  border-color: hsl(var(--marx-gold) / 0.4);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--marx-crimson) / 0.45);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--marx-crimson) / 0.7);
+}
