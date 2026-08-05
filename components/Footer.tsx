@@ -52,7 +52,7 @@ export function Footer() {
             <ul className="space-y-2 text-xs">
               {contentLinks.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="hover:text-[hsl(var(--marx-gold))] transition-colors">
+                  <Link href={item.href} className="hover:text-white transition-colors duration-200">
                     {item.label}
 
                   </Link>
@@ -68,14 +68,14 @@ export function Footer() {
             <ul className="space-y-2 text-xs">
               {interactiveLinks.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="hover:text-crimson transition-colors">
+                  <Link href={item.href} className="hover:text-white transition-colors duration-200">
                     {item.label}
                     {item.badge ? ` (${item.badge})` : ""}
                   </Link>
                 </li>
               ))}
               <li>
-                <Link href="/#team" className="hover:text-crimson transition-colors">
+                <Link href="/#team" className="hover:text-white transition-colors duration-200">
                   Đội ngũ (Trang chủ)
                 </Link>
               </li>
