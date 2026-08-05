@@ -51,7 +51,7 @@ export const CENTRAL_QUESTION_ANALYSIS: AnalysisSection[] = [
   {
     id: "capitalist-production",
     sectionNumber: "02",
-    title: "3.2 Tích lũy tư bản",
+    title: "Tích lũy tư bản",
     subtitle: "Tiền biến thành tư bản — tái sản xuất mở rộng, c/v, tích tụ & tập trung",
     formulaBadge: "T - H - T' (T' = T + Δt · m)",
     summary: "Khi tiền chuyển sang công thức vận động của tư bản, mục đích là giá trị thặng dư m; tích lũy tư bản (Chương 3 · 3.2) trả lời trực tiếp 'tiền nhiều để làm gì' trong sản xuất.",
@@ -82,7 +82,7 @@ export const CENTRAL_QUESTION_ANALYSIS: AnalysisSection[] = [
   {
     id: "surplus-value-distribution",
     sectionNumber: "03",
-    title: "3.3 Hình thức biểu hiện của giá trị thặng dư",
+    title: "Hình thức biểu hiện của giá trị thặng dư",
     subtitle: "Lợi nhuận bình quân · Lợi tức · Tư bản giả · Địa tô",
     formulaBadge: "P̅ | z | R · mục 3.3",
     summary: "Trong nền kinh tế thị trường, giá trị thặng dư vận động và phân chia thành lợi nhuận bình quân, lợi tức và địa tô (Chương 3 · 3.3).",
